@@ -1,0 +1,2128 @@
+* {
+  
+  box-sizing: border-box;
+}
+
+
+@font-face {
+	font-family: "Arial Rounded MT Bold";
+	src:url(../Fonts/ARLRDBD.ttf) format("opentype");
+}
+
+body{
+	font-family:"Arial Rounded MT Bold";
+    margin:0%;
+}
+
+
+
+
+
+/*....Header Bereich.....*/
+
+.header
+
+{ float:none;
+  background-size:cover;
+  margin-top:0%;
+  margin-left:0%;
+  margin-right: 0%;
+  border-top:20px solid;
+  border-color:#AC8D00;
+  width: 100%;
+
+}
+
+
+.head-text h1 {
+      
+	  height:50px;
+  	  text-align:center;
+      color:red;
+      font-size: 30px;
+      font-weight: 300;
+      padding: 0%;
+	  margin-top:13%;
+	  margin-left:auto;
+	  margin-right:auto;
+	  width:600px;
+	 font-family: "Arial Rounded MT";
+
+}
+
+
+.header ul {
+	list-style: none;
+}	
+
+
+.header ul  {
+	text-align:center;
+    margin-right:10%;
+    margin-top:3%;
+  
+ 
+
+}
+
+.header li {
+  float: right;
+
+}
+
+.header ul a {
+  font-size: 20px;
+  font-weight: 300;
+  display: block;
+  color: white;
+  text-transform: uppercase;
+  padding: 5px 30px 10px 30px;
+}
+
+a {
+	text-decoration: none;
+    text-align:center;
+}
+
+
+
+
+
+
+.header ul a:hover {
+  background: #222;
+  color: #AC8D00;
+  border: 1px solid #AC8D00;
+}
+
+
+.logo img {
+  margin-top:0%;
+  margin-left:10%;
+  display: block;
+  width: 181px;
+  height: 130px;
+  background-size: 181px;
+  float: left;
+  transition: all .5s ease;
+}
+
+.button {
+  margin-top:0%;
+  margin-left:auto;
+  margin-right:auto;
+  width:150px;
+  border: 1px solid #AC8D00;
+  padding: 10px 10px;
+  color: #AC8D00;
+  text-transform: uppercase;
+  font-weight: 300;
+ 
+}
+
+.button:hover {
+  background: #222;
+  color: #AC8D00;
+}
+
+.btn-orange {
+  border-color: #AC8D00;
+  color: #AC8D00;
+  
+}
+
+
+
+
+/*...Startseite hat folgende Bereiche: food, wine, music, reserve-container.....*/
+
+
+/*....food Bereich.....*/
+.food {
+	background: #D3D3D3;
+	padding:10px 10px 10px 10px;
+	height:500px;
+    
+}
+.food1 {
+	background: #D3D3D3;
+	padding:10px 10px 10px 10px;
+	height:500px;
+    display:none;
+}
+
+
+.food-content{
+	max-width:1400px;
+	margin: 0 auto;
+    padding: 40px 20px;
+	
+}
+
+
+.food-text {
+  width: 50%;
+  float: left;
+  
+}
+.food-text h2{
+	
+	width:250px;
+	text-align:center;
+	color:red;
+	margin-top:0%;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+
+
+.food-text p{
+	
+	width: 400px;
+	margin-top: 60px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	line-height:30px;
+	font-size: 17px;
+	
+}
+.btn-red{
+  color:red;
+  border: 1px solid red;
+  padding: 10px 10px;
+  margin-top:10px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+
+.btn-red:hover{
+  background: #222;
+  color: #AC8D00;
+  border: 1px solid #AC8D00;
+}	
+	
+
+.food-img {
+	
+  width: 50%;
+  float:left;
+ 
+}
+
+.food-img img {
+	width: 600px;
+	height: 350px;
+	margin-top:0px;
+	text-align:center;
+}
+.food-img2 {
+	
+  width: 50%;
+  float:left;
+ display: none
+}
+
+.food-img2 img {
+	width: 600px;
+	height: 350px;
+	margin-top:0px;
+	text-align:center;
+}
+.food-img3 {
+	
+  width: 50%;
+  float:left;
+ display: none
+}
+
+.food-img3 img {
+	width: 600px;
+	height: 350px;
+	margin-top:0px;
+	text-align:center;
+}
+.food-img4 {
+	
+  width: 50%;
+  float:left;
+ display: none
+}
+
+.food-img4 img {
+	width: 600px;
+	height: 350px;
+	margin-top:0px;
+	text-align:center;
+}
+
+.food-img5 {
+	
+  width: 50%;
+  float:left;
+ display: none
+}
+
+.food-img5 img {
+	width: 600px;
+	height: 350px;
+	margin-top:0px;
+	text-align:center;
+}
+.food-img6 {
+	
+  width: 50%;
+  float:left;
+ display: none
+}
+
+.food-img6 img {
+	width: 600px;
+	height: 350px;
+	margin-top:0px;
+	text-align:center;
+}
+
+/*....wine Bereich.....*/
+
+
+.wine {
+	padding:10px 10px 10px 10px;
+	height:500px;
+}
+
+.wine-content{
+	max-width:1400px;
+	margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+.wine-img {
+  width: 50%;
+  float:left;
+ 
+  
+}
+  
+
+.wine-img img {
+	margin-top:0%;
+	width: 600px;
+	height: 350px;
+	text-align:center;
+}
+	
+.wine-text{
+	width: 50%;
+	float:left;
+	
+}
+.wine-text h2{
+	
+	text-align:center;
+	color:red;
+	margin-top:0%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.wine-text h3{
+	text-align:center;
+	margin-top:10%;
+	margin-left:auto;
+	margin-right:auto;
+	
+}
+.wine-text h4{
+	margin-top:10%;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	color:red;
+	 
+	
+}
+#wine-absatz{
+	width:380px;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	line-height:30px;
+	font-size: 17px;
+}
+
+
+/*....music Bereich.....*/
+
+.music-content {
+	padding:10px 10px 10px 10px;
+	height:600px;
+	background: #D3D3D3;
+	
+	
+	
+}
+.music-content h2{
+	text-align:center;
+	
+	color:red;
+}
+
+
+.music-content h3{
+text-align:center;
+}
+
+
+
+.music{
+	max-width:1400px;
+	margin: 0 auto;
+    padding: 40px 20px;
+	
+}
+
+.beats-1{
+	width: 33.33%;
+	float:left;
+	
+	
+}
+
+
+.beats-1 div {
+	text-align:center;
+	margin-top:10px;
+	height:85px;
+	background:black;
+	margin:10px;
+	border:1px solid #AC8D00;
+	
+    outline: 1px dashed #fff;
+    outline-offset: -10px;
+}
+
+.beats-1 div p{
+	color:white;
+}
+
+.beats-1 div span{
+	color:#AC8D00;
+}
+
+.music-img{
+	width: 33.33%;
+	float:left;
+	
+	
+}
+
+
+.music-img img{
+	width:100%;
+	
+	
+}
+
+.beats-2{
+	width: 33.33%;
+	float:left;
+	
+}
+
+
+
+
+.beats-2 div {
+	text-align:center;
+	margin-top:10px;
+	height:85px;
+	background:black;
+	margin:10px;
+	border:1px solid #AC8D00;
+	outline: 1px dashed #fff;
+    outline-offset: -10px;
+}
+
+.beats-2 div p{
+	color:white;
+}
+
+.beats-2 div span{
+	color:#AC8D00;
+}
+
+
+
+
+/*....reserve-container Bereich.....*/
+    
+
+.reserv-form{
+	width:50%;
+    margin-left:50%;
+	margin-top:5%;
+    height:600px;
+	position: absolute
+
+}
+	
+
+
+input[type=text], textarea {
+  width: 75%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+input[type=date], textarea {
+  width: 75%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+
+#country {
+  width: 75%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+  color:white;
+}
+
+input[type=submit] 
+{
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  margin-top:20px;
+  margin-right:24%;
+}
+#raw3
+{
+  background-color: #4CAF50;
+  color: white;
+ 
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+margin-right:30%;
+}
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.reserve-container {
+  
+  background: url("../images/image10.jpg")no-repeat;
+  background-size:center/cover;
+  width:100%;
+ height: 900px;
+rgba(17,22,24,0.75);
+ 
+  
+ 
+}
+
+.reserve-background{
+	  width:100%;
+ height: 900px;
+background-color:  rgba(17,22,24,0.75);
+	
+}
+
+.col-25 {
+  float: left;
+  width: 20%;
+  margin-top: 15px;
+  
+}
+
+.col-75 {
+  float: left;
+  width: 75%;
+  margin-top: 15px;
+
+}
+#uhr {
+ float: left;
+  width: 75%;
+  
+ height: 50px;
+	border: 2px solid white;
+  border-radius: 4px;
+
+}
+#email2 {
+ float: left;
+  width: 75%;
+  
+ height: 50px;
+	border: 2px solid white;
+  border-radius: 4px;
+
+}
+#Pnumber {
+  float: left;
+  width: 75%;
+  margin-top: 15px;
+ height: 50px;
+	border: 2px solid white;
+  border-radius: 4px;
+
+}
+
+#subject{
+	height:200px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+  margin-right:100px;
+}
+
+.contactdetails1{
+
+    
+	display:flex;
+	flex-direction: column;
+	justify-content: stretch; 
+}
+
+
+
+
+
+#scroll {
+width:55%;
+height:180px;
+margin-top:10%;
+margin-left:20%;
+background:white;
+border:2px solid #000;
+overflow:auto;
+
+}
+
+#scroll ul {
+float:left;
+margin-right:-999em;
+margin-left: -38px;
+list-style:none;
+}
+
+
+#scroll li {
+margin-left:15px;
+text-align:center;
+float:left;
+display:inline;           
+}
+
+#scroll span {
+
+text-align:center;
+float:left;
+display:inline;           
+}
+
+#scroll img {
+border:0;
+display:block;
+height: 100px;
+width:100px;
+}
+
+#scroll a:active img, #scroll a:focus img, #scroll a:hover img {
+border:1px solid #000;
+}
+
+#scroll a {
+text-decoration:none;
+font-weight:bold;
+color:#000;
+}
+
+#scroll a:active, #scroll a:focus, #scroll a:hover {
+color:#FFF;
+}
+
+#scroll span {
+padding:5px 0 0;
+display:block;
+}
+
+
+#drop {
+  width: 180px;
+  height: 150px;
+  padding: 10px;
+  margin-left: 20%;
+  border: 1px solid #aaaaaa;
+  background-color:white;
+  border-radius: 4px;
+
+}
+#dropimage{
+    width: 180px;
+  height: 130px; 
+}
+.ui-helper{
+    width: 160px;
+    height: 100px;
+}
+
+ #weinselect{
+    color:white;
+    margin-left: 20%;   
+    width: 55%;
+     font-size: 15px;
+     
+    
+}
+
+
+.reservtext{
+    color:white;
+    float: left;
+    font-size: 15pt;
+    text-align: left;
+    margin-left: 5%;
+    margin-top:15%; 
+    width: 30%;
+}
+
+
+
+
+/*.... Die Seite Menü  .....*/
+
+.menu-content {margin-left:0px;}
+
+
+
+.menu-button {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-btn {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .5s;
+}
+
+
+
+.dropdown-btn1{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .5s;
+}
+
+.dropdown-btn2{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .5s;
+}
+
+.menu-button .dropdown-btn  {
+            background:white;
+            background-size: cover;
+            width: 100%;
+            height: 200px;
+            font-size: 2rem;
+			text-align:center;
+}
+
+.menu-button  .dropdown-btn1 {
+            background:white;
+            background-size: cover;
+            width: 100%;
+            height: 200px;
+            font-size: 2rem;
+			text-align:center;
+}
+
+.menu-button  .dropdown-btn2 {
+            background:white;
+            background-size: cover;
+            width: 100%;
+            height: 200px;
+            font-size: 2rem;
+			text-align:center;
+}
+
+
+.caret-down{
+	color:#AC8D00;
+    font-family:"Arial Rounded MT";
+}
+
+.menu-button {
+	background:white;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+    font-size: 2rem;
+	border-bottom:5px solid #AC8D00;
+    border-top:5px solid #AC8D00;
+
+}
+
+.menu-button:hover .dropdown-btn:before, .menu-button:focus .dropdown-btn:before {
+    display: block;
+}
+
+.menu-button:hover .dropdown-btn1:before, .menu-button:focus .dropdown-btn1:before {
+    display: block;
+}
+
+
+.menu-button:hover .dropdown-btn2:before, .menu-button:focus .dropdown-btn2:before {
+    display: block;
+}
+
+.dropdown-btn:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    background:url("../images/crossi.jpg");
+    background-size:cover;
+
+}
+
+.dropdown-btn1:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    background:url("../images/grill.jpg");
+    background-size:cover;
+
+}
+.dropdown-btn2:before {
+    content: "";
+    display: none;
+    height: 100%;
+    width: 100%;
+    background:url("../images/wine.jpg");
+    background-size:cover;
+
+}
+
+
+
+.menu-content a, .dropdown-btn  {
+	text-decoration: none;
+    font-size: 20px;
+    color: #818181;
+    display: block;
+    border: none;
+    background: none;
+
+
+}
+.menu-content a, .dropdown-btn1  {
+
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+
+}
+
+
+.menu-content a, .dropdown-btn2  {
+
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+
+
+}
+
+
+.menu-content a:hover {
+  color: blue;
+}
+
+
+
+
+.active {
+  background-color: green;
+  color: white;
+}
+
+
+.dropdown-container {
+  display: none;
+  background-color:white;
+  width: 100%;}
+
+.dropdown-container{
+	
+
+	
+}
+
+.liste  {
+	margin-bottom:100px;
+	margin-left:10%;
+	margin-top:100px;
+	text-align:center;
+    column-count: 2;
+    column-gap: 20px;
+
+
+
+}
+
+.liste li{
+	margin-left:0%;
+    line-height: 2em;
+    display: block;
+}
+
+.dropdown-container h2{
+	text-align:center;
+	color:red;
+	margin-top:100px;
+}
+
+
+
+.liste span{
+	display:flex;
+	justify-content: space-between;
+	
+
+	
+}
+
+.liste-h{
+	width:70%;
+	float:left;
+	color:red;
+
+
+}
+
+
+.liste-p{
+	width:30%;
+	float:left;
+	text-align:right;
+	color: #AC8D00;
+}
+
+.liste-c{
+	width:70%;
+	text-align:left;
+}
+
+/*....Die Seite Über uns  .....*/
+
+
+.bar {
+	padding:10px 10px 10px 10px;
+	height:500px;
+	background:#D3D3D3;
+}
+
+.bar-content{
+	max-width:1400px;
+	margin: 0 auto;
+    padding: 40px 20px;
+}
+
+
+.bar-img {
+  width: 50%;
+  float:left;
+}
+  
+
+.bar-img img {
+	margin-top:0%;
+	width: 600px;
+	height: 350px;
+	text-align:center;
+}
+	
+.bar-text{
+	width: 50%;
+	float:left;
+	
+}
+.bar-text p{
+	width:410px;
+	text-align:center;
+	font-size: 20px;
+	line-height:30px;
+	margin-top:2%;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+
+
+.extra{
+	text-transform: uppercase;
+}
+
+
+.team {
+	padding:10px 10px 10px 10px;
+	height:500px;
+	
+}
+.team-content h2{
+	text-align:center;
+	color:red;
+}
+.staff1-img{
+	width:33.33%;
+	float:left;
+}
+
+.staff1-img img{
+	width:100%;
+	
+}
+
+.staff2-img{
+	width:33.33%;
+	float:left;
+}
+.staff2-img img{
+	width:100%;
+	
+}
+
+.staff3-img{
+	width:33.33%;
+	float:left;
+}
+.staff3-img img{
+	width:100%;
+	
+}
+
+.gallery {
+	padding:10px 10px 10px 10px;
+	height:800px;
+	background:#D3D3D3;
+    
+	
+}
+
+.gallery-content{
+   display: block;
+   
+}
+
+
+.gallery-content img {
+
+  margin-top:40px;
+  width:50%;
+  height:60%; 
+}
+
+.gallery-content h2{
+	color: red;
+    margin-left: 47%;
+}
+
+
+/*....Die Seite Kontakt  .....*/
+
+
+.contact-container{
+	
+	background:#D3D3D3;	
+}
+
+
+
+
+.map{
+	width:70%;
+	margin-left:auto;
+	margin-right:auto;
+	display:flex;
+}
+
+
+
+iframe{
+	margin-top:100px;
+	margin-left:auto;
+	margin-right:auto;
+	display:flex;
+	width:100%; 
+	height:450px;
+	border:2px solid red;
+}
+
+
+.contact{
+    width:70%;
+	margin-top:80px;
+	margin-left:auto;
+	margin-right:auto;
+	height:550px;
+	
+	
+}
+
+
+.contact-info{
+	width:30%;
+	height:450px;
+	margin-top:0px;
+	text-align:left;
+	float:left;
+
+}
+.contact-address{
+	text-align:left;
+    display:flex;
+	margin-bottom:15px;	
+}
+
+
+.icon img{
+	float:left;
+	width:32px;
+	height:32px;
+}
+
+.contact-details{
+	float:right;
+	margin-top:0px;
+	margin-left:20px;
+	
+}
+
+.contact-details h5{
+	margin-top:0px;
+	font-weight: 300;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+	
+.contact-details p{
+	color:#808080;
+    font-weight: 300;
+    font-size: 14px;
+    margin-bottom: 5px;
+	
+}
+
+
+.form-area{
+	width:auto;
+	height:400px;
+	margin-top:0px;
+	margin-left:350px;
+	text-align:right;
+    
+}
+
+
+.textarea{
+	float:left;
+	width:50%;
+	height:200px;
+	margin-left:10%;
+	margin-right:0px;
+}
+
+
+.form-group{
+	width:37%;
+	height:400px;
+    float:left;
+	display:flex;
+	flex-direction: column;
+	justify-content: stretch; 
+}
+
+.form-group #firstname{
+	height:50px;
+	width:100%;
+	margin-bottom:26px;
+}
+.form-group #lastname{
+	height:50px;
+	width:100%;
+	margin-bottom:26px;
+}
+
+.form-group #mobilfunk{
+	height:50px;
+	width:100%;
+	margin-bottom:26px;
+    display: none;
+    
+	
+}
+.form-group #festnetz{
+	height:50px;
+	width:100%;
+	margin-bottom:26px;
+    display: none;
+	
+}
+.form-group #email{
+	height:50px;
+	width:100%;
+	margin-bottom:26px;
+    border:none;
+    padding:16px;
+    border-radius: 3px;
+    display: none;
+   
+	
+}
+.form-group #facebook{
+	height:50px;
+	width:100%;
+	margin-bottom:26px;
+    border:none;
+    padding:16px;
+    border-radius: 3px;
+    display: none;
+	
+}
+
+
+.form-group #antwortkanal{
+    color: azure;
+	height:50px;
+	width:100%;
+	margin-bottom:26px;
+    background-color: red;
+    border-radius: 3px;
+}
+
+
+
+.form-group2 .subject{
+	float:left;
+	width:50%;
+	height:50px;
+	margin-left:10%;
+	margin-right:0px;
+	margin-bottom:26px;
+}
+
+.form-btn{
+	float:right;
+    margin-top:2%;
+	margin-right:4%;
+	
+
+
+}
+
+
+.genric-btn {
+  background-color:red;
+  border: none;
+  color: white;
+  padding: 10px 28px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+/*....footer Bereich.....*/
+
+.footer-info{
+	background: red;
+	padding:10px 10px 10px 10px;
+	height:300px;
+	
+	
+	
+}
+
+.info-area{
+	max-width:1400px;
+	margin: 0 auto;
+	margin-left:13%;
+    padding: 40px 20px;	
+	
+	
+}
+
+.footer-date{
+	width: 40%;
+	float:left;
+	margin-right:5%;
+	
+	
+}
+
+.footer-date h4{
+	font-size:20px;
+	color:white;
+	
+}
+
+.address{
+	color:white;
+	list-style:none;
+	margin-left:-40px;
+}
+.content-between {   
+	width: 100%;
+	list-style:none;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+	margin-left:-40px;
+	
+}
+
+.content-between span{
+    display:flex;
+	justify-content: flex-start;
+	float:left;
+	color:white;
+    width: 50%;
+}
+
+.hr-list-line{
+	width: 70%;
+	margin-left: 0px;
+	border: 1px solid white;
+}
+
+
+
+.footer-news{
+	width: 28%;
+	float:left;
+	
+	
+	
+}
+
+.footer-news h4{
+	font-size:20px;
+	color:white;
+	
+}
+.footer-news p{
+	
+	color:white;
+	
+}
+
+
+.footer-social {
+	width: 20%;
+	float:left;
+	
+	
+}
+
+
+.footer-social h4{
+	font-size:20px;
+	color:white;
+	
+}
+.footer-social span{
+	float:left;
+	display:flex;
+	justify-content: space-between;
+	
+}
+.footer-social span:hover {
+  background: #222;
+  color: #AC8D00;
+  border: 1px solid #AC8D00;
+}
+.footer-social span img{
+	width: 50%;
+	
+}
+.form-control{
+	height:40px;
+	border-radius: 10px;
+	width:60%;
+}
+
+.footer-bottom{
+	height:80px;
+	background:#2D2216;
+	padding:10px 10px 10px 10px;
+	
+}
+.bottom-content{
+	max-width:1400px;
+	text-align:center;
+	color:white;
+}
+
+.copyright{
+	margin-left:10%;
+	margin-right:5%;
+   text-align: center;
+	
+	
+}
+.impressum{
+	float:right;
+	margin-top:-32px;
+	text-align: center;
+	margin-left: 60px;
+	
+}
+
+
+
+.impressum a{
+	text-align: center;
+	color:white;	
+	width:100px;
+	margin-top: -20px;
+	
+	
+	
+}
+
+.impressum span{
+	width:10px;
+    margin-left:15px;
+}
+
+
+
+
+
+.impressum :hover {
+  
+  color: #AC8D00;
+  border-bottom: 1px solid #AC8D00;
+}
+
+
+#tabs {
+	position: relative;
+	/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+	padding: .2em;
+}
+
+.ui-tabs .ui-tabs-nav {
+	margin: 0;
+	
+}
+
+.ui-tabs .ui-tabs-nav li {
+	list-style: none;
+	float: left;
+	position: relative;
+	top: 0;
+	margin: 1px .2em 0 0;
+	border-bottom-width: 0;
+	padding: 0;
+	white-space: nowrap;
+	margin-bottom: 30px;
+}
+
+#tabs ul {
+	margin-top: 20px;
+    margin-left: 19%;
+    
+}
+#tabs ul li{
+	margin-right: 10px
+}
+ 
+#tabs ul li a {
+	background-color: #AC8D00;
+	border-radius: 5px;
+	
+	color: whitesmoke;
+	padding: 10px
+}
+ 
+
+
+#tabs-1 h2{
+	text-align:left;
+    margin-left: 0%;
+    margin-bottom: 50px;
+	padding-top:90px;	
+}
+#tabs-2 h2{
+	text-align:left;
+    margin-left: 0%;
+    margin-bottom: 50px;
+	padding-top:50px;	
+}
+#tabs-3 h2{
+	text-align:left;
+    margin-left: 0%;
+    margin-bottom: 50px;
+	padding-top:50px;	
+}
+#tabs-4 h2{
+	text-align:left;
+    margin-left: 0%;
+    margin-bottom: 50px;
+	padding-top:50px;	
+}
+.imp-li{
+	list-style:none;
+    margin-top: 1000px;
+    margin-left: 19%;
+	width:70%;
+	
+}
+.li-headline{
+	margin-top:200px;
+	font-size:25px;
+	color:#AC8D00;
+	
+}
+.imp-li li{
+	list-style:none;
+	margin-bottom: 30px;
+    padding: 0;
+	
+}
+
+	
+
+.datenschutz{
+    max-height: 1200px;
+    margin-left: 19%;
+    margin-right: 19%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+         
+.datenschutz h3{
+    background-color: #AC8D00;
+    padding: 20px;
+    margin: 2px;
+    color: whitesmoke;
+}
+
+.daten{
+	line-height:25px;
+	width:60%;
+	margin-left:auto;
+	margin-right:auto;
+    margin-top:100px;
+	padding:20px;
+	border:1px solid red;
+}
+
+
+
+
+
+
+
+
+
+/* Mediaqueries für das responsive Design */
+
+
+
+
+@media screen and (max-width: 1400px){
+	
+	
+.food-img img{
+	width:500px;
+}	
+	
+		
+}
+
+
+@media screen and (max-width: 1350px){
+	
+	
+.food-img img{
+	width:470px;
+}	
+	
+	
+.wine-img img{
+	width:470px;
+}		
+	
+}
+
+
+@media screen and (max-width: 1200px){
+
+.bar-text  {
+	margin-top:20px;
+	margin-right:20%;
+	padding:0px;
+	float:right;       
+}
+
+.bar {
+	height:1000px;
+	
+}
+
+.bar-img{
+	margin-left:25%;
+	
+}
+}	
+
+
+@media screen and (max-width: 1000px){
+		
+.contact-info{
+	height:300px;
+	width:100%;
+}		
+		
+.form-area{
+	width:100%;
+	margin-top:45%;
+	margin-left:0px;
+	text-align:right;}
+
+
+.form-group{
+	width:100%;
+    height:500px}
+	
+
+
+.textarea{
+	width:100%;
+	margin-top:30px;
+	margin-left:0px;
+}
+
+.form-group2 .subject{
+	width:100%;
+	margin-left:0px;	
+}
+
+.contact-container{
+	height:2000px;
+	background:#F5F5F5;
+}
+
+.header ul  {
+	margin-right:0%;
+    margin-top:3%;
+}
+
+
+
+.head-text h1 {
+      margin-top:30%;
+	  margin-left:auto;
+      margin-right:auto;}
+	
+
+	
+.copyright{
+	margin-left:10%;
+	margin-right:5%;
+   text-align: center;
+	
+	
+}
+.impressum{
+	float:left;
+	margin-top:2px;
+	text-align: center;
+	margin-left: 32%;
+	
+}
+
+
+
+.impressum a{
+	text-align: center;
+	color:white;	
+	width:100px;
+	margin-top: -20px;
+	
+	
+	
+	
+}
+
+.impressum span{
+	width:10px;
+    margin-left:15px;
+}
+	
+	
+ .col-25{
+     margin-right: 6%;
+     margin-top: 0%;
+     margin-bottom:0%;
+    }   	
+	
+    .col-75	{
+        margin-right: 6%;
+     margin-top: 0%;
+     margin-bottom:0%;
+    }
+    #scroll{
+        margin-left: -1%
+    }
+    
+    .reserve-background{
+        height: 1000px;
+    }   
+    .reserve-container{
+        height: 1000px;
+    }
+    
+    .droptext{
+     margin-left: -1%   
+    }
+    #drop{
+        margin-left: -1%
+    }
+      #raw2{
+        margin-right: 40%
+    }
+    
+}
+	
+@media screen and (max-width: 900px){
+
+
+	
+.header ul  {
+ 
+   margin-left:0%;
+   margin-top:20%;
+}
+.header ul a {
+   margin-left:0%;
+   margin-top:0%;
+   padding: 5px 20px 10px 20px;
+ 
+
+}	
+	
+.logo img {
+margin-top:0%;
+margin-left:auto;
+margin-right:auto;}	
+	
+.food-text,
+  .food-img {
+    width: 100%;
+    padding: 0;
+	
+  }
+
+.food1 {
+	height:1000px;}
+
+.food2 {
+	height:1000px;}
+.food3 {
+	height:1000px;}
+.food4 {
+	height:1000px;}
+.food5 {
+	height:1000px;}
+.food6 {
+	height:1000px;}
+
+
+.food-img {
+    
+    margin-top: 20px;
+    padding-top: 20px;
+	text-align:center;
+  }
+
+.wine-text
+   {
+    width: 100%;
+    padding: 0;
+} 
+  
+ .wine-img {
+   
+   width: 100%;
+  
+} 
+
+ .bar-img {
+	 width: 100%;
+  
+} 
+
+ 
+.wine{
+	height:1000px;
+
+}
+
+.wine-text {
+    
+    margin-top: 40px;
+    padding-top: 20px;
+  }	
+  
+ .bar-text {
+    
+    margin-top: 40px;
+    padding-top: 20px;
+  }
+
+
+ 
+.music-content{
+	height:1350px;
+}
+
+
+
+.beats-1,
+  .music-img,
+    .beats-2  {
+    width: 100%;
+    padding: 0;
+}
+.music-img{
+	margin-top: 40px;
+    padding-top: 20px;
+	
+}
+
+
+
+.footer-info{
+	height:600px;
+}
+.footer-date{
+	width:50%;
+}
+.footer-social{
+	width:100%;
+	padding:0;
+	margin-top: 40px;
+    padding-top: 20px;
+	margin-left:40px;
+}
+
+.impressum {
+	margin-left: 15%;
+}
+.footer-bottom{
+	height:100px;
+}
+
+.bar-img {
+	
+	margin-left:0%;
+	padding:0%;
+	width:100%;
+	text-align:center;
+}
+.bar-img img {
+	
+	margin-left:0%;
+	padding:0%;
+	width:80%;
+	
+}
+.bar-text p{
+	
+	margin-left:30%;
+	padding:0%;
+	width:60%;
+	text-align:center;
+	}
+.bar-text {
+
+	margin-left:50%;
+	padding:0%;
+	width:100%;
+	text-align:center;
+	
+}
+.team {
+	
+	height:2000px;
+	
+}
+.team-content h2{
+	
+	
+}
+.staff1-img{
+	width:100%;
+	float:left;
+}
+
+.staff1-img img{
+	width:100%;
+	
+}
+
+.staff2-img{
+	width:100%;
+	float:left;
+}
+.staff2-img img{
+	width:100%;
+	
+}
+
+.staff3-img{
+	width:100%;
+	float:left;
+}
+.staff3-img img{
+	width:100%;
+	
+}
+	
+.col-25{
+        margin-right: 6%;
+    }  
+    #raw2{
+        margin-right: 40%
+    }
+}
+
+	
+@media screen and (max-width: 800px){
+	
+.header ul  {
+ 
+ 
+   margin-left:0%;
+   margin-top:25%;
+ 
+
+}	
+	
+.logo img {
+	margin-top:0%;
+    margin-left:auto;
+    margin-right:auto;}	
+	
+
+.head-text h1 {
+	  margin-top:35%;
+	  margin-left:auto;
+      margin-right:auto;}
+	
+
+
+}
+
+
+	
+	
+	
+	
+@media screen and (max-width: 700px){
+	
+.header ul a {
+ 
+ 
+   margin-left:0%;
+   margin-top:0%;
+   padding:10px;
+}
+
+.header ul  {
+	margin-top:30%;
+    padding:0px;
+}
+
+.head-text h1 {
+	  width:480px;
+	  margin-top:50%;
+	  margin-left:auto;
+      margin-right:auto;}
+	 
+
+.food-img img{
+    width: 100%;
+	height: 350px;
+	margin-left:auto;
+    margin-right:auto;
+ 
+  }
+ 
+.wine-img img{
+	width: 100%;
+	
+}
+
+
+.footer-info{
+	height:800px;
+}
+.footer-date{
+	width:100%;
+}
+.footer-news{
+	width:100%;
+	padding:0;
+	margin-top: 40px;
+    padding-top: 20px;
+	
+}
+
+.footer-social{
+	margin-left:-4px;
+	
+}
+
+.reserv-form{
+	width:100%;
+	margin-left:40px;
+}
+
+.reserve-container{
+	height:700px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width:23%;
+  margin-top:20px;
+  
+}
+
+.bar-text p{
+	margin-left:20%;
+	padding:0%;
+	width:97%;
+	text-align:center;
+}
+.bar-text {
+	margin-left:100%;
+	padding:0%;
+	width:100%;
+	text-align:center;	
+}
+.team {
+	height:1500px;
+	}
+
+
+     .col-25{
+     margin-right: 6%;
+     margin-top: 0%;
+     margin-bottom:0%;
+    }   	
+	
+    .col-75	{
+        margin-right: 6%;
+     margin-top: 0%;
+     margin-bottom:0%;
+    }
+    #scroll{
+        margin-left: -1%
+    }
+    
+    .reserve-background{
+        height: 2000px;
+    }   
+    .reserve-container{
+        height: 1500px;
+    }
+    
+    .droptext{
+     margin-left: -1%   
+    }
+    #drop{
+        margin-left: -1%
+    }
+    .reserv-form{
+        margin-top: 500px
+    }
+    .reservtext{
+        width: 50%
+    }    
+
+}
+
+
+
+
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+    #raw2{
+        width: 80px;
+        margin-right: 85%;
+        margin-top: 5%
+    }
+}
+
+

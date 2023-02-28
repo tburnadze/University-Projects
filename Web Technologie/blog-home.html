@@ -1,0 +1,265 @@
+	<!DOCTYPE html>
+	<html lang="zxx" class="no-js">
+	<head>
+		<!-- Mobile Specific Meta -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- meta character set -->
+		<meta charset="UTF-8">
+		<!-- Site Title -->
+		<title>Blog</title>
+
+        <link rel="stylesheet" href="Style/main.css">
+		<link rel="stylesheet" href="Style/style.css">
+          <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script type="text/javascript">
+           
+function load() {
+
+    var save = localStorage.getItem('url')
+    var links = document.getElementsByClassName('primary-btn');
+    for (i = 0; i < links.length; i++) {
+        var link = links[i];
+       
+        if (save.indexOf(link.href) !== -1) {      
+            
+          link.parentNode.className += ' visited';
+        }
+    }
+    
+    
+}
+ </script>	
+<style>
+
+    .visited img{
+      
+        visibility: visible
+            
+    }   
+         
+.bookmark{
+
+width:25px;
+margin-left: 5%;
+visibility: hidden;
+}
+        
+.headrezept{
+        	text-align:left;
+}
+.header {
+            background: transparent url("images/food.jpg") top center no-repeat;
+            height: 350px;
+        }
+
+        .head-text i {
+            border: solid red;
+            border-width: 0 4px 4px 0;
+            display: inline-block;
+            padding: 3px;
+            color: red;
+        }
+
+        .arrow-right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+        .single-post{
+                width: 38%;
+                float: left;
+                margin-left: 5%;
+            }
+            .post-content-area{
+            margin-top:50px;
+             margin-left: 10%
+            }
+            #footerheader{
+            margin-left:0px;
+            padding-left:0px;
+            text-align:left;
+            }
+  
+        </style>
+		</head>
+		<body onLoad="load()">
+			<div class="header">
+				
+				<div class="logo"><img src="images/logo.png" alt="logo"></div>
+				
+				<nav>
+					<ul>
+						<li><a href="contact.html">Kontakt</a></li>
+						<li><a href="blog-home.html">Unsere Rezepte</a></li>
+						<li><a href="aboutus.html">Über uns</a></li>
+						<li><a href="menu.html">Menü</a></li>
+						<li><a href="index.html">Home</a></li>
+					</ul>
+				</nav>
+				
+				<section class="head-text">
+					<h1>Home <i class="arrow-right"></i>  Unsere Rezepte</h1></section>
+				
+			</div>
+
+
+			<!-- Start post-content Area -->
+			<section class="post-content-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 posts-list">
+							<div class="single-post row">
+
+								<div class="col-lg-9 col-md-9 ">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Klassische.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Klassische Gemüsesuppe Wie Bei Oma</h3></a>
+									<p class="excert">Gemüsesuppe wie bei Oma ist die perfekte Mahlzeit. Das viele Gemüse liefert viele gesunde Ballaststoffe und Vitamine. Ein weiterer Vorteil, sie schmeckt auch aufgewärmt noch sehr lecker.</p>
+									<a href="Blog_Post1.html" class="primary-btn"  id="1" data-id="gallery_item_0">Mehr anzeigen</a><img id="bookmark" class="bookmark" src="images/bookmark.png" alt="">
+								</div>
+							</div>
+							<div class="single-post row">
+
+								<div class="col-lg-9 col-md-9 ">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Champignon.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Champignon Frikadellen – Vegetarisch</h3></a>
+									<p class="excert">Champions sind voll mit gesunden Nährstoffen und kalorienarm, da sie ja hauptsächlich aus Wasser bestehen. Eine schöne Alternative, wenn es mal fleischlos sein soll aber dennoch deftig.</p>
+									<a href="Blog_Post2.html" class="primary-btn" id="2" data-id="gallery_item_1">Mehr anzeigen</a><img class="bookmark" src="images/bookmark.png" alt="">
+								</div>
+							</div>
+							<div class="single-post row">
+
+								<div class="col-lg-9 col-md-9">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Einfacher-amerikanischer.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Einfacher Pizzateig Ohne Kneten</h3></a>
+									<p class="excert">Dieser Pizzateig ohne Kneten ist unkompliziert und flexibel und ja, wirft viele Regeln der Pizzateig-Kunst über den Haufen. Aber egal, das ist er der leckerste, knusprigste Pizzateig.</p>
+									<span><a href="Blog_Post3.html" class="primary-btn">Mehr anzeigen</a><img class="bookmark" src="images/bookmark.png" alt="">
+								</span></div>
+							</div>
+							<div class="single-post row">
+
+								<div class="col-lg-9 col-md-9">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Vanilleeis.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Vanilleeis Mit Nur 3 Zutaten</h3></a>
+									<p class="excert">Für die Eis-Fans ist das Vanilleeis ohne Eismaschine eine magische Angelegenheit, denn man benötigt nur 3 Zutaten dafür. Dazu kommt, es ist unglaublich lecker, cremig und ruck zuck fertig.</p>
+									<a href="Blog_Post4.html" class="primary-btn">Mehr anzeigen</a><img class="bookmark" src="images/bookmark.png" alt="">
+								</div>
+							</div>
+							<div class="single-post row">
+
+								<div class="col-lg-9 col-md-9">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Mini-Pizza.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Mini Pizzen – Selbst Gemacht</h3></a>
+									<p class="excert">Der Teig für die Mini Pizzen ist ein klassischer Hefeteig. Er ist geschmeidig und lässt sich prima ausrollen. Das ist praktisch, weil man dann gleich die Mini-Form hat.</p>
+									<a href="Blog_Post5.html" class="primary-btn">Mehr anzeigen</a><img class="bookmark" src="images/bookmark.png" alt="">
+								</div>
+							</div>
+
+							<div class="single-post row">
+
+								<div class="col-lg-9 col-md-9">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Rotelinsen.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Rote Linsen Bratlinge</h3></a>
+									<p class="excert">Die roten Linsen sind übrigens geschälte braune Linsen und müssen deshalb vor dem Kochen nicht eingeweicht werden. Sie kochen zudem sehr schnell weich und sind sehr lecker.</p>
+									<a href="Blog_Post6.html" class="primary-btn">Mehr anzeigen</a><img class="bookmark" src="images/bookmark.png" alt="">
+								</div>
+							</div>
+                            <div class="single-post row">
+
+								<div class="col-lg-9 col-md-9">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Mexikanische.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Mexikanische Enchilada Lasagne</h3></a>
+									<p class="excert">Enchilada geschichtet ergeben dann eine mexikanische Enchilada Lasagne. Man braucht lediglich Tortillas, Käse, Paprika, Mais und Peperoni, Chili. Ein tolles Ofengericht für die ganze Familie.</p>
+									<a href="Blog_Post7.html" class="primary-btn">Mehr anzeigen</a><img class="bookmark" src="images/bookmark.png" alt="">
+								</div>
+							</div>
+                    <div class="single-post row">
+
+								<div class="col-lg-9 col-md-9">
+									<div class="feature-img">
+										<img class="img-fluid" src="images/Schnelle-Pizzasuppe.jpg" alt="">
+									</div>
+									<a class="posts-title"><h3 class="headrezept">Schnelle Pizzasuppe Bergsteiger-Art</h3></a>
+									<p class="excert">Unsere schnelle Pizzasuppe Bergsteiger-Art ist eines meiner „Rezepte für alle Fälle“. Wenn es wirklich schnell und einfach gehen muss. Wie jede Pizzasuppe ist es auch ein Eintopf.</p>
+									<a href="Blog_Post8.html" class="primary-btn">Mehr anzeigen</a><img class="bookmark" src="images/bookmark.png" alt="">
+								</div>
+							</div>
+
+
+						</div>
+
+					</div>
+				</div>
+			</section>
+      
+			<!-- End post-content Area -->
+			
+			<footer>
+				<div class="footer-info">
+					<div class="info-area">
+						<div class="footer-date">
+							<h4 id="footerheader">Öffnungszeiten</h4>
+							<ul class="hr-list">
+								<li class="content-between">
+									<span>Montag - Donnerstag</span> <span>10.00 - 23.00</span>
+								</li>
+								
+								<li class="content-between">
+									<span>Freitag - Samstag</span> <span>10.00 - 01.00</span>
+								</li></ul>
+							<hr class="hr-list-line">
+							
+							<ul class="address">
+								<li>Marienstraße. 12</li>
+								<li> 70178 Stuttgart</li>
+								<li> Telefon +49 (711) 182-01-03</li>
+							</ul>
+						</div>
+						<div class="footer-news">
+							<h4>Newsletter</h4>
+							<p>Bleiben Sie auf dem Laufenden</p>
+							<form class="navbar-form"  method="get">
+								<div class="d-flex">
+									<input class="form-control" name="EMAIL" placeholder="Ihre Email Adresse" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ihre Email Adresse'" required="" type="email">
+									
+									
+								</div>
+								
+							</form>
+							
+						</div>
+						
+						<div class="footer-social">
+							<h4>Folgen Sie uns</h4>
+							<span><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-logo.png" alt="facebook-logo.png" ></a></span>
+							<span><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="instagram.png" ></a></span>
+							
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<div class="bottom-content">
+						<div class="copyright"><p>Copyright © Alle Rechte vorbehalten.</p></div>
+						<aside class="impressum"> <span><a href="impressum.html">Impressum</a></span><span><a href="datenschutz.html">Datenschutzerklärung</a></span></aside>
+					</div>
+				</div>
+			</footer>
+
+
+
+		</body>
+	</html>

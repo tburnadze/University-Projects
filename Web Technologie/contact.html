@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Style/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script  type="text/javascript" src="javascript/contact.js" ></script>
+
+    <style>
+        .header {
+            background: transparent url("images/food.jpg") top center no-repeat;
+            height: 350px;
+        }
+
+        .head-text i {
+            border: solid red;
+            border-width: 0 4px 4px 0;
+            display: inline-block;
+            padding: 3px;
+            color: red;
+        }
+
+        .arrow-right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+
+
+    </style>
+    <title>Kontakt</title>
+
+</head>
+
+<body>
+<div class="alles">
+    <div class="header">
+
+        <div class="logo"><img src="images/logo.png" alt="logo"></div>
+
+<nav>
+            <ul>
+              <li><a href="contact.html">Kontakt</a></li>
+                <li><a href="blog-home.html">Unsere Rezepte</a></li>
+              <li><a href="aboutus.html">Über uns</a></li>
+              <li><a href="menu.html">Menü</a></li>
+              <li><a href="index.html">Home</a></li>
+            </ul>
+</nav>
+
+        <section class="head-text">
+            <h1>Home <i class="arrow-right"></i> Kontakt</h1></section>
+
+    </div>
+
+    <div class="contact-container">
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3773.4185295106936!2d9.16260558497471!3d48.76363135510509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4799db50ee337777%3A0x658987d689f55e5a!2sMarienplatz%2C%2070178%20Stuttgart!5e0!3m2!1sde!2sde!4v1578437063641!5m2!1sde!2sde"></iframe>
+        </div>
+        <div class="contact">
+            <div class="contact-info">
+                <div class="contact-address">
+                    <div class="icon">
+                        <span class="home"><img src="images/home.png" alt="home"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>70178 Stuttgart</h5>
+                        <p>Marienstraße. 12</p>
+                    </div>
+                </div>
+                <div class="contact-address">
+                    <div class="icon">
+                        <span class="phone"><img src="images/telephone.png" alt="telephone"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>+49 (711) 182-01-03</h5>
+                        <p>Montag - Freitag 10.00 - 21.00</p>
+                    </div>
+                </div>
+                <div class="contact-address">
+                    <div class="icon">
+                        <span class="envelope"><img src="images/envelope.png" alt="envelope"></span>
+                    </div>
+                    <div class="contact-details">
+                        <h5>info@poco.de</h5>
+                        <p>Senden Sie uns gerne eine Nachricht.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form">
+                <form name="formarea" id="myForm" class="form-area" action="mailto:tb121@hdm-stuttgart.de" method="POST" enctype="text/plain">
+                    <div class="row">
+                        <div class="form-group" id="inputfields">
+            <select id="antwortkanal" name="antwortkanal" size="1">
+               <option value="keine_Wahl" selected>Wählen Sie einen Antwortkanal</option>
+               <option value="Mobilfunk">Mobilfunk</option>
+               <option value="Festnetzanschluss">Festnetzanschluss</option>
+               <option value="Email">Email</option>
+               <option value="Facebook">Facebook</option>
+               </select>
+							
+                            <input name="mobilfunk" placeholder="Mobilfunk" id="mobilfunk" class="replay" type="text">
+                            <input name="festnetz" placeholder="Festnetzanschluss"  id="festnetz" class="replay" type="text">
+                            <input name="email" placeholder="Email" id="email" class="replay" type="email">
+                            <input name="facebook" placeholder="Facebook URL" class="replay"  id="facebook" type="url">
+                            <input name="firstname" placeholder="Vorname" id="firstname" type="text">							
+							<input name="lastname" placeholder="Nachname" id="lastname" type="text">
+                       
+                        </div>
+                        <div class="form-group2">
+							<input name="subject" placeholder="Betreff" id="betreff" class="subject" type="text">
+                            <textarea class="textarea" name="message" id="message" placeholder="Ihre Nachricht" ></textarea>
+                        </div>
+						
+					
+						
+                        <div class="form-btn">
+                            
+                            <button id="contactbutton" class="genric-btn" disabled>Senden</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+<div class="footer-info">
+      <div class="info-area">
+          <div class="footer-date">
+              <h4>Öffnungszeiten</h4>
+									<ul class="hr-list">
+										<li class="content-between">
+											<span>Montag - Donnerstag</span> <span>10.00 - 23.00</span>
+										</li>
+
+										<li class="content-between">
+											<span>Freitag - Samstag</span> <span>10.00 - 01.00</span>
+										</li></ul>
+                 <hr class="hr-list-line">
+
+                  <ul class="address">
+                        <li>Marienstraße. 12</li>
+                       <li> 70178 Stuttgart</li>
+                       <li> Telefon +49 (711) 182-01-03</li>
+                    </ul>
+              </div>
+                  <div class="footer-news">
+                      <h4>Newsletter</h4>
+									<p>Bleiben Sie auf dem Laufenden</p>
+                                         <form class="navbar-form"  method="get">
+										    <div class="d-flex">
+										      	<input class="form-control" name="EMAIL" placeholder="Ihre Email Adresse" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ihre Email Adresse'" required="" type="email">
+
+
+										    </div>
+
+										  </form>
+
+                      </div>
+
+              <div class="footer-social">
+                 <h4>Folgen Sie uns</h4>
+                  <span><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-logo.png" alt="facebook-logo.png" ></a></span>
+                  <span><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="instagram.png" ></a></span>
+
+              </div>
+          </div>
+      </div>
+    <div class="footer-bottom">
+        <div class="bottom-content">
+        <div class="copyright"><p>Copyright © Alle Rechte vorbehalten.</p></div>
+        <aside class="impressum"> <span><a href="impressum.html">Impressum</a></span><span><a href="datenschutz.html">Datenschutzerklärung</a></span></aside>
+    </div>
+        </div>
+</footer>
+  <script  type="text/javascript" src="javascript/contact1.js" ></script>
+</body>
+
+</html>

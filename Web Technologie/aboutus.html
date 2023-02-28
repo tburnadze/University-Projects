@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="Style/style.css">
+      <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script  type="text/javascript" src="javascript/diashow1.js" ></script>
+    <script>
+        var Bilder = new Array("images/image1.jpg", "images/image2.jpg", "images/image3.jpg","images/image4.jpg", "images/image5.jpg","images/image6.jpg","images/image7.jpg","images/image8.jpg" ,"images/image9.jpg", "images/image10.jpg","images/image11.jpg","images/image12.jpg","images/image13.jpg", "images/image14.jpg", "images/image15.jpg" );
+    </script>
+
+    <style>
+        .header {
+            background: transparent url("images/food.jpg") top center no-repeat;
+            height: 350px;
+        }
+
+        .head-text i {
+            border: solid red;
+            border-width: 0 4px 4px 0;
+            display: inline-block;
+            padding: 3px;
+            color: red;
+        }
+
+        .arrow-right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+        
+   /*Diashow */   
+        
+
+        
+.circle {
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  margin: 5px 2px;
+  background-color: #AC8D00;
+  border-radius: 50%;
+  display: inline-block;
+
+
+}
+
+         
+
+   
+        #play{
+            margin-right: 10px
+        }
+      
+ #vor{float:left;
+     margin-left:20%;
+     margin-right: 2%;
+     margin-top:300px;
+            
+        }
+ #vor img{
+     width: 60px;
+     height: 50px;
+            
+        }
+ #back img{
+     width: 60px;
+     height: 50px;
+            
+        }
+#back{float: right;
+     margin-right:18%;
+     margin-top:250px;
+            
+        }
+ #animation{
+            margin-left: 45%
+        } 
+ #diashowcircle{
+          margin-left: 33%;
+     display: block;
+        }
+        #first{
+            background-color: red
+        }     
+    </style>
+<title>Über uns</title>
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="logo"><img src="images/logo.png" alt="logo"></div>
+
+<nav>
+            <ul>
+              <li><a href="contact.html">Kontakt</a></li>
+              <li><a href="blog-home.html">Unsere Rezepte</a></li>
+              <li><a href="aboutus.html">Über uns</a></li>
+              <li><a href="menu.html">Menü</a></li>
+              <li><a href="index.html">Home</a></li>
+            </ul>
+</nav>
+
+        <section class="head-text">
+            <h1>Home <i class="arrow-right"></i>  Über uns</h1></section>
+
+    </div>
+
+    <div class="bar">
+        <div class="bar-content">
+            <div class="bar-img">
+                <figure>
+                    <img src="images/bar.jpg">
+                    <figcaption>Unser Bistro& Bar Team freut sich auf Sie und Ihren guten Geschmack.</figcaption>
+                </figure>
+            </div>
+            <aside class="bar-text">
+
+                <p><span class="extra">Willkommen im Poco,</span>
+                    <br> unserem Zuhause im Herzen von Stuttgart, in dem wir unsere Gäste einladen, das Leben zu feiern und eine Mischung aus moderner und traditioneller Küche zu genießen. Unser aufmerksames Personal sorgt dafür, dass Ihr gesamtes Speiseerlebnis von Anfang bis Ende hervorragend ist. Unsere Speisekarte ist nie fertig, wir finden überall Inspiration, in neuen Zutaten, neuen Ansätzen alter Standards.</p>
+
+            </aside>
+        </div>
+    </div>
+
+    <div class="team">
+        <div class="team-content">
+            <h2>Unser Team</h2>
+
+            <div class="staff1-img">
+                <figure>
+                    <img src="images/chef.jpg">
+                    <figcaption>Geschäftsführer - TONI Marino</figcaption>
+                </figure>
+            </div>
+
+            <div class="staff2-img">
+                <figure>
+                    <img src="images/chefkoch.jpg">
+                    <figcaption>Chefkoch - ANDRE Kurz</figcaption>
+                </figure>
+            </div>
+
+            <div class="staff3-img">
+                <figure>
+                    <img src="images/barkeeper.jpg">
+                    <figcaption>Barkeeper - CHRISTIAN Jäger</figcaption>
+                </figure>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="gallery">
+
+        <div class="gallery-content">
+             <a id="vor">
+    <img name="vbild"  src="image/vorb.png"  border="0" alt="button"></a>
+            <h2>Galerie</h2>
+            <img id="diashow" src="images/image1.jpg" name="Galeriebilder" alt="pic" class="pic">
+           <a id="back">
+    <img name="zbild" src="image/zur%C3%BCckb.png"  border="0" alt="button">
+  </a>
+            </div>
+<div>
+<ul id="diashowcircle">
+<li id="first" class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+<li class="circle"></li>
+</ul>
+    </div>
+        <div id="animation">
+ <a id="play">
+    <img name="pbild"  src="image/play.png" width="60" height="50" border="0" alt="button"></a>
+    
+    
+  <a id="stop">
+    <img name="sbild" src="image/stop1.png" width="60" height="51" border="0" alt="button">
+  </a>
+
+</div>
+
+
+    </div>
+
+<footer>
+<div class="footer-info">
+      <div class="info-area">
+          <div class="footer-date">
+              <h4>Öffnungszeiten</h4>
+									<ul class="hr-list">
+										<li class="content-between">
+											<span>Montag - Donnerstag</span> <span>10.00 - 23.00</span>
+										</li>
+
+										<li class="content-between">
+											<span>Freitag - Samstag</span> <span>10.00 - 01.00</span>
+										</li></ul>
+                 <hr class="hr-list-line">
+
+                  <ul class="address">
+                        <li>Marienstraße. 12</li>
+                       <li> 70178 Stuttgart</li>
+                       <li> Telefon +49 (711) 182-01-03</li>
+                    </ul>
+              </div>
+                  <div class="footer-news">
+                      <h4>Newsletter</h4>
+									<p>Bleiben Sie auf dem Laufenden</p>
+                                         <form class="navbar-form"  method="get">
+										    <div class="d-flex">
+										      	<input class="form-control" name="EMAIL" placeholder="Ihre Email Adresse" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ihre Email Adresse'" required="" type="email">
+
+
+										    </div>
+
+										  </form>
+
+                      </div>
+
+              <div class="footer-social">
+                 <h4>Folgen Sie uns</h4>
+                  <span><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-logo.png" alt="facebook-logo.png" ></a></span>
+                  <span><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="instagram.png" ></a></span>
+
+              </div>
+          </div>
+      </div>
+    <div class="footer-bottom">
+        <div class="bottom-content">
+        <div class="copyright"><p>Copyright © Alle Rechte vorbehalten.</p></div>
+        <aside class="impressum"> <span><a href="impressum.html">Impressum</a></span><span><a href="datenschutz.html">Datenschutzerklärung</a></span></aside>
+    </div>
+        </div>
+</footer>
+
+     <script  type="text/javascript" src="javascript/button.js" ></script>
+</body>
+
+</html>

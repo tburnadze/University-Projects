@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Style/style.css">
+     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+     <script  type="text/javascript" src="javascript/booking.js" ></script>
+
+
+    <style>
+        .header {
+            background: transparent url("images/food.jpg") top center no-repeat;
+            height: 350px;
+        }
+
+        .head-text i {
+            border: solid red;
+            border-width: 0 4px 4px 0;
+            display: inline-block;
+            padding: 3px;
+            color: red;
+        }
+
+        .arrow-right {
+            transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+        
+ 
+        #brunogiacosa{
+            
+        }      
+        
+ #dialog1 img{
+  margin: auto;
+  display: block;
+  width: 80%;
+ 
+} 
+#dialog2 img{
+  margin: auto;
+  display: block;
+  width: 80%;
+ 
+ 
+} 
+        #dialog3 img{
+  margin: auto;
+  display: block;
+  width: 80%;
+ 
+ 
+}
+        #dialog4 img{
+  margin: auto;
+  display: block;
+  width: 80%;
+ 
+ 
+}
+
+#dialog5 img{
+  margin: auto;
+  display: block;
+  width: 80%;
+ 
+ 
+}
+        
+.ui-widget-header,
+.ui-state-default {
+	background: #AC8D00;
+	border: 1px solid #6363A5;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+li #largerimage1, li #largerimage2, li #largerimage3 , li #largerimage4,  li #largerimage5 { 
+    float: left; 
+        width: 15px;
+        height: 15px}
+        
+ #ja {
+	font-weight: bold;
+     color: black
+}
+         
+ #nein {
+	font-weight: bold;
+     color: black
+}
+    .no-close .ui-button-icon{
+            display: none
+        }      
+        
+         .no-close .ui-button{
+           display: none
+        }
+     
+    </style>
+    
+    
+    
+<title>Reservierung</title>
+
+</head>
+
+<body>
+    <div class="header">
+
+        <div class="logo"><img src="images/logo.png" alt="logo"></div>
+
+<nav>
+            <ul>
+              <li><a href="contact.html">Kontakt</a></li>
+              <li><a href="blog-home.html">Unsere Rezepte</a></li>
+              <li><a href="aboutus.html">Über uns</a></li>
+              <li><a href="menu.html">Menü</a></li>
+              <li><a href="index.html">Home</a></li>
+            </ul>
+</nav>
+
+        <section class="head-text">
+            <h1>Home <i class="arrow-right"></i>  Reservierung</h1></section>
+
+    </div>
+
+    <div class="reserve-container">
+		<div class="reserve-background">
+        <span id="reserve"></span>
+            <div class="reservtext">Einfach Platz nehmen. 
+Unser Team nimmt Ihre Tischreservierung gerne telefonisch (+49 (711) 182-01-03) oder online entgegen.
+Bei Gruppen mit mehr als 10 Personen kontaktieren Sie uns bitte per Telefon.
+</div>
+        <form name="booking" id ="bookingform" class="reserv-form" action="mailto:tb121@hdm-stuttgart.de" method="POST" enctype="text/plain">
+				
+			
+			
+			
+			<div class="contactdetails1">  
+            <div class="row">
+                <div class="col-25">
+                    <label id="testii" for="Personnumber">Personenanzahl  max.10</label>
+                </div>
+                <div class="col-75">
+                    <input type="number" id="Pnumber" name="Personenanzahl" placeholder="Anzahl der Personen.." required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Date">Datum</label>
+                </div>
+                <div class="col-75">
+                    <input type="date" id="date" name="Datum" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="Uhrzeit">Uhrzeit</label>
+                </div>
+                <div class="col-75">
+                    
+					<select name="Uhrzeit" id="uhr">
+	<option value="uhr0">Zeit auswählen</option>
+    <option value="18:00">18:00</option>
+    <option value="18:00">18:30</option>
+    <option value="19:00">19:00</option>
+    <option value="19:30">19:30</option>
+	<option value="20:00">20:00</option>
+    <option value="20:30">20:30</option>
+    <option value="21:00">21:00</option>
+    <option value="21:30">21:30</option>
+  </select>
+                </div>
+            </div>
+                <div class="droptext">
+				<p id="weinselect">Wenn Sie einen Wein-Gutschein haben, wählen Sie den gewünschten Wein dazu. Wir bereiten ihn auf dem Tisch vor. <br>Ziehen Sie das Bild in das Rechteck</p></div>
+
+                <input id="drop" name="Wein" type="text"> 
+				
+            <div class="row1">
+           
+            <div class="row2">
+                 
+                <input name="Weiter" id="raw2" type="submit" value="Weiter">
+            </div>
+				</div>
+		
+			</div>
+
+			
+			
+			<div class="contactdetails2">
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname">Vorname</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="Vorname" placeholder="Vorname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname">Nachname</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="lname" name="Nachname" placeholder="Nachname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for=email>Email</label>
+                </div>
+                <div class="col-75">
+                    <input name="Email" placeholder="Email" id="email2" type="email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="telefon">Handy/Fastnetz</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="telefon" name="Telefonnummer" placeholder="Geben Sie Ihre Telenonnummer ein..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="subject">Ihre Nachricht</label>
+                </div>
+                <div class="col-75">
+                    <textarea id="subject" name="Ihre Nachricht" placeholder="Ihre Nachricht an uns.."></textarea>
+                </div>
+            </div>
+				<a id = "tooltip-8" title = "Message" href = "#"></a>
+                
+                <input id="bookingbutton" type="submit" value="Reservieren">
+                <input name="Zurück" id="raw3" type="submit" value="Zurück">
+            </div>
+				
+<div id="scroll">
+<ul id="wein2">
+
+	<li ><img id="largerimage1" src="images/zooming.png"><span id="brunogiacosa"><img src="images/bruno_giacosa.jpg" alt="test"><span>Bruno Giacosa</span></span></li>
+	<li><img id="largerimage2" src="images/zooming.png"><span id="chianti"><img src="images/chianti.jpg" alt=""><span>Chianti DOCG</span></span></li>
+	<li><img id="largerimage3" src="images/zooming.png"><span id="rosso"><img  src="images/Della-Casa-Rosso.jpg" alt=""><span>Rosso della Casa</span></span></li>
+	<li><img id="largerimage4" src="images/zooming.png"><span id="rose"><img src="images/rose.jpg" alt=""><span>Rosé IGT</span></span></li>
+	<li><img id="largerimage5" src="images/zooming.png"><span id="pinotgrigio"><img id="pinotgrigio" src="images/PinotGrigio.jpg" alt=""><span>Pinot Grigio IGT</span></span></li>
+	
+</ul>
+
+<div id="dialog1" title="Bruno Giacosa">
+  <img src="images/bruno_giacosa.jpg" id="img01">
+</div>
+  <div id="dialog2" title="Chianti DOCG">
+  <img src="images/chianti.jpg" id="img02">
+</div>
+<div id="dialog3" title="Rosso della Casa">
+  <img src="images/Della-Casa-Rosso.jpg" id="img03">
+</div>
+    <div id="dialog4" title="Rosé IGT">
+  <img src="images/rose.jpg" id="img04">
+</div>
+    <div id="dialog5" title="Pinot Grigio IGT">
+  <img src="images/PinotGrigio.jpg" id="img5">
+</div>
+
+</div>
+        </form>
+			
+			</div>
+		
+    </div>
+    <div id="dialog" title="Newsletter">
+  <p>Möchten Sie den Newsletter abonnieren?  <input type = "checkbox" id = "terms" value="Ja"/><label id="ja" for="Ja">Ja</label><input type = "checkbox" id = "terms2" value="Nein"/><label id="nein" for="Nein">Nein</label></p>
+</div>
+
+<footer>
+<div class="footer-info">
+      <div class="info-area">
+          <div class="footer-date">
+              <h4>Öffnungszeiten</h4>
+									<ul class="hr-list">
+										<li class="content-between">
+											<span>Montag - Donnerstag</span> <span>10.00 - 23.00</span>
+										</li>
+
+										<li class="content-between">
+											<span>Freitag - Samstag</span> <span>10.00 - 01.00</span>
+										</li></ul>
+                 <hr class="hr-list-line">
+
+                  <ul class="address">
+                        <li>Marienstraße. 12</li>
+                       <li> 70178 Stuttgart</li>
+                       <li> Telefon +49 (711) 182-01-03</li>
+                    </ul>
+              </div>
+                  <div class="footer-news">
+                      <h4>Newsletter</h4>
+									<p>Bleiben Sie auf dem Laufenden</p>
+                                         <form class="navbar-form"  method="get">
+										    <div class="d-flex">
+										      	<input class="form-control" name="EMAIL" placeholder="Ihre Email Adresse" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ihre Email Adresse'" required="" type="email">
+
+
+										    </div>
+
+										  </form>
+
+                      </div>
+
+              <div class="footer-social">
+                 <h4>Folgen Sie uns</h4>
+                  <span><a href="https://www.facebook.com/" target="_blank"><img src="images/facebook-logo.png" alt="facebook-logo.png" ></a></span>
+                  <span><a href="https://www.instagram.com/" target="_blank"><img src="images/instagram.png" alt="instagram.png" ></a></span>
+
+              </div>
+          </div>
+      </div>
+    <div class="footer-bottom">
+        <div class="bottom-content">
+        <div class="copyright"><p>Copyright © Alle Rechte vorbehalten.</p></div>
+        <aside class="impressum"> <span><a href="impressum.html">Impressum</a></span><span><a href="datenschutz.html">Datenschutzerklärung</a></span></aside>
+    </div>
+        </div>
+</footer>
+
+<script  type="text/javascript" src="javascript/booking2.js" ></script>
+</body>
+
+</html>
