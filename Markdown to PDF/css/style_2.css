@@ -1,0 +1,331 @@
+@media print {
+
+	:lang(de-DE) {
+		prince-hyphenate-patterns: url("hyph-de-1996.pat.txt");
+	}
+	@font-face {
+		font-family: "Univers LT Condensed";
+		src: url(../fonts/UniversLT67BoldCondensed.ttf) format("truetype");
+	}
+	@font-face {
+		font-family: "Abuget";
+		src: url(../fonts/Abuget.ttf) format("truetype");
+	}
+	@font-face {
+		font-family: "Baskerville Old Face";
+		src: url(../fonts/BASKVILL.ttf) format("truetype");
+	}
+	@page body {
+		size: A4;
+		margin-top: 95mm;
+		margin-bottom: 35mm;
+	}
+	@page body:first {
+		margin: 0mm;
+		@top-left {
+			content: normal;
+		}
+		@top-right {
+			content: normal;
+		}
+	}
+	@page body:left {
+		@bottom-left {
+			content: counter(page);
+			vertical-align: bottom;
+			border-top: thin #ea5049 solid;
+			font-family: "Abuget";
+			font-size: 25pt;
+			margin-bottom: 23mm;
+			color: #ea5049;
+		}
+		@top-left {
+			content: string(chapter-title);
+			margin-top: 5mm;
+			vertical-align: top;
+			width: 210mm;
+			text-align: left;
+			margin-left: -60mm;
+			font-size: 25pt;
+			font-family: "Abuget";
+			color: black;
+		}
+		margin-left:70mm;
+		margin-right: 25mm;
+	}
+	@page body:right {
+		@top-right {
+			content: string(chapter-title);
+			margin-top: 5mm;
+			vertical-align: top;
+			width: 210mm;
+			text-align: right;
+			margin-right: -60mm;
+			font-size: 25pt;
+			font-family: "Abuget";
+			color: black;
+		}
+		@bottom-right {
+			content: counter(page);
+			vertical-align: bottom;
+			border-top: thin #ea5049 solid;
+			font-family: "Abuget";
+			font-size: 25pt;
+			margin-bottom: 23mm;
+			color: #ea5049;
+		}
+		margin-left: 25mm;
+		margin-right: 70mm;
+	}
+	@page body:left {
+		@footnote {
+			margin-top: 10mm;
+			margin-left: -60mm;
+			width: 100mm;
+			text-align: right;
+			position: absolute;
+			padding-bottom: 20mm;
+		}
+	}
+	@page body:right {
+		@footnote {
+			margin-top: 10mm;
+			margin-left: 125mm;
+			margin-right: -1000mm;
+			padding-bottom: 20mm;
+			position: absolute;
+			width: 1000mm;
+		}
+	}
+	@page image {
+		size: A4;
+		margin: 0mm;
+	}
+	body {
+		page: body;
+		padding-bottom: 3mm;
+	}
+	h1 {
+		font-family: "Abuget";
+		font-size: 100pt;
+		margin-top: 25mm;
+		text-align: center;
+		color: #ea5049;
+	}
+	h2 {
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+		font-size: 20pt;
+		color: #ea5049;
+		text-align: left;
+		padding-bottom: 5mm;
+		page-break-after: avoid;
+		page-break-before: always;
+		string-set: chapter-title content();
+	}
+	h3 {
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 15pt;
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+		margin: 5mm 0mm;
+	}
+	h4 {
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 14pt;
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+		margin: 4mm 0mm;
+	}
+	h5 {
+		display: none;
+	}
+	h6 {
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 13pt;
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+		margin: 4mm 0mm;
+	}
+	p {
+		font-family: "Baskerville Old Face", Regular;
+		font-size: 11pt;
+		line-height: 15pt;
+		text-align: justify;
+		orphans: 2;
+		widows: 2;
+		prince-footnote-policy: keep-with-line;
+		hyphens: auto;
+		text-indent: 2em;
+		margin-top: 0;
+		margin-bottom: 0;
+		hyphens: auto;
+		prince-hyphenate-before: 2;
+		prince-hyphenate-after: 3;
+		prince-hyphenate-lines: no-limit;
+	}
+	#connect+p {
+		text-indent: 0em;
+	}
+	#connect {
+		page-break-after: avoid;
+	}
+	#blockquote {
+		margin-left: 0mm;
+		width: 115mm;
+		font-family: "Baskerville Old Face", Regular;
+		line-height: 15pt;
+		font-size: 11pt;
+		color: cmyk(0%, 80%, 67%, 0%);
+		margin-left: -7mm;
+		orphans: 2;
+		widows: 2;
+		text-indent: 0;
+		hyphens: auto;
+		prince-hyphenate-before: 2;
+		prince-hyphenate-after: 3;
+		prince-hyphenate-lines: no-limit;
+	}
+	a.footnote-ref {
+		color: black;
+		text-decoration: none;
+		prince-link: none;
+		footnote-style-position: inside;
+		line-height: 1.5;
+		font-size: 7pt;
+	}
+	a.footnote-back {
+		display: none;
+	}
+	section.footnotes {
+		display: none;
+	}
+	a.footnote-ref::after {
+		content: target-content(attr(href));
+		font-size: 9pt;
+		float: footnote;
+		padding-top: 2cm;
+		line-height: 15pt;
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+		max-width: 50mm;
+		text-align: left;
+		hyphens: auto;
+		color: cmyk(0%, 80%, 67%, 0%);
+		text-indent: 0em;
+	}
+	a.footnote-ref::after::footnote-call {
+		display: none;
+		content: "";
+	}
+	a.footnote-ref::after::footnote-marker {
+		color: black;
+		content: counter(footnote) " ";
+		font-size: 7pt;
+		vertical-align: super;
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+	}
+	#figure {
+		page: image;
+	}
+	img {
+		object-fit: cover;
+		height: 297mm;
+		width: 260mm;
+	}
+	figcaption {
+		display: none;
+	}
+	#cover img {
+		width: 210mm;
+		height: 180mm;
+		object-fit: cover;
+		margin-top: 25mm;
+		margin-left: 0mm;
+	}
+	li {
+		page-break-inside: avoid;
+		hyphens: auto;
+		prince-hyphenate-before: 2;
+		prince-hyphenate-after: 3;
+		prince-hyphenate-lines: no-limit;
+	}
+	ol {
+		font-family: "Baskerville Old Face", Regular;
+		font-size: 11pt;
+		line-height: 1.5;
+		text-align: justify;
+		orphans: 2;
+		widows: 2;
+		prince-footnote-policy: keep-with-line;
+		hyphens: auto;
+	}
+	ul {
+		font-family: "Baskerville Old Face", Regular;
+		font-size: 11pt;
+		line-height: 1.5;
+		text-align: justify;
+		orphans: 2;
+		widows: 2;
+		prince-footnote-policy: keep-with-line;
+		hyphens: auto;
+		list-style: none;
+	}
+	ul li:before {
+		content: "";
+		width: 0.1em;
+		height: 0.1em;
+		padding: .20em;
+		border-radius: 50%;
+		margin-right: 1em;
+		border: .1em solid red;
+		background: white;
+		color: red;
+		text-align: center;
+		display: inline-block;
+	}
+	#table {
+		font-family: "Baskerville Old Face", Regular;
+		float: top unless-fit;
+	}
+	table {
+		font-family: "Baskerville Old Face", Regular;
+		width: 100%;
+		page-break-inside: avoid;
+		border: solid #ea5049 thin;
+		margin-top: 0.5cm;
+		margin-bottom: 0.5cm;
+	}
+	tbody {
+		width: 100%;
+	}
+	table td,
+	table th {
+		padding: 0.2cm 0.3cm;
+	}
+	table tbody td {
+		font-size: 13px;
+	}
+	table td:nth-child(even) {
+		background: #EBEBEB;
+		border: solid #ea5049 thin;
+		border-left: solid #ea5049 thin;
+	}
+	table thead {
+		background: #ea5049;
+		border-bottom: 4px solid;
+	}
+	table thead th {
+		font-family: "Univers LT Condensed";
+		font-size: 15pt;
+		color: white;
+		text-align: center;
+	}
+	table thead th:first-child {
+		border-left: none;
+	}
+}

@@ -1,0 +1,306 @@
+@media print {
+
+	@font-face {
+		font-family: "Univers LT Condensed";
+		src: url(../fonts/UniversLT67BoldCondensed.ttf) format("truetype");
+	}
+	@font-face {
+		font-family: "Univers LT Light Condensed";
+		src: url(../fonts/UniversLT47LightCondensed.ttf) format("truetype");
+	}
+	@font-face {
+		font-family: "Sabon LT Std";
+		src: url(../fonts/SabonLTStd-Bold.otf) format("opentype");
+	}
+	@font-face {
+		font-family: "Sabon LT Std";
+		src: url(../fonts/SabonLTStd-Italic.otf) format("opentype");
+	}
+	@font-face {
+		font-family: "Sabon LT Std";
+		src: url(../fonts/SabonLTStd-Roman.otf) format("opentype");
+	}
+	:lang(de-DE) {
+		prince-hyphenate-patterns: url("hyph-de-1996.pat.txt");
+	}
+	@page {
+		size: A4;
+	}
+	@page :left {
+		margin-right: 2.5cm;
+		margin-left: 2.5cm;
+	}
+	@page :right {
+		margin-left: 2.5cm;
+		margin-right: 2.5cm;
+	}
+	@page {
+		margin-top: 2cm;
+		margin-bottom: 2cm;
+	}
+	@page {
+		@top-right {
+			content: string(chapter-title) '\00A0 \00A0 \00A0 \00A0 \00A0 \00A0 \00A0 'counter(page);
+			vertical-align: bottom;
+			border-bottom: thin black solid;
+		}
+		font-family:"Univers LT Condensed";
+		font-size:11pt;
+	}
+	@page {
+		@footnote {
+			border-top: solid black thin;
+			border-right: solid black thin;
+			content: "";
+			padding-top: 8pt;
+			left: 0;
+			top: 0;
+			height: 5px;
+			width: 15px;
+		}
+	}
+	body {
+		padding: 5mm 0mm;
+	}
+	h1 {
+		text-align: left;
+		font-size: 30pt;
+		font-family: "Univers LT Condensed";
+		padding-bottom: 0.5cm;
+		page-break-before: always;
+		page-break-after: avoid;
+	}
+	h2 {
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 20pt;
+		font-family: "Univers LT Condensed";
+		padding: 5mm 0mm;
+		string-set: chapter-title content();
+	}
+	h3 {
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 17pt;
+		font-family: "Univers LT Condensed";
+		padding: 4mm 0mm;
+	}
+	h4 {
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 15pt;
+		font-family: "Univers LT Condensed";
+		padding: 2mm 0mm;
+	}
+	h5 {
+		page-break-after: avoid;
+		text-align: left;
+		font-family: "Univers LT Condensed";
+		font-size: 14pt;
+	}
+	h6 {
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 13pt;
+		font-family: "Univers LT Condensed";
+		margin: 4mm 0mm;
+	}
+	p {
+		font-family: "Sabon LT Std", Roman;
+		font-size: 11pt;
+		line-height: 1.5;
+		text-align: justify;
+		orphans: 2;
+		widows: 2;
+		prince-footnote-policy: keep-with-line;
+		text-indent: 2em;
+		margin: 0;
+		hyphens: auto;
+	}
+	#connect+p {
+		text-indent: 0em;
+	}
+	#connect {
+		page-break-after: avoid;
+	}
+	h2::after {
+		color: red;
+	}
+	#blockquote {
+		font-family: "Sabon LT Std", Roman;
+		line-height: 15pt;
+		text-indent: 0;
+	}
+	blockquote {
+		height: auto;
+		width: 15cm;
+		page-break-inside: avoid;
+		background: cmyk(0, 0, 0, 0.08);
+		vertical-align: middle;
+		padding-top: 1mm;
+		padding-left: 5mm;
+		padding-right: 5mm;
+		padding-bottom: 5mm;
+		margin-left: 0mm;
+	}
+	em {
+		font-family: "Univers LT Condensed";
+	}
+	strong {
+		font-family: "Univers LT Condensed";
+	}
+	/*Das Bild mit der float-Eingenschaft geht ganz nach oben. Z.B wenn ich  float: prince-snap oder  float: top unless-fit einfüge. 
+Ohne float-Eigenschaft ist aber schwierig die Lücken auf der Seite zu vermeinden. */
+	figure {
+		float: top unless-fit;
+	}
+	img {
+		page-break-inside: avoid;
+		width: 100%;
+		height: 105mm;
+		object-fit: cover;
+		margin-top: 2mm;
+		margin-bottom: 2mm;
+	}
+	figcaption {
+		visibility: visible;
+		font-family: "Univers LT Light Condensed";
+		font-size: 9pt;
+	}
+	#cover img {
+		max-width: 100%;
+		height: 155mm;
+	}
+	#cover figcaption {
+		display: none;
+	}
+	a.footnote-ref {
+		color: black;
+		text-decoration: none;
+		prince-link: none;
+		footnote-style-position: inside;
+		font-size: 7pt;
+	}
+	a.footnote-back {
+		display: none;
+	}
+	section.footnotes {
+		display: none;
+	}
+	a.footnote-ref::after {
+		content: target-content(attr(href));
+		font-size: 8pt;
+		float: footnote;
+		padding-right: 2mm;
+		padding-top: 0.5mm;
+		line-height: 9pt;
+		font-family: "Univers LT Condensed";
+		text-indent: 0mm;
+	}
+	a.footnote-ref::after::footnote-call {
+		display: none;
+		content: "";
+	}
+	a.footnote-ref::after::footnote-marker {
+		color: black;
+		content: counter(footnote) " ";
+		font-size: 7pt;
+		vertical-align: super;
+	}
+	ul {
+		font-family: "Sabon LT Std", Roman;
+		font-size: 11pt;
+		line-height: 1.5;
+		text-align: justify;
+		orphans: 3;
+		widows: 3;
+		list-style: none;
+	}
+	ol {
+		font-family: "Sabon LT Std", Roman;
+		font-size: 11pt;
+		line-height: 1.5;
+		text-align: justify;
+		counter-reset: list-counter;
+		list-style: none;
+	}
+	li {
+		page-break-inside: avoid;
+	}
+	.orderlist1:before {
+		content: counter(list-counter);
+		counter-increment: list-counter;
+		width: 0.1em;
+		height: 0.1em;
+		padding: 0.2em 0.4em;
+		margin-right: 1em;
+		border: .1em solid #000;
+		color: black;
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+	}
+	.orderlist2:before {
+		content: counter(list-counter);
+		counter-increment: list-counter;
+		width: 0.1em;
+		height: 0.1em;
+		padding: 0.2em 0.4em;
+		margin-right: 1em;
+		color: black;
+		font-family: "Univers LT Condensed";
+		font-weight: bold;
+	}
+	ul li:before {
+		content: "";
+		width: 0.1em;
+		height: 0.1em;
+		padding: .20em;
+		margin-right: 1em;
+		border: .1em solid #ccc;
+		background: #000;
+		color: #fff;
+		text-align: center;
+		display: inline-block;
+	}
+	#table {
+		float: top unless-fit;
+	}
+	table {
+		width: 100%;
+		page-break-inside: avoid;
+		border: solid black thin;
+		margin-top: 0.5cm;
+		margin-bottom: 0.5cm;
+	}
+	tbody {
+		width: 100%;
+	}
+	table td,
+	table th {
+		padding: 0.2cm 0.3cm;
+	}
+	table tbody td {
+		font-size: 13px;
+	}
+	table td:nth-child(even) {
+		background: #EBEBEB;
+		border: solid black thin;
+		border-left: solid black thin;
+	}
+	table thead {
+		background: black;
+		border-bottom: 4px solid #333333;
+	}
+	table thead th {
+		font-family: "Univers LT Condensed";
+		font-size: 15pt;		
+		color: white;
+		text-align: center;
+	}
+	table thead th:first-child {
+		border-left: none;
+	}
+	hr {
+		display: none;
+	}
+}

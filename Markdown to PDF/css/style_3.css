@@ -1,0 +1,254 @@
+@media print {
+	@font-face {
+		font-family: "Sabon LT Std";
+		src: url(../fonts/SabonLTStd-Bold.otf) format("opentype");
+	}
+	@font-face {
+		font-family: "Sabon LT Std";
+		src: url(../fonts/SabonLTStd-Italic.otf) format("opentype");
+	}
+	@font-face {
+		font-family: "Sabon LT Std";
+		src: url(../fonts/SabonLTStd-Roman.otf) format("opentype");
+	}
+	@font-face {
+		font-family: "Bauhaus 93";
+		src: url(../fonts/BAUHS93.ttf) format("opentype");
+	}
+	@page {
+		size: 240mm 297mm;
+		margin-top: 40mm;
+		margin-bottom: 30mm;
+	}
+	@page :right {
+		margin-right: 21mm;
+		margin-left: 60mm;
+		@bottom-left {
+			content: string(chapter-title) '\00A0 \00A0 \00A0 \00A0 ' counter(page);
+			width: 200mm;
+			height: 20mm;
+			text-align: left;
+			margin-left: -150mm;
+			margin-top: -150mm;
+			margin-bottom: 40mm;
+			font-size: 20pt;
+			font-family: "Bauhaus 93";
+			color: #d1a704;
+			transform: rotate(-90deg);
+		}
+	}
+	@page :left {
+		margin-left: 21mm;
+		margin-right: 60mm;
+		background: linear-gradient(to right, #d1a704 42%, white 20%);
+		@top-right {
+			content: string(chapter-title) '\00A0 \00A0 \00A0 \00A0' counter(page);
+			width: 200mm;
+			height: 20mm;
+			text-align: left;
+			margin-right: -150mm;
+			margin-top: 40mm;
+			margin-bottom: -150mm;
+			font-size: 20pt;
+			font-family: "Bauhaus 93";
+			color: #d1a704;
+			transform: rotate(-270deg);
+		}
+	}
+	a.footnote-ref {
+		display: none
+	}
+	#cover {
+		display: none;
+	}
+	#blockquote {
+		font-family: "Bauhaus 93";
+		color: #0d3d4a;
+		font-size: 11pt;
+		width: 75mm;
+		margin-left: -7mm;
+		text-indent: 0;
+		hyphens: auto;
+		prince-hyphenate-before: 2;
+		prince-hyphenate-after: 3;
+		prince-hyphenate-lines: no-limit;
+		text-align: left;
+	}
+	head {
+		display: none;
+	}
+	h1 {
+		column-span: all;
+		font-family: "Bauhaus 93";
+		font-size: 40pt;
+		margin-top: 0mm;
+		margin-bottom: 30mm;
+		color: #0d3d4a;
+	}
+	h2 {
+		page-break-inside: avoid;
+		page-break-after: avoid;
+		text-align: left;
+		font-size: 20pt;
+		font-family: "Bauhaus 93";
+		color: #0d3d4a;
+		padding: 0mm 0mm 2mm 0mm;
+		page-break-after: avoid;
+		string-set: chapter-title content();
+	}
+	h3 {
+		display: none;
+	}
+	h4 {
+		display: none;
+	}
+	h5 {
+		display: none;
+	}
+	h6 {
+		display: none;
+	}
+	a.footnote-back {
+		display: none;
+	}
+	section.footnotes {
+		display: none;
+	}
+	body {
+		column-count: 2;
+		column-gap: 8mm;
+		column-fill: balance;
+	}
+	p {
+		font-family: "Sabon LT Std", Regular;
+		font-size: 10pt;
+		line-height: 15pt;
+		text-align: left;
+		orphans: 2;
+		widows: 2;
+		prince-footnote-policy: keep-with-line;
+		margin: 0;
+		hyphens: auto;
+		prince-hyphenate-before: 2;
+		prince-hyphenate-after: 3;
+		prince-hyphenate-lines: no-limit;
+	}
+	#connect+p {
+		text-indent: 0em;
+	}
+	#connect {
+		page-break-after: avoid;
+	}
+	figure {
+		float: column-top next;
+		margin-top: 2mm;
+		margin-bottom: 2mm;
+	}
+	img {
+		page-break-inside: avoid;
+		width: 75mm;
+		height: 75mm;
+		object-fit: cover;
+	}
+	figcaption {
+		display: none;
+	}
+	ul {
+		margin-left: 2mm;
+		font-family: "Sabon LT Std", Regular;
+		font-size: 10pt;
+		line-height: 15pt;
+		text-align: left;
+		orphans: 3;
+		widows: 3;
+		list-style: none;
+		hyphens: auto;
+		prince-hyphenate-before: 2;
+		prince-hyphenate-after: 3;
+		prince-hyphenate-lines: no-limit;
+	}
+	ol {
+		margin-left: 2mm;
+		font-family: "Sabon LT Std", Regular;
+		font-size: 10pt;
+		line-height: 1.5;
+		text-align: left;
+		counter-reset: list-counter;
+		list-style: none;
+		hyphens: auto;
+		prince-hyphenate-before: 2;
+		prince-hyphenate-after: 3;
+		prince-hyphenate-lines: no-limit;
+	}
+	li {
+		page-break-inside: avoid;
+	}
+	.orderlist1:before {
+		content: counter(list-counter);
+		counter-increment: list-counter;
+		color: #0d3d4a;
+		font-family: "Sabon LT Std", Regular;
+		font-weight: bold;
+		font-size: 15pt;
+		margin-right: 2mm;
+	}
+	.orderlist2:before {
+		content: counter(list-counter);
+		counter-increment: list-counter;
+		color: #0d3d4a;
+		font-family: "Sabon LT Std", Regular;
+		font-weight: bold;
+		font-size: 12pt;
+		margin-right: 2mm;
+	}
+	ul li:before {
+		content: "";
+		width: 2mm;
+		height: 2mm;
+		margin-right: 1em;
+		background-color: #0d3d4a;
+		display: inline-block;
+	}
+	#table {
+		width: 100%;
+		float: top;
+		column-span: all;
+	}
+	table {
+		width: 100%;
+		page-break-inside: avoid;
+		border: solid black thin;
+		margin-top: 0.5cm;
+		margin-bottom: 0.5cm;
+	}
+	tbody {
+		width: 100%;
+	}
+	table td,
+	table th {
+		padding: 0.2cm 0.3cm;
+	}
+	table tbody td {
+		font-size: 11pt;
+	}
+	table td:nth-child(even) {
+		background: #EBEBEB;
+		border: solid black thin;
+		border-left: solid black thin;
+	}
+	table thead {
+		background-color: #0d3d4a;
+		border-bottom: 4px solid #0d3d4a;
+	}
+	table thead th {
+		font-family: "Sabon LT Std";
+		font-weight: bold;
+		font-size: 15pt;
+		font-weight: bold;
+		color: white;
+		text-align: center;
+	}
+	table thead th:first-child {
+		border-left: none;
+	}
+}
