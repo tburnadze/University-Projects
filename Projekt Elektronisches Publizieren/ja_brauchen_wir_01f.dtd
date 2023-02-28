@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--DTD zum Kurs elektronischhes Publizieren im WS 2018
+    Version 01 vom 24.10.2018 
+    Version 01b vom 14.11.2018 mit Ergänzungen
+    Version 01c mit Ergänzungen vom 21.11.18
+    Version 01d mit Ergänzungen vom 28.11.18  
+    Version 01e mit Ergänzungen vom 28.11.18
+    Version 01f mit Ergänzungen vom 05.12.18 -->
+
+<!--  Parameter-Entities -->
+<!ENTITY % sprache "de|en|fr|no|da|nl|es|pt" >
+<!ENTITY % inside "#PCDATA|person|person_gruppe|ort|wrede|datum|zahl|fussnote|link|br|medium|hervorheb" >    <!-- wrede = wörtliche Rede. am 21.11.18 um person_gruppe und medium erweitert-->
+<!ENTITY % mathml.mod
+           PUBLIC "-//W3C//DTD MathML 2.0//EN"
+           "http://www.w3.org/Math/DTD/mathml2/mathml2.dtd" >
+%mathml.mod;
+
+<!--  Werkaufbau  -->
+<!ELEMENT ebook (titelei, vorwort?, hauptteil, anhang?) >
+<!ATTLIST ebook sprache (%sprache;) #REQUIRED >
+
+
+<!--  Titelei  -->
+<!ELEMENT titelei (cover, titelseite, impressum) >
+<!ELEMENT cover (mediaobjekt) >
+<!ELEMENT titelseite (((titel, person+)|(person+, titel)),verlag) >
+<!ELEMENT titel (#PCDATA) >
+<!ELEMENT person_gruppe (name)>
+<!ATTLIST person_gruppe typ (Musikband) #IMPLIED>
+<!ELEMENT person (name)>
+<!ATTLIST person sex (m|w|i) #IMPLIED 
+                 rolle (autor|protagonist|architekt|verleger|fotograf) #IMPLIED>
+<!ELEMENT name (bezeichnung|vorname|nachname|spitzname|gebname)* >
+<!ELEMENT bezeichnung (#PCDATA) >
+<!ELEMENT vorname (#PCDATA) >
+<!ELEMENT nachname (#PCDATA) >
+<!ELEMENT spitzname (#PCDATA) >
+<!ELEMENT gebname (#PCDATA) >   <!-- Geburtsname -->
+<!ELEMENT verlag (#PCDATA) >
+<!ELEMENT impressum (auflage, ersch_jahr, isbn, gestaltung, copyright, ort) >
+<!ELEMENT auflage (zahl) >
+<!ELEMENT zahl (#PCDATA) >
+<!ELEMENT ersch_jahr (datum) >
+<!ELEMENT isbn (#PCDATA) >
+<!ELEMENT gestaltung (person)+ >
+<!ELEMENT copyright (#PCDATA|br)* >
+
+
+<!--  Vorwort  -->
+<!ELEMENT vorwort (ueberschrift_vw*, (absatz|mediaobjekt|formel|liste)*, unterschrift*) >  <!-- 28.11.18: um liste erweitert -->
+<!ELEMENT ueberschrift_vw (%inside;)*>
+<!ATTLIST ueberschrift_vw id ID #IMPLIED >
+<!ELEMENT absatz (%inside;)*>
+<!ATTLIST absatz sprache (%sprache;) #IMPLIED >
+<!ELEMENT unterschrift (#PCDATA|mediaobjekt)*>
+
+<!--  Hauptteil  -->
+<!ELEMENT hauptteil (kapitel+) >
+<!ELEMENT kapitel (ueberschrift_k, mediaobjekt*, textteil+) >
+<!ELEMENT ueberschrift_k (%inside;)* >
+<!ATTLIST ueberschrift_k id ID #IMPLIED >
+<!ELEMENT textteil (ueberschrift_t?, (absatz|textteil|liste|rezept|formel|mediaobjekt|tabelle)+) >
+<!ELEMENT ueberschrift_t (%inside;)* >
+<!ATTLIST ueberschrift_t id ID #IMPLIED >
+<!ELEMENT wrede (%inside;)* >
+<!ATTLIST wrede sprache (%sprache;) #IMPLIED >
+
+<!--  Anhhang  -->
+<!ELEMENT anhang (ueberschrift_ah, liste*, quelle+, dank?)>   <!-- 28.11.18: um liste ergänzt -->
+<!ELEMENT ueberschrift_ah (%inside;)* >
+<!ATTLIST ueberschrift_ah id ID #IMPLIED >
+<!ELEMENT quelle (quelleneintrag+) >
+<!ELEMENT quelleneintrag (%inside;|spitzklammer)* >    <!-- 28.11.18: Eigentlich kommt die Spitzklammer zwingend zuerst; ich weiß aber gerade nicht wie... -->
+<!ATTLIST quelleneintrag label ID #IMPLIED
+                         href CDATA #IMPLIED>          
+<!ELEMENT dank (textteil) >                            <!-- 05.15.18: um textteil umgebaut -->
+<!ELEMENT spitzklammer (#PCDATA) >                     <!-- 28.11.18: um spitzklammer ergänzt -->
+
+<!--  Orte-->
+<!ELEMENT ort (#PCDATA|stadt|region|stadtteil|land|bundesland|fluss|meer|see|kontinent|gebaeude|adresse)* >
+<!ELEMENT region (#PCDATA) >
+<!ELEMENT stadt (#PCDATA) >
+<!ELEMENT stadtteil (#PCDATA) >
+<!ELEMENT land (#PCDATA) >
+<!ELEMENT bundesland (#PCDATA) >
+<!ELEMENT fluss (#PCDATA) >
+<!ELEMENT meer (#PCDATA) >
+<!ELEMENT see (#PCDATA) >
+<!ELEMENT kontinent (#PCDATA) >
+<!ELEMENT gebaeude (#PCDATA) >
+<!ELEMENT adresse (stadt|plz|strasse|hausnr)+ >
+<!ELEMENT plz (zahl) >
+<!ELEMENT strasse (#PCDATA) >
+<!ELEMENT hausnr (#PCDATA|zahl)* >
+
+
+<!--  Datum-->
+<!ELEMENT datum (tag|monat|jahr|wochentag|jahrhundert)+ >
+<!ELEMENT tag (zahl) >
+<!ELEMENT monat (#PCDATA) >
+<!ELEMENT jahr (zahl) >
+<!ELEMENT jahrhundert (#PCDATA) >
+<!ELEMENT wochentag (#PCDATA) >
+
+
+<!--  Mediaobjekt-->
+<!ELEMENT mediaobjekt (daten, legende?) >
+<!ATTLIST mediaobjekt typ (bild|video|sound) #REQUIRED >
+<!ELEMENT daten EMPTY >
+<!ATTLIST daten fileref CDATA #REQUIRED
+                alt CDATA #REQUIRED>
+<!ELEMENT legende (%inside;)* > 
+<!ATTLIST legende label ID #IMPLIED
+                  href CDATA #IMPLIED>
+
+<!--  Rezepte-->
+<!ELEMENT rezept (rezept_name, zutat+, zubereitung) >
+<!ATTLIST rezept zubereit_dauer CDATA #REQUIRED 
+                 diaet_1 (vegan|vegetarisch|laktosefrei|glutenfrei|low_carb) #IMPLIED 
+                 diaet_2 (vegan|vegetarisch|laktosefrei|glutenfrei|low_carb) #IMPLIED 
+                 diaet_3 (vegan|vegetarisch|laktosefrei|glutenfrei|low_carb) #IMPLIED 
+                 art (hauptgericht|getraenk|nachtisch) #REQUIRED>                     <!-- man kann man mehrere Formen auswählen und (21.11.18) das Gerichht nähher definieren-->
+<!ELEMENT rezept_name (#PCDATA) >
+<!ELEMENT zutat (#PCDATA|liste)* >
+<!ELEMENT zubereitung (absatz+) >
+
+
+<!--  Listen-->
+<!ELEMENT liste (ueberschrift_liste?, (liste_geordnet|liste_chaos)) >
+<!ELEMENT ueberschrift_liste (%inside;)* >
+<!ATTLIST ueberschrift_liste id ID #IMPLIED >
+<!ELEMENT liste_geordnet (liste_punkt)+ >
+<!ATTLIST liste_geordnet zaehlertyp (1|a|roem) "1"
+                         start CDATA #IMPLIED>
+<!ELEMENT liste_punkt (#PCDATA|mediaobjekt)* >                                         <!-- 28.11.18: erweitert um mediaobjekt -->
+<!ATTLIST liste_punkt id ID #IMPLIED 
+                      href CDATA #IMPLIED>                                           <!-- 05.12.18: erweitert um Atrtinute zur Verlinkung -->
+<!ELEMENT liste_chaos (liste_punkt)+ >
+<!ATTLIST liste_chaos zaehlertyp (strich|punkt) "strich">
+
+
+<!--  Fußnoten-->
+<!ELEMENT fussnote (#PCDATA|person)* >
+<!ATTLIST fussnote id ID #REQUIRED 
+                   href CDATA #REQUIRED>
+<!--  Formel-->
+<!ELEMENT formel (math) >
+
+<!--  Hyperlink-->
+<!ELEMENT link (#PCDATA)>
+<!ATTLIST link quelle CDATA #REQUIRED>   <!-- 31.10.2018: interner Link? -->
+
+
+<!--  Tabellen -->
+<!ELEMENT tabelle (tabelle-caption,thead*,tbody)>
+<!ELEMENT tabelle-caption (#PCDATA)>
+<!ELEMENT thead (tr)>                         <!-- Tabellenkopf -->
+<!ELEMENT tbody (tr)+>                         
+<!ELEMENT tr (td)+>                            <!-- Tabellenzeile -->
+<!ELEMENT td (%inside;)*>                        <!-- Zelleninhalt, geändert am 21.11.18 in %inside; -->
+
+<!-- Medium -->
+<!ELEMENT medium (#PCDATA)>
+<!ATTLIST medium typ (buch|song|film) #REQUIRED>
+
+
+<!-- Kruschtkiste -->
+<!ELEMENT br EMPTY >
+<!ELEMENT hervorheb (#PCDATA) >

@@ -1,0 +1,246 @@
+
+
+.titelseite {
+    font-family: SabonLTStd, Roman;
+    font-size: 20pt;
+    text-align: center;
+    width: 100%;}
+
+
+.titelseite {
+        page-break-after: always
+   !important; }
+
+
+h1 { text-align: center;
+    font-family: futura, CondensedLight;
+    color: #000080;
+    font-size: 25pt;
+    border-bottom: 4px black;
+    padding-bottom: 4px;
+    margin: 5%;}
+
+.autor {
+    color: #000080;}
+
+
+
+h2 {
+    text-align: center;
+    font-family: futura, CondensedLight;
+    font-size: 20pt;
+    width: 100%;}
+
+
+h3 {text-align: center;
+    font-family: futura, CondensedLight;
+    font-size: 16pt;
+    width: 100%;}
+
+h4 {font-family: futura, CondensedLight;
+    font-size: 14pt;
+    width: 100%;
+}
+
+h5 {
+    font-family: futura, CondensedLight;
+    font-size: 20pt;
+    width: 100%;
+    color: red;
+    text-align: center;
+    vertical-align: middle;
+    margin-bottom: 3em;
+}
+
+h6 {
+    font-family: futura, CondensedLight;
+    font-size: 14pt;
+    width: 100%;
+    color:#000080;
+}
+
+
+.impressum {
+    text-align: center;
+    font-family: SabonLTStd, Roman;
+    font-size: 12pt;
+    width: 50%;
+ outline: 1px solid black;
+    
+	height: auto;
+	margin: 2em;
+	outline: 1px solid black; }
+
+ .impressum{
+        page-break-after: always
+   !important; }
+   
+
+.absatz { text-align: justify;
+   
+    font-family: SabonLTStd, Roman;
+    font-size: 12pt;
+   
+    width: 100%;}
+
+
+.stadt {
+    font-weight: bold;
+}
+
+
+
+
+.person_gruppe {text-transform:uppercase;
+    
+}
+
+
+
+img {
+    width: 100%;
+    text-align: center;
+
+}
+video {
+    width: 100%}
+
+figcaption { 
+ font-family: SabonLTStd, Roman;
+    font-size: 10pt;
+    width: 100%;}
+   
+
+.wrede {
+    font-style: italic;
+    color: #000080;}
+
+
+liste_chaos {
+    list-style: circle inside url("kreis.gif");
+    width: 50%;
+}
+
+a:link  {
+color: #741c7c;
+font-weight: 500;
+-webkit-transition: -webkit-transform 0.2s;
+transition: transform 0.2s;
+display: inline-block;
+text-decoration: none;
+position: relative;
+}
+a:hover {
+-webkit-transform: scale(0.9);
+transform: scale(0.9);
+}
+a::before {
+position: absolute;
+top: -2px;
+left: -7px;
+box-sizing: content-box;
+padding: 0 5px;
+width: 100%;
+height: 100%;
+border: 2px solid #741c7c;
+content: '';
+opacity: 0;
+-webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+transition: opacity 0.2s, transform 0.2s;
+-webkit-transform: scale(0.9);
+transform: scale(0.9);
+}
+a:hover::before {
+opacity: 1;
+-webkit-transform: scale(1.2);
+transform: scale(1.2);
+}
+
+
+.hervorheb { font-weight: bold;
+      
+    }
+
+/* Rennstrecke */
+
+.vorwort {}
+/* Karosserie */
+
+.vorwort p {
+	background:#aabbcc;
+	font-size: 16px;
+	color:red;
+	position: relative;
+	text-align: center;
+	width:300px;
+	height:50px
+!important;}
+
+
+
+
+.vorwort p {
+	-webkit-animation: rennen 15s infinite 2s;
+	animation: rennen 15s infinite 2s;
+}
+	
+	
+
+@keyframes rennen {
+	0% {
+		transform: translate(0);
+	}
+	100% {
+		transform: translate(10em);
+	}
+}
+
+.vorwort{
+        page-break-after: always
+   !important; }
+   
+table {
+    width: 100%;
+}
+td {
+    border: 1px solid;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+thead {
+    background: rgb(106, 90, 205);
+}
+tbody {
+    background: pink;
+    border: 1px solid;
+    overflow: hidden;
+    vertical-align: top;
+}
+caption {
+    background-color: #fdfcf3;
+    border: 1px solid #e7c157;
+    padding-top: 1em;
+    margin-top: 1em;
+}
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
