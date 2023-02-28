@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.parsx.de/ns/4.0" elementFormDefault="qualified">
+
+	<xs:element name="import_kapitel" substitutionGroup="cms_import_kapitel.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__import_kapitel">
+				<div class="beschreibung">
+					<p>Leeres Element zum Einbinden von Kapiteln externer parsX-Projekte.</p>
+					<div class="caution">
+						<p>Hinweis: Das Element kann nur bei Lizenzierung des CMS-Modules genutzt werden.</p>
+					</div>
+				</div>
+				<div class="verwendung">
+					<p>Zum Einbinden von Kapiteln aus bestehenden Projekten</p>
+					<p>Das Element kann mit einem <code>&lt;kolumnentitel&gt;</code> und einem <code>&lt;toctitel&gt;</code> in einem <code>&lt;meta&gt;</code>-Container versehen werden. Mit dem <code>toc</code>-Attribut kann die Aufnahme ins TOC vorgesehen oder unterdrückt werden.</p>
+					<p>Das Kapitel kann auch als Leseprobe eingebunden werden (<code>import-leseprobe</code>-Attribut).</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_import">
+					<xs:attribute name="system-ressource" use="required">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__attr--system-ressource">
+								<p>Das <code>system-ressource</code>-Attribut kann beim Einsatz eines MAM oder CMS zusätzlich zum <code>quelle</code>-Attribut verwendet werden, um auf mit <code>system-id</code>-Attribut identifizierte Datenbank-Objekte zuzugreifen. Dieses steht zusätzlich zum <code>system-referenz</code>-Attribut zur Verfügung, mit dem allgemein ein Bezug zu einem Asset hergestellt werden kann.</p>
+								<p>Im Unterschied zum <code>verweis-intern</code>-Attribut müssen nicht die Konventionen des IDREF-Datentyps von XML eingehalten werden. So können beispielsweise führende Ziffern oder Sonderzeichen verwendet werden, ohne einen Wohlgeformtheits-Fehler zu verursachen.</p>
+								<p>Das <code>quelle</code>-Attribut bleibt dabei obligatorisch, um einen Re-import in das CMS sicherzustellen.</p>
+							</xs:documentation>
+							<xs:appinfo/>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="import-leseprobe" default="nein" type="ja-nein">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__attr--import-leseprobe">
+				<div class="beschreibung">
+					<p>Mit <code>import-leseprobe="ja"</code> werden beim Import nur als Leseprobe gekennzeichnete Abschnitte berücksichtigt.</p>
+				</div>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:attributeGroup name="cms.globale_attribute.extend">
+		<xs:attribute name="system-id">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--system-id" xml:id="verlag__attr--system-id">
+					<div class="beschreibung">
+						<p>Das <code>system-id</code>-Attribut kann beim Einsatz eines MAM oder CMS zur eindeutigen Identifikation von Datenbank-Objekten verwendet werden. Im Unterschied zu dem regulären <code>id</code>-Attribut müssen nicht die Konventionen des ID-Datentyps von XML eingehalten werden. So können beispielsweise führende Ziffern oder Sonderzeichen verwendet werden, ohne einen Wohlgeformtheits-Fehler zu verursachen.</p>
+					</div>
+				</xs:documentation>
+				<xs:appinfo/>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="system-referenz">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="verlag__attr--system-referenz">
+					<div class="beschreibung">
+						<p><strong role="bold">Verlagsspezifisch:</strong> Beispiel für ein verlagsspezifisches Attribut. Steht nur für den Verlag "pagina" zur Verfügung.</p>
+						<p>Das <code>system-referenz</code>-Attribut kann beim Einsatz eines MAM oder CMS verwendet werden, um den Bezug zu einem Datenbank-Objekt herzustellen. Dadurch lässt sich zum Beispiel eine Tabelle mit einer Excel-Datei verknüpfen, auf der diese Tabelle basiert.</p>
+						<p>Im Unterschied zum <code>system-verweis</code>-Attribut wird durch den Einsatz des <code>system-referenz</code>-Attributes kein Link auf eine ID erstellt. Es wird nur eine Beziehung zwischen Inhalt und Datenbank-Objekt gekennzeichnet.</p>
+						<p>Die Implementierung ist systemabhängig. Denkbar wäre zum Beispiel, dass ein System die Bearbeitung einer Tabelle in Excel erlaubt und diese dann beim Export des Assets automatisch wieder in parsX-XML überführt.</p>
+					</div>
+				</xs:documentation>
+				<xs:appinfo/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="cms.attribut_quelle.extend">
+		<xs:attribute name="system-ressource">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="verlag__attr--system-ressource">
+					<div class="beschreibung">
+						<p>Das <code>system-ressource</code>-Attribut kann beim Einsatz eines MAM oder CMS zusätzlich zum <code>quelle</code>-Attribut verwendet werden, um auf mit <code>system-id</code>-Attribut identifizierte Datenbank-Objekte zuzugreifen. Dieses steht zusätzlich zum <code>system-referenz</code>-Attribut zur Verfügung, mit dem allgemein ein Bezug zu einem Asset hergestellt werden kann.</p>
+						<p>Im Unterschied zum <code>verweis-intern</code>-Attribut müssen nicht die Konventionen des IDREF-Datentyps von XML eingehalten werden. So können beispielsweise führende Ziffern oder Sonderzeichen verwendet werden, ohne einen Wohlgeformtheits-Fehler zu verursachen.</p>
+						<p>Das <code>quelle</code>-Attribut bleibt dabei obligatorisch, um einen Re-Import in das CMS sicherzustellen.</p>
+					</div>
+				</xs:documentation>
+				<xs:appinfo/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="cms.attribut_verweis.extend">
+		<xs:attribute name="system-verweis">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="verlag__attr--system-verweis">
+					<div class="beschreibung">
+						<p>Das <code>system-verweis</code>-Attribut kann beim Einsatz eines MAM oder CMS verwendet werden, um auf mit <code>system-id</code>-Attribut identifizierte Datenbank-Objekte zu verweisen. </p>
+						<p>Im Unterschied zu dem regulären <code>verweis-intern</code>-Attribut müssen nicht die Konventionen des IDREF-Datentyps von XML eingehalten werden. So können beispielsweise führende Ziffern oder Sonderzeichen verwendet werden, ohne einen Wohlgeformtheits-Fehler zu verursachen.</p>
+					</div>
+				</xs:documentation>
+				<xs:appinfo/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+</xs:schema>

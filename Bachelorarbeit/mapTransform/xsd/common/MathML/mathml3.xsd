@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/1998/Math/MathML">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+	<xs:include schemaLocation="mathml3-content.xsd"/>
+	<xs:include schemaLocation="mathml3-presentation.xsd"/>
+	<xs:include schemaLocation="mathml3-common.xsd"/>
+</xs:schema>

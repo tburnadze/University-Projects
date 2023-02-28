@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="https://www.parsx.de/ns/4.0"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="https://www.parsx.de/ns/4.0">
+   <xs:include schemaLocation="common/parsx.basis.xsd"/>
+   <xs:include schemaLocation="common/formeln.mod.xsd"/>
+   <xs:include schemaLocation="common/dramen.mod.xsd"/>
+   <xs:include schemaLocation="common/multimedia.mod.xsd"/>
+   <xs:include schemaLocation="common/fremdleseproben.mod.xsd"/>
+   <xs:include schemaLocation="common/sammelband.mod.xsd"/>
+   <xs:include schemaLocation="common/cms.mod.xsd"/>
+   <xs:include schemaLocation="common/serials.mod.xsd"/>
+   <xs:include schemaLocation="common/generatedContent.mod.xsd"/>
+   <xs:group name="global.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="ausgabe.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:attributeGroup name="ausgabe_attribute.extend">
+      <xs:anyAttribute processContents="lax"/>
+   </xs:attributeGroup>
+   <xs:group name="auspraegung.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="dokumentation.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="verlag.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:simpleType name="verlagName.extend">
+      <xs:union memberTypes="xs:NCName"/>
+   </xs:simpleType>
+   <xs:group name="dienstleister.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="kapitel__meta.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:group name="container__meta.extend">
+      <xs:choice>
+         <xs:any minOccurs="0"
+                 maxOccurs="unbounded"
+                 namespace="##other"
+                 processContents="lax"/>
+      </xs:choice>
+   </xs:group>
+   <xs:simpleType name="semantik_einschubTyp.extend">
+      <xs:union memberTypes="xs:NCName"/>
+   </xs:simpleType>
+   <xs:simpleType name="semantik_infokastenTyp.extend">
+      <xs:union memberTypes="xs:NCName"/>
+   </xs:simpleType>
+   <xs:simpleType name="semantik_zwischentitelTyp.extend">
+      <xs:union memberTypes="xs:NCName"/>
+   </xs:simpleType>
+   <xs:simpleType name="semantik_kapitelTyp.extend">
+      <xs:union memberTypes="xs:NCName"/>
+   </xs:simpleType>
+   <xs:simpleType name="semantik_inlineTyp.extend">
+      <xs:union memberTypes="xs:NCName"/>
+   </xs:simpleType>
+   <xs:simpleType name="semantik_marginalieTyp.extend">
+      <xs:union memberTypes="xs:NCName"/>
+   </xs:simpleType>
+</xs:schema>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.parsx.de/ns/4.0" elementFormDefault="qualified">
+
+	<xs:element name="sammelband" substitutionGroup="sammelband.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__sammelband">
+				<div class="beschreibung">
+					<p>Container-Element <code>&lt;sammelband&gt;</code> zum Einbinden mehrerer vollständiger <code>&lt;projekt&gt;</code>-Elemente mit <code>&lt;import_werk&gt;</code>.</p>
+					<p>Bände eines Sammelbandes sind ursprünglich eigenständige Projekte. Sie werden deshalb als <code>&lt;projekt&gt;</code> in das neue Toplevel-Element <code>&lt;sammelband&gt;</code> eines übergeordneten Projektes eingebunden.</p>
+				</div>
+				<div class="verwendung">
+					<p>Der Sammelband kann über eigene Vor- und Nachspänne verfügen.</p>
+					<p>Mit dem optionalen <code>import-auspraegung</code>-Attribut am Import-Element kann festgelegt werden, mit welcher Auspraegung das einzubindende Werk prozessiert werden soll.</p>
+					<p>Die <code>&lt;titelei&gt;</code>-Elemente in der Sammelband-Ausprägung der eingebundenen Projekte werden zu Bandtiteleien und ersetzen das bisherige <code>&lt;zwischenblatt&gt;</code>.</p>
+					<p>Durch neue semantische <code>@typ</code>-Attributwerte an <code>&lt;abs&gt;</code> können für Bandtiteleien eigene Formatierungen umgesetzt werden.</p>
+					<p>Zwischen den <code>&lt;import_werk&gt;</code>-Elementen können <code>&lt;hauptteil&gt;</code>-Elemente für Inhalte <em>zwischen</em> den zu importierenden Werken eingefügt werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="vorspann"/>
+				<xs:choice maxOccurs="unbounded">
+					<xs:element ref="import_werk"/>
+					<xs:element ref="hauptteil"/>
+				</xs:choice>
+				<xs:element minOccurs="0" maxOccurs="unbounded" ref="nachspann"/>
+			</xs:sequence>
+			<xs:attribute name="doi">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--doi" xml:id="basis__attr--DOI">
+				<div class="beschreibung">
+					<p>Attribut für das Einfügen eines Digital Object Identifiers</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="import_werk">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__import_werk">
+				<div class="beschreibung">
+					<p>Leeres Element zum Einbinden externer parsX-Projekte in einen Sammelband.</p>
+					<div class="caution">
+						<p>Hinweis: Das Element kann nur bei Lizenzierung des Import-Modules genutzt werden. Mit Hilfe des Import-Moduls können Leseproben aus beliebigen Werken in ein E-Book importiert werden oder ganze Werke in einen Sammelband, das aus einer anderen parsX-Datei generiert wird.</p>
+					</div>
+				</div>
+				<div class="verwendung">
+					<p>Zum Einbinden von bestehenden Projekten in einen Sammelband wird das neue Element <code>&lt;sammelband&gt;</code> anstelle von <code>&lt;werk&gt;</code> notiert. Das Element kann die Vor- und Nachspänne des gesamten Sammelbandes, Importe von anderen Werken als Bände mit <code>&lt;import_werk&gt;</code> sowie Hauptteile zur Überleitung zwischen den Bänden enthalten.</p>
+					<p>Für das eingebundene Projekt können:</p>
+					<ul>
+						<li>
+							<p>in einem <code>&lt;meta&gt;</code>-Container ein <code>&lt;toctitel&gt;</code> oder <code>&lt;kolumnentitel&gt;</code> vergeben werden.</p>
+						</li>
+						<li>
+							<p>ein Deckblatt für den gesamten Band angelegt werden.</p>
+						</li>
+						<li>
+							<p>Mit den <code>@import-vorspann</code>-, <code>@import-hauptteil</code>-, <code>@import-nachspann</code>- und <code>@import-leseprobe</code>-Attributen kann der Import genauer spezifiziert werden.</p>
+						</li>
+					</ul>
+					<p>Mit <code>toc="nein"</code> kann die Aufnahme ins TOC unterdrückt werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_import">
+					<xs:sequence>
+						<xs:element ref="deckblatt" minOccurs="0"/>
+					</xs:sequence>
+					<xs:attributeGroup ref="cms.attribut_quelle.extend"/>
+					<xs:attribute use="required" name="quelle">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--quelle" xml:id="basis__attr--quelle">
+				<div class="beschreibung">
+					<p>Eingabe des Dateinamen einer externen Ressource (ohne Pfadangabe)</p>
+					<div class="caution">
+						<p>Ausnahme: Wird das <code>quelle</code>-Attribut an <code>&lt;import&gt;</code> verwendet um Inhalte aus anderen parsX-XML-Dateien einzubinden, muss ein Pfad relativ zur aktuellen parsX-XML-Datei angegeben werden.</p>
+					</div>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:simpleType xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+					<xs:attribute name="import-vorspann" default="ja" type="ja-nein">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__attr--import-vorspann">
+								<div class="beschreibung">
+									<p>Mit <code>import-vorspann="nein"</code> kann beim Import die Übernahme des Vorspanns unterdrückt werden.</p>
+								</div>
+							</xs:documentation>
+							<xs:appinfo/>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="import-hauptteil" default="ja" type="ja-nein">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__attr--import-hauptteil">
+								<div class="beschreibung">
+									<p>Mit <code>import-hauptteil="nein"</code> kann beim Import die Übernahme des Hauptteils unterdrückt werden.</p>
+								</div>
+							</xs:documentation>
+							<xs:appinfo/>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="import-nachspann" default="ja" type="ja-nein">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__attr--import-nachspann">
+								<div class="beschreibung">
+									<p>Mit <code>import-nachspann="nein"</code> kann beim Import die Übernahme des Nachspanns unterdrückt werden.</p>
+								</div>
+							</xs:documentation>
+							<xs:appinfo/>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="import-leseprobe" default="nein" type="ja-nein">
+		<xs:annotation xmlns:xlink="http://www.w3.org/1999/xlink">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="import__attr--import-leseprobe">
+				<div class="beschreibung">
+					<p>Mit <code>import-leseprobe="ja"</code> werden beim Import nur als Leseprobe gekennzeichnete Abschnitte berücksichtigt.</p>
+				</div>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://tools.parsx.de/xsd/v4.0/validate/common/parsx.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<projekt xmlns="https://www.parsx.de/ns/4.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="urn:parsx xsd/parsx.xsd"
+	version="4.0">
+	<meta>
+		<global>
+			<titel>test</titel>
+		</global>
+	</meta>
+	<werk>
+		<vorspann>
+			<import_kapitel system-ressource="in.md" format="md"/>
+		</vorspann>
+		<hauptteil>
+			<import_kapitel system-ressource="in.md" format="md"/>
+		</hauptteil>
+		<nachspann>
+			<import_kapitel system-ressource="in.md" format="md"/>
+		</nachspann>
+	</werk>
+</projekt>

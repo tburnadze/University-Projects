@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.parsx.de/ns/4.0" elementFormDefault="qualified">
+
+	<xs:element name="video" substitutionGroup="multimedia_video.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-video" xml:id="multimedia__video">
+				<div class="beschreibung">
+					<p>Block-Element zum Einbinden von Videos.</p>
+				</div>
+				<div class="verwendung">
+					<p>Innerhalb des Block-Elements können <code>&lt;legende&gt;</code> und <code>&lt;titel&gt;</code> hinzugefügt werden.</p>
+					<p>Ein neues verpflichtendes <code>&lt;quelle&gt;</code> Element kennzeichnet die Position, an der das Multimedia-Objekt ausgegeben wird.</p>
+					<p>Das verpflichtende <code>&lt;alternativinhalt&gt;</code> repräsentiert den vollständigen Inhalt des Videos.</p>
+					<p>Ein neues optionales <code>&lt;meta&gt;</code> Element gruppiert die <code>&lt;css&gt;</code> und <code>&lt;script&gt;</code> Elemente. Auch ein <code>&lt;nachweis&gt;</code> kann hier angegeben werden.</p>
+					<p>Das verpflichtende <code>vorschau</code>-Attribut bindet ein Vorschaubild ein, welches vor dem Abspielen angezeigt wird.</p>
+					<p>Das optionale <code>autoplay</code>-Attribut steuert die automatische Wiedergabe durch die <code>ja|nein</code>-Attributwerte.</p>
+					<p>Das optionale <code>wiederholung</code>-Attribut steuert die automatische Wiederholung nach dem Abspielen durch die <code>ja|nein</code>-Attributwerte.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_multimedia">
+					<xs:attribute name="vorschaubild" use="required">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--vorschaubild" xml:id="multimedia__attr--vorschaubild">
+								<div class="beschreibung">
+									<p>Attribut zum Einbinden eines Vorschaubildes, das vor dem Abspielen eines Videos angezeigt wird.</p>
+								</div>
+							</xs:documentation>
+							<xs:appinfo/>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="verzeichnis" default="video">
+						<xs:simpleType>
+							<xs:restriction base="verzeichnis">
+								<xs:enumeration value="video"/>
+								<xs:enumeration value="nein"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="audio" substitutionGroup="multimedia_audio.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-audio" xml:id="multimedia__audio">
+				<div class="beschreibung">
+					<p>Block-Element zur Einbindung von Audio-Dateien.</p>
+				</div>
+				<div class="verwendung">
+					<p>Innerhalb des Block-Elements können <code>&lt;legende&gt;</code> und <code>&lt;titel&gt;</code> hinzugefügt werden.</p>
+					<p>Ein neues optionales <code>&lt;meta&gt;</code> Element gruppiert die <code>&lt;css&gt;</code> und <code>&lt;script&gt;</code> Elemente. Auch ein <code>&lt;nachweis&gt;</code> kann hier angegeben werden.</p>
+					<p>Das verpflichtende <code>&lt;alternativinhalt&gt;</code> repräsentiert den vollständigen Inhalt des Videos.</p>
+					<p>Das optionale <code>autoplay</code>-Attribut steuert die automatische Wiedergabe durch die <code>ja|nein</code>-Attributwerte.</p>
+					<p>Das optionale <code>wiederholung</code>-Attribut steuert die automatische Wiederholung nach dem Abspielen durch die <code>ja|nein</code>-Attributwerte.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_multimedia">
+					<xs:attribute name="verzeichnis" default="audio">
+						<xs:simpleType>
+							<xs:restriction base="verzeichnis">
+								<xs:enumeration value="audio"/>
+								<xs:enumeration value="nein"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="typ_multimedia">
+		<xs:all>
+			<xs:element name="meta" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="multimedia__meta">
+						<div class="beschreibung">
+							<p>Container für elementspezifische Metadaten</p>
+						</div>
+						<div class="verwendung">
+							<p>in <code>&lt;meta&gt;</code> können Angaben zum Javascript, zum CSS oder ein Rechtenachweis hinterlegt werden</p>
+						</div>
+					</xs:documentation>
+					<xs:appinfo>
+						<schematronLink xlink:href="parsx.sch#multimedia__rule-001" xml:id="multimedia__link-001"/>
+					</xs:appinfo>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="container__meta">
+							<xs:choice minOccurs="0" maxOccurs="unbounded">
+								<xs:element ref="css"/>
+								<xs:element ref="script"/>
+							</xs:choice>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="titel" type="element_titel" minOccurs="0"/>
+			<xs:element name="quelle">
+				<xs:complexType>
+					<xs:annotation>
+						<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="multimedia__quelle">
+							<div class="beschreibung">
+								<p>Container für <code>&lt;format&gt;</code>-Elemente, die die Video- oder Audio-Datei referenzieren.</p>
+							</div>
+							<div class="verwendung">
+								<p>Das Element kennzeichnet die Position, an der das Multimedia-Objekt ausgegeben werden soll. Dadurch kann die Reihenfolge für Titel, Legende und Multimedia-Objekt festgelegt werden. <code>&lt;quelle&gt;</code> enthält mindestens ein <code>&lt;format&gt;</code>, um die Video- oder Audio-Datei zu referenzieren</p>
+							</div>
+						</xs:documentation>
+					</xs:annotation>
+					<xs:choice maxOccurs="unbounded">
+						<xs:element ref="format"/>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			<xs:element ref="legende" minOccurs="0"/>
+			<xs:element ref="alternativinhalt">
+				<xs:annotation>
+					<xs:appinfo>
+						<schematronLink xlink:href="parsx.sch#multimedia__rule-002" xml:id="multimedia__link-002"/>
+					</xs:appinfo>
+				</xs:annotation>
+			</xs:element>
+		</xs:all>
+
+		<xs:attributeGroup ref="multimedia.allgemeine_attribute.extend"/>
+		<xs:attribute name="typ" type="typ.nummern"/>
+		<xs:attributeGroup ref="globale_attribute"/>
+		<xs:attribute use="optional" name="auspraegung" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zur Zuordnung von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Die Struktur kann einer oder mehreren Ausprägungen zugeordnet werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden der Struktur alle Ausprägungen dieser Ausgabe zugeordnet.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+		<xs:attribute use="optional" name="auspraegung-ausschluss" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung-ausschluss">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zum Ausschließen von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Einer oder mehrere Ausprägungen können von der Zuordnung zu der Struktur ausgenommen werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden alle Ausprägungen dieser Ausgabe von der Zuordnung zu der Struktur ausgenommen.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+		<xs:attribute default="ja" name="ebook" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--ebook" xml:id="basis__attr--ebook">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente bei der Ausgabe als E-Book (Standardwert ist <code>ebook="ja"</code>).</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+		<xs:attribute fixed="nein" name="print" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--print" xml:id="basis__attr--print">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente im Print (Standardwert ist <code>print="ja"</code>)</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+	</xs:complexType>
+
+	<xs:element name="format">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-format" xml:id="multimedia__format">
+				<div class="beschreibung">
+					<p>Leeres Element zur Angabe des Formates von eingebundenen Video- oder Audio-Dateien</p>
+				</div>
+				<div class="verwendung">
+					<p>Das verpflichtende <code>mime-type</code>-Attribut kennzeichnet den Mime-Typ einer Video- bzw. Audio-Datei.</p>
+					<p>Das verpflichtende <code>quelle</code>-Attribut gibt den Dateinamen der jeweiligen Datei an.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+
+			<xs:attribute name="codec">
+				<xs:annotation>
+					<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--codec" xml:id="multimedia__attr--codec">
+						<div class="beschreibung">
+							<p>Angabe des verwendeten Codecs eingebundener Audio- und Video-Dateien.</p>
+						</div>
+					</xs:documentation>
+					<xs:appinfo/>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="mime-type" use="required">
+				<xs:annotation>
+					<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--mime-type" xml:id="multimedia__attr--mime-type">
+						<div class="beschreibung">
+							<p>Attribut zum Kennzeichnen des Mime-Types einer eingebundenen Audio- oder Video-Datei.</p>
+						</div>
+					</xs:documentation>
+					<xs:appinfo/>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute use="required" name="quelle">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--quelle" xml:id="basis__attr--quelle">
+				<div class="beschreibung">
+					<p>Eingabe des Dateinamen einer externen Ressource (ohne Pfadangabe)</p>
+					<div class="caution">
+						<p>Ausnahme: Wird das <code>quelle</code>-Attribut an <code>&lt;import&gt;</code> verwendet um Inhalte aus anderen parsX-XML-Dateien einzubinden, muss ein Pfad relativ zur aktuellen parsX-XML-Datei angegeben werden.</p>
+					</div>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:simpleType xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+			<xs:attributeGroup ref="cms.attribut_quelle.extend"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="script" substitutionGroup="multimedia.script.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-script" xml:id="multimedia__script">
+				<div class="beschreibung">
+					<p>Element zum Referenzieren einer externen JavaScript-Datei.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute use="required" name="quelle">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--quelle" xml:id="basis__attr--quelle">
+				<div class="beschreibung">
+					<p>Eingabe des Dateinamen einer externen Ressource (ohne Pfadangabe)</p>
+					<div class="caution">
+						<p>Ausnahme: Wird das <code>quelle</code>-Attribut an <code>&lt;import&gt;</code> verwendet um Inhalte aus anderen parsX-XML-Dateien einzubinden, muss ein Pfad relativ zur aktuellen parsX-XML-Datei angegeben werden.</p>
+					</div>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:simpleType xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+			<xs:attributeGroup ref="cms.attribut_quelle.extend"/>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="css" substitutionGroup="multimedia.css.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-css" xml:id="multimedia__css">
+				<div class="beschreibung">
+					<p>Leeres Element zum Einbinden von CSS-Dateien für die Präsentation von Audio- und Video-Dateien sowie Slideshows auf Lesegeräten.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attribute use="required" name="quelle">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--quelle" xml:id="basis__attr--quelle">
+				<div class="beschreibung">
+					<p>Eingabe des Dateinamen einer externen Ressource (ohne Pfadangabe)</p>
+					<div class="caution">
+						<p>Ausnahme: Wird das <code>quelle</code>-Attribut an <code>&lt;import&gt;</code> verwendet um Inhalte aus anderen parsX-XML-Dateien einzubinden, muss ein Pfad relativ zur aktuellen parsX-XML-Datei angegeben werden.</p>
+					</div>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:simpleType xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:restriction base="xs:string">
+				<xs:minLength value="1"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+			<xs:attributeGroup ref="cms.attribut_quelle.extend"/>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="alternativinhalt">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-alternativinhalt" xml:id="basis__alternativinhalt">
+				<div class="beschreibung">
+					<p>Container-Element für Inhalte, die ausgegeben werden, wenn das Lesegerät keine Audio- bzw. Video-Dateien abspielen kann.</p>
+					<!-- <ul>
+						<h3>Geändert in Version 3.1:</h3>
+						<li>
+							<p>Inhaltsmodell von <code>&lt;alternativinhalt&gt;</code> erweitert um %liste;, <code>&lt;leerzeile&gt;</code>, <code>&lt;gedicht&gt;</code>, <code>&lt;abbildung&gt;</code>, <code>&lt;abb_aufruf&gt;</code>, <code>&lt;tabelle&gt;</code>, <code>&lt;tab_aufruf&gt;</code>, <code>&lt;u-zwischen&gt;</code>, <code>&lt;einschub&gt;</code> und <code>&lt;bildgruppe&gt;</code> mit Häufigkeits-Operator "1 bis unendlich viele".</p>
+						</li>
+					</ul> -->
+				</div>
+				<div class="verwendung">
+					<p>Zulässig sind die meisten Elemente, die auch innerhalb eines Kapitels zulässig sind.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="titel" type="element_titel" minOccurs="0"/>
+				<xs:choice maxOccurs="unbounded">
+					<!-- kapitel_blocks_basis ohne multimedia.extend -->
+					<xs:element ref="abs"/>
+					<xs:element name="einschub" type="container__einschub"/>
+					<xs:element name="infokasten" type="container__infokasten"/>
+					<xs:group ref="listen"/>
+					<xs:element ref="gedicht"/>
+					<xs:element ref="formel_block.extend"/>
+					<xs:element ref="codeblock"/>
+					<xs:element ref="leerzeile"/>
+					<xs:element ref="bild"/>
+					<xs:element ref="bildgruppe"/>
+					<xs:element ref="tabelle"/>
+					<xs:element ref="zwischentitel"/>
+					<xs:element ref="dramen_block.extend"/>
+				</xs:choice>
+			</xs:sequence>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:group name="multimedia.extend">
+		<xs:choice>
+			<xs:element ref="video"/>
+			<xs:element ref="audio"/>
+		</xs:choice>
+	</xs:group>
+
+	<xs:attributeGroup name="multimedia.allgemeine_attribute.extend">
+		<xs:attribute name="hoehe">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--hoehe" xml:id="basis__attr--hoehe">
+				<div class="beschreibung">
+					<p>Zur Steuerung der Höhe einer Abbildung oder eines Multimedia-Elements</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+		<xs:attribute name="breite">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--breite" xml:id="basis__attr--breite">
+				<div class="beschreibung">
+					<p>Zur Steuerung der Breite einer Abbildung oder eines Multimedia-Elements.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+		<xs:attribute name="wiederholung" type="ja-nein" default="nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--wiederholung" xml:id="multimedia__attr--wiederholung">
+					<div class="beschreibung">
+						<p>Das Attribut legt fest, ob eine Video- bzw. Audio-Datei nach der Wiedergabe automatisch wiederholt werden soll.</p>
+						<!-- +++ ticket 11466: @wiederholung bei <bildgruppen> -->
+					</div>
+				</xs:documentation>
+				<xs:appinfo/>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="autoplay" type="ja-nein" default="nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--autoplay" xml:id="multimedia__attr--autoplay">
+					<div class="beschreibung">
+						<!-- +++ ticket 11466: [XSD] ESR @autoplay bei <bildgruppen> -->
+						<p>Attribut zum Steuern der automatischen Wiedergabe von eingebundenen Audio- oder Video-Dateien.</p>
+					</div>
+				</xs:documentation>
+				<xs:appinfo/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:attributeGroup name="multimedia.bildgruppe_attribute.extend">
+		<xs:attributeGroup ref="multimedia.allgemeine_attribute.extend"/>
+		<xs:attribute name="slideshow" type="ja-nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--slideshow" xml:id="multimedia__attr--slideshow">
+					<div class="beschreibung">
+						<p>Attribut zum Kennzeichnen einer <code>&lt;bildgruppe&gt;</code> für die Umsetzung als Slideshow im E-Book.</p>
+					</div>
+				</xs:documentation>
+				<xs:appinfo>
+					<schematronLink xlink:href="parsx.sch#multimedia__rule-003" xml:id="multimedia__link-003"/>
+				</xs:appinfo>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:simpleType name="multimedia.typisierung_name.extend">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="video"/>
+			<xs:enumeration value="audio"/>
+			<xs:enumeration value="popup_inline"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="popup_inline" substitutionGroup="multimedia.inline.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__popup_inline">
+				<div class="beschreibung">
+					<p>Inline-Element zur Anzeige eines Popups im Fließtext</p>
+				</div>
+				<div class="verwendung">
+					<p><code>&lt;popup_inline&gt;</code> umschließt einen Titel, der im Fließtext angezeigt wird und Inhalt (Block-Elemente), der als Popup eingeblendet werden kann.</p>
+					<p>Die Gestaltung des Elements kann über ein <code>typ</code>-Attribut gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Schrift- und sonstige Textauszeichnungen werden zusätzlich ausgezeichnet.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo>
+				<schematronLink xlink:href="parsx.sch#multimedia__rule-004" xml:id="multimedia__link-004"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="titel" type="element_titel" minOccurs="0"/>
+				<xs:group ref="eintrag-marginalie-popup_inline-legende" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute default="ja" name="popup" type="ja-nein">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--popup" xml:id="basis__attr--popup">
+				<div class="beschreibung">
+					<p>Legt fest, dass ein <code>&lt;einschub&gt;</code> oder <code>&lt;infokasten&gt;</code> oder <code>&lt;popup_inline&gt;</code> als Popup angezeigt wird</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute name="typ" type="typ.nummern"/>
+			<xs:attribute name="verzeichnis" default="popup_inline">
+				<xs:simpleType>
+					<xs:restriction base="verzeichnis">
+						<xs:enumeration value="popup_inline"/>
+						<xs:enumeration value="nein"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attributeGroup ref="globale_attribute"/>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+		</xs:complexType>
+	</xs:element>
+
+	
+
+	<xs:attributeGroup name="multimedia.einschub_attribute.extend">
+		<xs:attribute default="nein" name="popup" type="ja-nein">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--popup" xml:id="basis__attr--popup">
+				<div class="beschreibung">
+					<p>Legt fest, dass ein <code>&lt;einschub&gt;</code> oder <code>&lt;infokasten&gt;</code> oder <code>&lt;popup_inline&gt;</code> als Popup angezeigt wird</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+	</xs:attributeGroup>
+
+</xs:schema>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.parsx.de/ns/4.0" elementFormDefault="qualified">
+
+	<xs:import namespace="http://www.w3.org/1998/Math/MathML" schemaLocation="MathML/mathml3.xsd"/>
+
+	<xs:element name="formel_inline" substitutionGroup="formel_inline.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__formel_inline">
+				<div class="beschreibung">
+					<p>Container für eine mathematische Formel innerhalb einer Textzeile.</p>
+				</div>
+				<div class="verwendung">
+					<p>Die Formel kann als MathML (Element <code>&lt;m:math&gt;</code>) oder als Abbildung eingebunden werden.</p>
+					<p><code>&lt;abbildung&gt;</code> ist dabei als Hauptinhalt zulässig, oder als Alternative zu MathML (für Anwendungen die kein MathML unterstützt). Mit dem <code>praeferenz</code>-Attribut kann festgelegt werden welche Variante vorzugsweise eingebunden werden soll.</p>
+					<p>Mit dem <code>ersatztext</code>-Attribut kann eine textliche Beschreibung der Formel z.B. für Screenreader hinterlegt werden.</p>
+					<p>Die Gestaltung des Elements kann über ein <code>typ</code>Attribut gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Das Element kann mit einem <code>&lt;nachweis&gt;</code> in einem <code>&lt;meta&gt;</code>-Container versehen werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="meta" type="container__meta" minOccurs="0"/>
+				<xs:element ref="m:math" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Wurzelelement für MathML-Strukturen</xs:documentation>
+						<xs:appinfo/>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="abbildung" minOccurs="0"/>
+			</xs:all>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+			<xs:attribute name="typ" type="typ.nummern"/>
+			<xs:attribute name="verzeichnis" default="nein">
+				<xs:simpleType>
+					<xs:restriction base="verzeichnis">
+						<xs:enumeration value="formel"/>
+						<xs:enumeration value="abbildung"/>
+						<xs:enumeration value="nein"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ersatztext">
+		<xs:annotation xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--ersatztext" xml:id="basis__attr--ersatztext">
+				<div class="beschreibung">
+					<p>Angabe eines Ersatztextes für Abbildungen, Formeln, Verweise und Multimedia-Elemente analog zum <code>alt</code>-Attribut in HTML.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="math" name="praeferenz">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--relevanz" xml:id="basis__attr--praeferenz">
+				<div class="beschreibung">
+					<p>Attribut zum Kennzeichnen der Präferenz für die Ausgabe von Formeln als MathML oder als Grafik.</p>
+				</div>
+				<div class="verwendung">
+					<p>In einem <code>&lt;formel&gt;</code> oder <code>&lt;formel_inline&gt;</code>-Container kann der Hauptinhalt sowohl als <code>&lt;m:math&gt;</code>-Element wie auch als <code>&lt;abbildung&gt;</code> bereitgestellt werden.</p>
+					<p>Mit dem <code>&lt;praeferenz&gt;</code>-Attribut kann angegeben werden, welche Variante vorzugsweise eingebunden werden soll.</p></div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:token">
+				<xs:enumeration value="math"/>
+				<xs:enumeration value="abbildung"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="formel" substitutionGroup="formel_block.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__formel">
+				<div class="beschreibung">
+					<p>Container für eine mathematische Formel als Block- oder Container-Element, optional mit Nachweis, Titel oder Legende.</p>
+				</div>
+				<div class="verwendung">
+					<p>Die Formel kann als MathML (Element <code>&lt;m:math&gt;</code>) oder als Abbildung eingebunden werden.</p>
+					<p><code>&lt;abbildung&gt;</code> ist dabei als Hauptinhalt zulässig, oder als Alternative zu MathML (für Anwendungen die kein MathML unterstützt). Mit dem <code>praeferenz</code>-Attribut kann festgelegt werden welche Variante vorzugsweise eingebunden werden soll.</p>
+					<p>Die Aufnahme in ein Formel- oder Abbildungsverzeichnis kann mit dem <code>verzeichnis</code>-Attribut vorgesehen oder ausgeschlossen werden.</p>
+					<p>Mit dem <code>ersatztext</code>-Attribut kann eine textliche Beschreibung der Formel z.B. für Screenreader hinterlegt werden.</p>
+					<p>Die Gestaltung des Elements kann über ein <code>typ</code>Attribut gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Das Element kann mit einem <code>&lt;nachweis&gt;</code> in einem <code>&lt;meta&gt;</code>-Container versehen werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo>
+				<schematronLink xlink:href="parsx.sch#formeln__rule-001" xml:id="formeln__link-001"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="meta" type="container__meta" minOccurs="0"/>
+				<xs:element minOccurs="0" name="titel" type="element_titel"/>
+				<xs:element ref="m:math" minOccurs="0">
+					<xs:annotation>
+						<xs:documentation>Wurzelelement für MathML-Strukturen</xs:documentation>
+						<xs:appinfo/>
+					</xs:annotation>
+				</xs:element>
+				<xs:element ref="abbildung" minOccurs="0"/>
+				<xs:element ref="legende" minOccurs="0"/>
+			</xs:all>
+			<xs:attribute name="ausrichtung">
+				<xs:simpleType>
+					<xs:restriction base="ausricht.abbildung-tabelle-formel">
+						<xs:enumeration value="links"/>
+						<xs:enumeration value="rechts"/>
+						<xs:enumeration value="zentriert"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+			<xs:attribute name="typ" type="typ.nummern"/>
+			<xs:attribute name="verzeichnis" default="formel">
+				<xs:simpleType>
+					<xs:restriction base="verzeichnis">
+						<xs:enumeration value="formel"/>
+						<xs:enumeration value="abbildung"/>
+						<xs:enumeration value="nein"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="ersatztext">
+		<xs:annotation xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--ersatztext" xml:id="basis__attr--ersatztext">
+				<div class="beschreibung">
+					<p>Angabe eines Ersatztextes für Abbildungen, Formeln, Verweise und Multimedia-Elemente analog zum <code>alt</code>-Attribut in HTML.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="math" name="praeferenz">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--relevanz" xml:id="basis__attr--praeferenz">
+				<div class="beschreibung">
+					<p>Attribut zum Kennzeichnen der Präferenz für die Ausgabe von Formeln als MathML oder als Grafik.</p>
+				</div>
+				<div class="verwendung">
+					<p>In einem <code>&lt;formel&gt;</code> oder <code>&lt;formel_inline&gt;</code>-Container kann der Hauptinhalt sowohl als <code>&lt;m:math&gt;</code>-Element wie auch als <code>&lt;abbildung&gt;</code> bereitgestellt werden.</p>
+					<p>Mit dem <code>&lt;praeferenz&gt;</code>-Attribut kann angegeben werden, welche Variante vorzugsweise eingebunden werden soll.</p></div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:simpleType>
+			<xs:restriction base="xs:token">
+				<xs:enumeration value="math"/>
+				<xs:enumeration value="abbildung"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="formeln_typisierung_name.extend">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="formel"/>
+			<xs:enumeration value="formel_inline"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	
+	
+</xs:schema>

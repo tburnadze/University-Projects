@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/1998/Math/MathML">
+	<xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+	<xs:import namespace="https://www.parsx.de/ns/4.0" schemaLocation="../parsx.basis.xsd"/>
+	<xs:element name="math">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:MathExpression"/>
+			<xs:attributeGroup ref="m:math.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="CommonDeprecatedAtt">
+		<xs:attribute name="other">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="CommonAtt">
+		<xs:attributeGroup ref="parsx:globale_attribute"/>
+		<xs:attribute name="xref">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="class" type="xs:NMTOKENS">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="style" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="href" type="xs:anyURI">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attributeGroup ref="m:CommonDeprecatedAtt"/>
+		<xs:anyAttribute namespace="##other" processContents="skip"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="math.deprecatedattributes">
+		<xs:attribute name="mode" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="macros" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="name">
+		<xs:attribute name="name" type="xs:NCName" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="cd">
+		<xs:attribute name="cd" type="xs:NCName" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="src">
+		<xs:attribute name="src" type="xs:anyURI">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="annotation">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:attributeGroup ref="m:annotation.attributes"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="annotation-xml.model">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:group ref="m:MathExpression"/>
+			<xs:group ref="m:anyElement"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:group name="anyElement">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:any namespace="##other" processContents="skip"/>
+			<xs:any namespace="##local" processContents="skip"/>
+		</xs:choice>
+	</xs:group>
+	<xs:element name="annotation-xml">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="m:annotation-xml.model">
+					<xs:attributeGroup ref="m:annotation.attributes"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="annotation.attributes">
+		<xs:attributeGroup ref="m:CommonAtt"/>
+		<xs:attribute name="cd" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attributeGroup ref="m:DefEncAtt"/>
+		<xs:attributeGroup ref="m:src"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="DefEncAtt">
+		<xs:attribute name="encoding" type="xs:string">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="definitionURL" type="xs:anyURI">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:group name="semantics">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="semantics">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:group ref="m:MathExpression"/>
+						<xs:choice maxOccurs="unbounded" minOccurs="0">
+							<xs:element ref="m:annotation"/>
+							<xs:element ref="m:annotation-xml"/>
+						</xs:choice>
+					</xs:sequence>
+					<xs:attributeGroup ref="m:semantics.attributes"/>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:group>
+	<xs:attributeGroup name="semantics.attributes">
+		<xs:attributeGroup ref="m:CommonAtt"/>
+		<xs:attributeGroup ref="m:DefEncAtt"/>
+		<xs:attribute name="cd" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="name" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:simpleType name="length">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\s*((-?[0-9]*([0-9]\.?|\.[0-9])[0-9]*(e[mx]|in|cm|mm|p[xtc]|%)?)|(negative)?((very){0,2}thi(n|ck)|medium)mathspace)\s*"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

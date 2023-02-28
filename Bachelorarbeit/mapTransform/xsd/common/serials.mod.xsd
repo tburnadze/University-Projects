@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.parsx.de/ns/4.0" elementFormDefault="qualified">
+
+	<xs:attributeGroup name="serials_kapitel.extend">
+		<xs:attribute name="serials-split" type="ja-nein" default="nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--serials-split" xml:id="serials__attr--serials-split">
+					<div class="beschreibung">
+						<p>Attribut zum Kennzeichnen von Kapiteln für das Ausspielen als eigene Publikation mit dem Serials-Generator.</p>
+					</div>
+					<div class="verwendung">
+						<p>Mit <code>serial-split="ja"</code> können Kapitel im <code>&lt;hauptteil&gt;</code> als Beginn einer Teilpublikation zum Ausspielen mit dem Serials-Generator gekennzeichnet werden. Ein solcher "Serial" reicht immer von einem <code>&lt;kapitel serial-split="ja"&gt;</code> bis zum nächsten (kann also auch mehrere Kapitel umfassen).</p>
+					</div>
+				</xs:documentation>
+				<xs:appinfo/>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+</xs:schema>

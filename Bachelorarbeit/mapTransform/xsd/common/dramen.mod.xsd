@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.parsx.de/ns/4.0" elementFormDefault="qualified">
+
+	<xs:element name="sprecher">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-sprecher" xml:id="dramen__sprecher">
+				<div class="beschreibung">
+					<p>Block-Element für den Namen des Sprechers im Dramensatz.</p>
+					<!-- <ul>
+						<h3>Geändert in Version 3.0:</h3>
+						<li>
+							<p><code>&lt;sprecher&gt;</code> steht nun nicht mehr im Wechsel mit <code>&lt;sprechertext&gt;</code>, sondern zusammen mit dem zugeordneten Text in <code>&lt;rede&gt;</code></p>
+						</li>
+					</ul> -->
+				</div>
+				<div class="verwendung">
+					<p>Eine an den Sprechernamen angehängte Regieanweisung wird mit <code>&lt;regie_inline&gt;</code> innerhalb <code>&lt;sprecher&gt;</code> ausgezeichnet.</p>
+					<p><code>&lt;rede&gt;</code> kann auch ohne <code>&lt;sprecher&gt;</code> gesetzt werden, etwa wenn der Sprecher bereits in einer Regieanweisung genannt wurde.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:group ref="werk_umfassend" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:attribute use="optional" name="auspraegung" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zur Zuordnung von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Die Struktur kann einer oder mehreren Ausprägungen zugeordnet werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden der Struktur alle Ausprägungen dieser Ausgabe zugeordnet.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute use="optional" name="auspraegung-ausschluss" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung-ausschluss">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zum Ausschließen von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Einer oder mehrere Ausprägungen können von der Zuordnung zu der Struktur ausgenommen werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden alle Ausprägungen dieser Ausgabe von der Zuordnung zu der Struktur ausgenommen.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="ebook" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--ebook" xml:id="basis__attr--ebook">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente bei der Ausgabe als E-Book (Standardwert ist <code>ebook="ja"</code>).</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="print" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--print" xml:id="basis__attr--print">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente im Print (Standardwert ist <code>print="ja"</code>)</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="rede">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-rede" xml:id="dramen__rede">
+				<div class="beschreibung">
+					<p>Block-Element für den Sprechertext im Dramensatz.</p>
+				</div>
+				<div class="verwendung">
+					<p><code>&lt;rede&gt;</code> umfasst im Dramensatz von den Personen gesprochenen Text, der in Absätze, Verse und Strophen gegliedert ist. Für in den Text eingeschaltete Regieanweisungen steht <code>&lt;regie_inline&gt;</code>, für Regieanweisungen außerhalb des Sprechertexts steht <code>&lt;regie&gt;</code> zur Verfügung.</p>
+					<p><code>&lt;rede&gt;</code> kann neben Absätzen auch Leerzeilen, <code>&lt;gedicht&gt;</code> und weitere Elemente enthalten.</p>
+					<!-- <ul>
+						<h3>Geändert in Version 3.0</h3>
+						<li>
+							<p><code>&lt;rede&gt;</code> umfasst den Sprecher und den gesprochenen Text</p>
+						</li>
+						<li>
+							<p>sowohl <code>&lt;sprecher&gt;</code> als auch Text sind optional</p>
+						</li>
+						<li>
+							<p>gegenüber dem früheren <code>&lt;sprechertext&gt;</code>Element wurde das Inhaltsmodell um <code>&lt;leerzeile&gt;</code>, <code>&lt;u-zwischen&gt;</code>, <code>&lt;einschub&gt;</code>, <code>&lt;infokasten&gt;</code> erweitert, für Liedstrophen etc. wird nun <code>&lt;gedicht&gt;</code> statt nur <code>&lt;strophe&gt;</code> verwendet.</p>
+						</li>
+						<li>
+							<p><code>&lt;regie&gt;</code> erzwingt <em role="italic">keine</em> neue <code>&lt;szene&gt;</code> mehr</p>
+						</li>
+						<li>
+							<p>Das Element hat ein <code>@typ</code>-Attribut</p>
+						</li>
+					</ul> -->
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" ref="sprecher"/>
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="abs"/>
+					<xs:element ref="vers"/>
+					<xs:element ref="gedicht"/>
+					<xs:element ref="leerzeile"/>
+					<xs:element ref="zwischentitel"/>
+					<xs:element name="einschub" type="container__einschub"/>
+					<xs:element name="infokasten" type="container__infokasten"/>
+				</xs:choice>
+			</xs:sequence>
+
+			<xs:attribute use="optional" name="auspraegung" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zur Zuordnung von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Die Struktur kann einer oder mehreren Ausprägungen zugeordnet werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden der Struktur alle Ausprägungen dieser Ausgabe zugeordnet.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute use="optional" name="auspraegung-ausschluss" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung-ausschluss">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zum Ausschließen von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Einer oder mehrere Ausprägungen können von der Zuordnung zu der Struktur ausgenommen werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden alle Ausprägungen dieser Ausgabe von der Zuordnung zu der Struktur ausgenommen.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="ebook" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--ebook" xml:id="basis__attr--ebook">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente bei der Ausgabe als E-Book (Standardwert ist <code>ebook="ja"</code>).</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="print" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--print" xml:id="basis__attr--print">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente im Print (Standardwert ist <code>print="ja"</code>)</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attributeGroup ref="globale_attribute"/>
+			<xs:attribute name="typ" type="typ.nummern"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="regie">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-regie" xml:id="dramen__regie">
+				<div class="beschreibung">
+					<p>Container-Element für Regieanweisungen im Dramensatz.</p>
+					<!-- <ul>
+						<h3>Geändert in Version 3.0:</h3>
+						<li>
+							<p><code>&lt;regie&gt;</code> kann nun typisiert werden.</p>
+						</li>
+					</ul> -->
+				</div>
+				<div class="verwendung">
+					<p>Regieanweisungen können neben Absätzen auch Leerzeilen, Einschübe und weitere Elemente enthalten.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="abs"/>
+				<xs:element ref="gedicht"/>
+				<xs:element ref="leerzeile"/>
+				<xs:element ref="zwischentitel"/>
+				<xs:element name="einschub" type="container__einschub"/>
+				<xs:element name="infokasten" type="container__infokasten"/>
+			</xs:choice>
+			<xs:attribute use="optional" name="auspraegung" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zur Zuordnung von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Die Struktur kann einer oder mehreren Ausprägungen zugeordnet werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden der Struktur alle Ausprägungen dieser Ausgabe zugeordnet.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute use="optional" name="auspraegung-ausschluss" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung-ausschluss">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zum Ausschließen von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Einer oder mehrere Ausprägungen können von der Zuordnung zu der Struktur ausgenommen werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden alle Ausprägungen dieser Ausgabe von der Zuordnung zu der Struktur ausgenommen.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="ebook" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--ebook" xml:id="basis__attr--ebook">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente bei der Ausgabe als E-Book (Standardwert ist <code>ebook="ja"</code>).</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="print" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--print" xml:id="basis__attr--print">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente im Print (Standardwert ist <code>print="ja"</code>)</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attributeGroup ref="globale_attribute"/>
+			<xs:attribute name="typ" type="typ.nummern"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="regie_inline" substitutionGroup="dramen_inline.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-regie_inline" xml:id="dramen__regie_inline">
+				<div class="beschreibung">
+					<p>Inline-Element zur Kennzeichnung von Regieanweisungen im Fließtext.</p>
+				</div>
+				<div class="verwendung">
+					<p>Für einzelne Regieanweisungen, die in den laufenden Sprecherext eingeschaltet oder an den Sprechernamen angehängt werden. Für Regieanweisungen außerhalb des Sprechertexts ist das Block-Element <code>&lt;regie&gt;</code> vorgesehen.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:group ref="werk_umfassend" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="szene" substitutionGroup="dramen_block.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-szene" xml:id="dramen__szene">
+				<div class="beschreibung">
+					<p>Container für Dramenstrukturen.</p>
+					<!-- <ul>
+						<h3>Geändert in Version 3.0:</h3>
+						<li>
+							<p>Überschriften nach dem Überschriftsmodell entfernt, <code>&lt;u-zwischen&gt;</code> hinzugefügt</p>
+						</li>
+						<li>
+							<p>neues Inhaltsmodell mit <code>&lt;rede&gt;</code> statt <code>&lt;sprecher&gt;</code> und <code>&lt;sprechertext&gt;</code>.</p>
+						</li>
+					</ul> -->
+				</div>
+				<div class="verwendung">
+					<p>Das Element umfasst Dramensatz mit Sprechernamen, Sprechertexten und Regieanweisungen innerhalb eines Kapitels.</p>
+					<p><code>&lt;szene&gt;</code> ist nicht hierarchiebildend, Überschriften innerhalb von Blockstrukturen können mit <code>&lt;zwischentitel&gt;</code> gekennzeichnet werden.</p>
+					<p>Das Element kann auch in einem Einschub ggf. mit <code>&lt;nachweis&gt;</code>, <code>&lt;titel&gt;</code> oder <code>&lt;legende&gt;</code> verwendet werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element ref="rede"/>
+				<xs:element ref="regie"/>
+				<xs:element ref="leerzeile"/>
+				<xs:element ref="bild"/>
+				<xs:element ref="zwischentitel"/>
+				<xs:element ref="einschub"/>
+				<xs:element ref="infokasten"/>
+				<xs:element ref="leseprobe_start"/>
+				<xs:element ref="leseprobe_ende"/>
+			</xs:choice>
+			<xs:attribute use="optional" name="auspraegung" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zur Zuordnung von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Die Struktur kann einer oder mehreren Ausprägungen zugeordnet werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden der Struktur alle Ausprägungen dieser Ausgabe zugeordnet.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute use="optional" name="auspraegung-ausschluss" type="xs:IDREFS">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--auspraegung-ausschluss">
+				<div class="beschreibung">
+					<p>Liste mit ID-Referenzen zum Ausschließen von Ausprägungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Einer oder mehrere Ausprägungen können von der Zuordnung zu der Struktur ausgenommen werden. Dazu werden die IDs der jeweiligen Ausprägungen durch Leerzeichen getrennt notiert.</p>
+					<p>Es lassen sich auch die IDs von Ausgaben notieren. In diesem Fall werden alle Ausprägungen dieser Ausgabe von der Zuordnung zu der Struktur ausgenommen.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="ebook" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--ebook" xml:id="basis__attr--ebook">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente bei der Ausgabe als E-Book (Standardwert ist <code>ebook="ja"</code>).</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attribute default="ja" name="print" type="ja-nein">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--print" xml:id="basis__attr--print">
+				<div class="beschreibung">
+					<p>Zum Ausblenden bestimmter Elemente im Print (Standardwert ist <code>print="ja"</code>)</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+			<xs:attributeGroup ref="globale_attribute"/>
+			<xs:attribute name="typ" type="typ.nummern"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:simpleType name="dramen_typisierung_name.extend">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="szene"/>
+			<xs:enumeration value="regie"/>
+			<xs:enumeration value="rede"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+</xs:schema>

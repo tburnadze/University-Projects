@@ -1,0 +1,1810 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.w3.org/1998/Math/MathML">
+	<xs:include schemaLocation="mathml3-strict-content.xsd"/>
+	<xs:complexType mixed="true" name="cn.content">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element ref="m:mglyph"/>
+			<xs:element ref="m:sep"/>
+			<xs:element ref="m:PresentationExpression"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:attributeGroup name="cn.attributes">
+		<xs:attributeGroup ref="m:CommonAtt"/>
+		<xs:attributeGroup ref="m:DefEncAtt"/>
+		<xs:attribute name="type">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="base">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="ci.attributes">
+		<xs:attributeGroup ref="m:CommonAtt"/>
+		<xs:attributeGroup ref="m:DefEncAtt"/>
+		<xs:attribute name="type">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="ci.type">
+		<xs:attribute name="type" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType mixed="true" name="ci.content">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element ref="m:mglyph"/>
+			<xs:element ref="m:PresentationExpression"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:attributeGroup name="csymbol.attributes">
+		<xs:attributeGroup ref="m:CommonAtt"/>
+		<xs:attributeGroup ref="m:DefEncAtt"/>
+		<xs:attribute name="type">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="cd" type="xs:NCName">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:complexType mixed="true" name="csymbol.content">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice maxOccurs="unbounded" minOccurs="0">
+			<xs:element ref="m:mglyph"/>
+			<xs:element ref="m:PresentationExpression"/>
+		</xs:choice>
+	</xs:complexType>
+	<xs:element name="bvar">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded" minOccurs="0">
+				<xs:choice>
+					<xs:element ref="m:ci"/>
+					<xs:group ref="m:semantics-ci"/>
+				</xs:choice>
+				<xs:element ref="m:degree"/>
+			</xs:choice>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="cbytes.attributes">
+		<xs:attributeGroup ref="m:CommonAtt"/>
+		<xs:attributeGroup ref="m:DefEncAtt"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="cs.attributes">
+		<xs:attributeGroup ref="m:CommonAtt"/>
+		<xs:attributeGroup ref="m:DefEncAtt"/>
+	</xs:attributeGroup>
+	<!--Ambiguous content model altered (apply.content)-->
+	<xs:complexType name="apply.content">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:group ref="m:ContExp"/>
+			<xs:group ref="m:BvarQ"/>
+			<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:Qualifier"/>
+			<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:ContExp"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="bind.content">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexContent>
+			<xs:extension base="m:apply.content"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:attributeGroup name="base">
+		<xs:attribute name="base" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="sep">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType/>
+	</xs:element>
+	<xs:element abstract="true" name="PresentationExpression">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:group name="DomainQ">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:choice maxOccurs="unbounded" minOccurs="0">
+				<xs:element ref="m:domainofapplication"/>
+				<xs:element ref="m:condition"/>
+				<!--Ambiguous content model altered (interval)-->
+				<xs:sequence>
+					<xs:element ref="m:lowlimit"/>
+					<xs:element minOccurs="0" ref="m:uplimit"/>
+				</xs:sequence>
+			</xs:choice>
+		</xs:sequence>
+	</xs:group>
+	<xs:element name="domainofapplication">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="condition">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="uplimit">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="lowlimit">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="Qualifier">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:group ref="m:DomainQ"/>
+			<xs:element ref="m:degree"/>
+			<xs:element ref="m:momentabout"/>
+			<xs:element ref="m:logbase"/>
+		</xs:choice>
+	</xs:group>
+	<xs:element name="degree">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="momentabout">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="logbase">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:attributeGroup name="type">
+		<xs:attribute name="type" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="order">
+		<xs:attribute name="order" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="numeric"/>
+					<xs:enumeration value="lexicographic"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="closure">
+		<xs:attribute name="closure" use="required">
+			<xs:annotation>
+				<xs:documentation>
+					<p xmlns="">N.A.</p>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+	<xs:element name="piecewise">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded" minOccurs="0">
+				<xs:element ref="m:piece"/>
+				<xs:element ref="m:otherwise"/>
+			</xs:choice>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="piece">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="m:ContExp"/>
+				<xs:group ref="m:ContExp"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="otherwise">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element abstract="true" name="DeprecatedContExp">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="reln" substitutionGroup="m:DeprecatedContExp">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="fn" substitutionGroup="m:DeprecatedContExp">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group ref="m:ContExp"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="declare" substitutionGroup="m:DeprecatedContExp">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:group maxOccurs="unbounded" ref="m:ContExp"/>
+			<xs:attribute name="type" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="scope" type="xs:string">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="nargs" type="xs:nonNegativeInteger">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+			<xs:attribute name="occurrence">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="prefix"/>
+						<xs:enumeration value="infix"/>
+						<xs:enumeration value="function-model"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element abstract="true" name="interval.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="m:ContExp"/>
+				<xs:group ref="m:ContExp"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+			<xs:attribute name="closure">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="interval" substitutionGroup="m:interval.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="inverse" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ident" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="domain" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="codomain" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="image" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="ln" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="log" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="moment" substitutionGroup="m:unary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="lambda.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="m:BvarQ"/>
+				<xs:group ref="m:DomainQ"/>
+				<xs:group ref="m:ContExp"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="lambda" substitutionGroup="m:lambda.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="compose" substitutionGroup="m:nary-functional.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:group name="binary-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="m:quotient"/>
+			<xs:element ref="m:divide"/>
+			<xs:element ref="m:minus"/>
+			<xs:element ref="m:power"/>
+			<xs:element ref="m:rem"/>
+			<xs:element ref="m:root"/>
+		</xs:choice>
+	</xs:group>
+	<xs:element name="quotient">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="divide">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="minus">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="power">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="rem">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="root">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:group name="unary-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:choice>
+			<xs:element ref="m:factorial"/>
+			<!--Ambiguous content model altered (minus)-->
+			<!--Ambiguous content model altered (root)-->
+			<xs:element ref="m:abs"/>
+			<xs:element ref="m:conjugate"/>
+			<xs:element ref="m:arg"/>
+			<xs:element ref="m:real"/>
+			<xs:element ref="m:imaginary"/>
+			<xs:element ref="m:floor"/>
+			<xs:element ref="m:ceiling"/>
+			<xs:element ref="m:exp"/>
+		</xs:choice>
+	</xs:group>
+	<xs:element name="factorial">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="abs">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="conjugate">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="arg">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="real">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="imaginary">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="floor">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ceiling">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="exp">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element abstract="true" name="nary-minmax.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="max" substitutionGroup="m:nary-minmax.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="min" substitutionGroup="m:nary-minmax.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="plus" substitutionGroup="m:nary-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="times" substitutionGroup="m:nary-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="gcd" substitutionGroup="m:nary-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="lcm" substitutionGroup="m:nary-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="and" substitutionGroup="m:nary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="or" substitutionGroup="m:nary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="xor" substitutionGroup="m:nary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="unary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="not" substitutionGroup="m:unary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="binary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="implies" substitutionGroup="m:binary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="equivalent" substitutionGroup="m:binary-logical.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="quantifier.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="forall" substitutionGroup="m:quantifier.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="exists" substitutionGroup="m:quantifier.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="eq" substitutionGroup="m:nary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="gt" substitutionGroup="m:nary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="lt" substitutionGroup="m:nary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="geq" substitutionGroup="m:nary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="leq" substitutionGroup="m:nary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="binary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="neq" substitutionGroup="m:binary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="approx" substitutionGroup="m:binary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="factorof" substitutionGroup="m:binary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="tendsto" substitutionGroup="m:binary-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+			<xs:attribute name="type">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element abstract="true" name="int.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="int" substitutionGroup="m:int.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="Differential-Operator.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="diff" substitutionGroup="m:Differential-Operator.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="partialdiff.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="partialdiff" substitutionGroup="m:partialdiff.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="unary-veccalc.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="divergence" substitutionGroup="m:unary-veccalc.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="grad" substitutionGroup="m:unary-veccalc.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="curl" substitutionGroup="m:unary-veccalc.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="laplacian" substitutionGroup="m:unary-veccalc.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-setlist-constructor.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="set" substitutionGroup="m:nary-setlist-constructor.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:BvarQ"/>
+				<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:DomainQ"/>
+				<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:ContExp"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+			<xs:attribute name="type">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="list" substitutionGroup="m:nary-setlist-constructor.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:BvarQ"/>
+				<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:DomainQ"/>
+				<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:ContExp"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+			<xs:attribute name="order">
+				<xs:annotation>
+					<xs:documentation>
+						<p xmlns="">N.A.</p>
+					</xs:documentation>
+				</xs:annotation>
+				<xs:simpleType>
+					<xs:restriction base="xs:token">
+						<xs:enumeration value="numeric"/>
+						<xs:enumeration value="lexicographic"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+	<xs:element abstract="true" name="nary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="union" substitutionGroup="m:nary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="intersect" substitutionGroup="m:nary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="cartesianproduct" substitutionGroup="m:nary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="binary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="in" substitutionGroup="m:binary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="notin" substitutionGroup="m:binary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="notsubset" substitutionGroup="m:binary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="notprsubset" substitutionGroup="m:binary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="setdiff" substitutionGroup="m:binary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-set-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="subset" substitutionGroup="m:nary-set-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="prsubset" substitutionGroup="m:nary-set-reln.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="unary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="card" substitutionGroup="m:unary-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="sum.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sum" substitutionGroup="m:sum.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="product.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="product" substitutionGroup="m:product.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="limit.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="limit" substitutionGroup="m:limit.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="sin" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="cos" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="tan" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="sec" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="csc" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="cot" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="sinh" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="cosh" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="tanh" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="sech" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="csch" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="coth" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arcsin" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arccos" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arctan" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arccosh" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arccot" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arccoth" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arccsc" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arccsch" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arcsec" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arcsech" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arcsinh" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="arctanh" substitutionGroup="m:unary-elementary.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-stats.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="mean" substitutionGroup="m:nary-stats.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="sdev" substitutionGroup="m:nary-stats.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="variance" substitutionGroup="m:nary-stats.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="median" substitutionGroup="m:nary-stats.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="mode" substitutionGroup="m:nary-stats.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-constructor.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:group ref="m:BvarQ"/>
+				<xs:group ref="m:DomainQ"/>
+				<xs:group maxOccurs="unbounded" minOccurs="0" ref="m:ContExp"/>
+			</xs:sequence>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="vector" substitutionGroup="m:nary-constructor.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="matrix" substitutionGroup="m:nary-constructor.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="matrixrow" substitutionGroup="m:nary-constructor.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="unary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="determinant" substitutionGroup="m:unary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="transpose" substitutionGroup="m:unary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="nary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="selector" substitutionGroup="m:nary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="binary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="vectorproduct" substitutionGroup="m:binary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="scalarproduct" substitutionGroup="m:binary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="outerproduct" substitutionGroup="m:binary-linalg.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="integers" substitutionGroup="m:constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="reals" substitutionGroup="m:constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="rationals" substitutionGroup="m:constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="naturalnumbers" substitutionGroup="m:constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="complexes" substitutionGroup="m:constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="primes" substitutionGroup="m:constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="emptyset" substitutionGroup="m:constant-set.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element abstract="true" name="constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="m:CommonAtt"/>
+			<xs:attributeGroup ref="m:DefEncAtt"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="exponentiale" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="imaginaryi" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="notanumber" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="true" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="false" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="pi" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="eulergamma" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:element name="infinity" substitutionGroup="m:constant-arith.class">
+		<xs:annotation>
+			<xs:documentation>
+				<p xmlns="">N.A.</p>
+			</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

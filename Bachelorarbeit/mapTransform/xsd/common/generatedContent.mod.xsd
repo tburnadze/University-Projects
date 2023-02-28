@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="UTF-8"?><xs:schema xmlns="https://www.parsx.de/ns/4.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="https://www.parsx.de/ns/4.0" elementFormDefault="qualified">
+
+	<!-- Registermarkierungen -->
+
+	<xs:element name="register" substitutionGroup="generatedContent_register.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-register" xml:id="basis__register">
+				<div class="beschreibung">
+					<p><code>&lt;register&gt;</code> dient zum Taggen eines Personen-, Sach-, und Ortsregisters (semantische Typ-Werte: <code>sach</code>, <code>pers</code>, <code>ort</code>)</p>
+					<p>Außerdem können mit <code>&lt;register typ="1"&gt;</code> etc. frei definierbare Register, z.B. Werk- oder Bibelstellenregister, angelegt werden. Die Typnummern werden in <code>&lt;typisierung&gt;</code> dokumentiert.</p>
+					<!-- <ul>
+						<h3>Geändert in Version 3.2:</h3>
+						<li>
+							<p><code>@relevanz</code>-Attribut an <code>&lt;ix-verweis&gt;</code> mit Standardwert <code>normal</code> hinzugefügt.</p>
+						</li>
+					</ul> -->
+					<!-- <ul>
+						<h3>Geändert in Version 3.1:</h3>
+						<li>
+							<p>Werteliste für <code>@typ</code>-Attribut an <code>&lt;register&gt;</code> ergänzt um "literatur"</p>
+						</li>
+					</ul> -->
+				</div>
+				<div class="verwendung">
+					<p>Innerhalb <code>&lt;register&gt;</code> umschließt <code>&lt;fundstelle&gt;</code> die zu markierende Stelle im Text und <code>&lt;eintrag&gt;</code> mit <code>&lt;begriff1&gt;</code> etc. den zugehörigen Registerbegriff. Dabei kann eine Fundstelle Registerbegriffen in max. 4 Hierarchieebenen zugeordnet werden. (Die Registermarkierungen selbst werden nicht verschachtelt).</p>
+					<p>Mit mehreren <code>&lt;eintrag&gt;</code>-Elementen kann eine Fundstelle auch mehreren Registereinträgen zugeordnet werden.</p>
+					<p>Mit <code>&lt;querverweis&gt;</code> kann ein Querverweis auf andere Registerbegriffe (der dann innerhalb des zu erstellenden Registers erscheint) markiert werden.</p>
+					<p>Das Auszeichnen aller Fundstellen mit den jeweiligen Register-Elementen mit Fundstelle, Begriff und ggf. Querverweisen, ist die Voraussetzung für das automatische Generieren von Registern.</p>
+					<p>Das aus den Register-Elementen generierte Register kann als <code>&lt;index&gt;</code> entsprechend der XSD strukturiert und in die Daten zurückgeschrieben werden.</p>
+					<p>Mit semantischen <code>@typ</code>-Attributwerten kann ein generierter Index den entsprechenden Registermarkierungen im Text zugeordnet werden (<code>&lt;index typ="sach"&gt;</code> generiert aus <code>&lt;register typ="sach"&gt;</code>-Elementen)</p>
+					<p>Die Stelle, an der ein automatisch generiertes Register stehen soll, kann mit <code>&lt;ausgabe_index/&gt;</code> und einem entsprechenden <code>ref</code>-Attribut bezeichnet werden.</p>
+					<p>Mit dem <code>relevanz</code>-Attribut kann eine Referenz besonders hervorgehoben werden (in der Ausgabe z.B. <em role="italic">kursiv</em> oder <strong role="bold">fett</strong> umzusetzen).</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo>
+
+				<schematronLink xlink:href="parsx.sch#generatedContent__rule-001" xml:id="generatedContent__link-001"/>
+
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="fundstelle">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="typ_fundstelle">
+								<xs:attribute name="verweis-intern" type="xs:IDREF">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--verweis-intern" xml:id="basis__attr--verweis-intern">
+				<div class="beschreibung">
+					<p>Attribut zur Notation eines internen Verweisziels. Der Wert muss einem <code>@id</code>-Attributwert entsprechen, der innerhalb des Werks vorkommt.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="eintrag" type="register__eintrag" maxOccurs="unbounded"/>
+			</xs:sequence>
+			<xs:attribute name="typ" use="required" type="typ.register"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="register__eintrag">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__register__eintrag">
+				<div class="beschreibung">
+					<p>Container für den einer Fundstelle zugeordneten Registerbegriff und ggf. Unterbegriffe.</p>
+				</div>
+				<div class="verwendung">
+					<p>Das Element ist ein obligatorisches Kind-Element von <code>&lt;register&gt;</code></p>
+					<p>Das Element kann mehrfach verwendet werden.</p>
+					<p>Die Nummerierung der enthaltenen Registerebenen 1–4 muss mit 1 beginnen und fortlaufend sein.</p>
+				</div>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element ref="begriff1"/>
+			<xs:sequence minOccurs="0">
+				<xs:element ref="begriff2"/>
+				<xs:sequence minOccurs="0">
+					<xs:element ref="begriff3"/>
+					<xs:sequence minOccurs="0">
+						<xs:element ref="begriff4"/>
+					</xs:sequence>
+				</xs:sequence>
+			</xs:sequence>
+			<xs:element ref="querverweis" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute default="normal" name="relevanz">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--relevanz" xml:id="basis__attr--relevanz">
+				<div class="beschreibung">
+					<p>Attribut zum Hervorheben von Referenzen auf einzelne Registermarkierungen</p>
+				</div>
+				<div class="verwendung">
+					<p>Einzelne Referenzen zu Registereinträgen können als besonders wichtig hervorgehoben werden. In der Folge ist die Darstellung dieser Referenzen zum Beispiel <strong role="bold">fett</strong> oder <em role="italic">kursiv</em>. Die Hervorhebung von Referenzen zu Registereinträgen erfolgt in lebenden Registern mit dem <code>@relevanz</code>-Attributwert <code>hoch</code> an den <code>&lt;eintrag&gt;</code>-Elementen in <code>&lt;register&gt;</code>-Elementen an der jeweiligen Fundstelle. Reguläre Referenzen ohne Hervorhebung haben den <code>@relevanz</code>-Attributwert <code>normal</code> (Standardwert).</p>
+					<p>Für tote Register steht das Attribut an <code>&lt;verweis&gt;</code> innerhalb von <code>&lt;referenz&gt;</code> zur Verfügung.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:simpleType xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:restriction base="xs:token">
+				<xs:enumeration value="normal"/>
+				<xs:enumeration value="hoch"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:attribute>
+		<xs:attributeGroup ref="globale_attribute"/>
+	</xs:complexType>
+
+	<xs:element name="begriff1" type="register-definition__begriff"/>
+
+	<xs:element name="begriff2" type="register-definition__begriff"/>
+
+	<xs:element name="begriff3" type="register-definition__begriff"/>
+
+	<xs:element name="begriff4" type="register-definition__begriff"/>
+
+	<xs:complexType name="register-definition__begriff" mixed="true">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-reg-begriff1" xml:id="basis__register-definition__begriff">
+				<div class="beschreibung">
+					<p>Das Element umschließt innerhalb einer Registermarkierung (<code>&lt;register typ="person"&gt;</code> etc.) den zugewiesenen Registerbegriff. Es steht in <code>&lt;eintrag&gt;</code> hinter der betreffenden <code>&lt;fundstelle&gt;</code>.</p>
+					<!-- <ul>
+						<h3>Geändert in Version 3.2:</h3>
+						<li>
+							<p><code>@sortierung</code>-Attribut an <code>&lt;reg-begriff1&gt;</code> mit Standardwert <code>normal</code> hinzugefügt.</p>
+						</li>
+					</ul> -->
+				</div>
+				<div class="verwendung">
+					<p>Mit <code>&lt;begriff1&gt;</code> bis <code>&lt;begriff4&gt;</code> können Registerbegriffe in 4 Hierarchiestufen definiert werden. Vgl. dazu die Beschreibung in der <a href="#konverter_features_register_tagging" xlink:href="#konverter_features_register_tagging">Dokumentation zum parsX-Konverter.</a></p>
+					<p>Mit dem <code>sortierung</code>-Attribut kann ein Wert eingegeben werden, der für die Sortierung eines lebenden Registers anstelle des Elementinhalts verwendet wird (s. im Detail die <a href="#konverter_features_register_sortierung" xlink:href="#konverter_features_register_sortierung">Dokumentation zum parsX-Konverter</a>.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:group ref="meta_basis"/>
+		</xs:choice>
+		<xs:attribute name="sortierung">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--sortierung" xml:id="basis__attr--sortierung">
+				<div class="beschreibung">
+					<p>Mit dem <code>sortierung</code>-Attribut kann ein Wert eingegeben werden, der für die Sortierung von Personenangaben bzw. von generierten Registern etc. anstelle des Elementinhalts verwendet wird.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+		<xs:attributeGroup ref="globale_attribute"/>
+	</xs:complexType>
+
+	<xs:element name="querverweis">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-reg-querverweis" xml:id="basis__querverweis">
+				<div class="beschreibung">
+					<p><code>&lt;querverweis&gt;</code> dient dazu, von dem der Fundstelle zugewiesenen Begriff aus auf einen anderen Begriff <em role="italic">innerhalb</em> des zu erstellenden Registers zu verweisen.</p>
+				</div>
+				<div class="verwendung">
+					<p>Wird ein <code>&lt;querverweis&gt;</code> ausgezeichnet, so erscheint im generierten Register für den in den Elementen <code>&lt;begriff1&gt;</code> etc. angegebenen (Unter-)Begriff <em role="italic">nicht</em> wie sonst die Referenz, sondern ein Hinweis "<em role="italic">siehe: </em>" mit dem Inhalt des Elements (implemetierungsabhängig). Die Referenz wird dann am Ziel des Querverweises (nur 1. Ebene) ausgegeben. Vgl. dazu die Beschreibung in der <a href="https://tools.parsx.de/doku/v3/#konverter_features_register_querverweise" xlink:href="https://tools.parsx.de/doku/v3/#konverter_features_register_querverweise">Dokumentation zum parsX-Konverter.</a></p>
+					<p>Für die Verarbeitung in InDesign oder im parsX-Konverter muss dazu ein gleichlautender <code>&lt;begriff1&gt;</code> für das betreffende Register in der Datei vorhanden sein. Der Hinweistext (z.B.: <code>"siehe"</code>) darf dabei <em>nicht</em> in <code>&lt;querverweis&gt;</code> notiert werden, da er wird bei der Verarbeitung generiert wird.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:group ref="meta_basis"/>
+			</xs:choice>
+			<xs:attributeGroup ref="globale_attribute"/>
+			<xs:attribute name="verweis-intern" type="xs:IDREF">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--verweis-intern" xml:id="basis__attr--verweis-intern">
+				<div class="beschreibung">
+					<p>Attribut zur Notation eines internen Verweisziels. Der Wert muss einem <code>@id</code>-Attributwert entsprechen, der innerhalb des Werks vorkommt.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- Inline-Definition -->
+
+	<xs:element name="definition" substitutionGroup="generatedContent_definition.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__definition">
+				<div class="beschreibung">
+					<p><code>&lt;definition&gt;</code> dient zum Auszeichnen eines Begriffs mit dessen normierter Form und einer Begriffserklärung. Auch Abkürzungen oder Literaturangaben mit Kurz- und Langform können auf diese Weise markiert werden (semantische Typ-Werte: <code>"glossar"</code>, <code>"literatur"</code>, <code>"abkuerzung"</code>).</p>
+					<p>Grundsätzlicher Unterschied zu <code>&lt;register&gt;</code>:</p>
+					<ul>
+						<li>
+							<p>Für ein Register werden <strong role="italic">alle</strong> zu einem Begriff gehörenden Stellen markiert und die Referenzen gesammelt ausgegeben (<code>&lt;index&gt;</code>-Struktur).</p>
+						</li>
+						<li>
+							<p>Hier werden Definitionen zu einem Begriff <strong role="italic">beim ersten Auftreten</strong> ausgezeichnet und dann zu einem Glossar zusammengefasst (Element <code>&lt;liste_definition&gt;</code>-Struktur).</p>
+						</li>
+					</ul>
+					<p>Mit <code>&lt;definition typ="1"&gt;</code> etc. können mehrere Definitionslisten angelegt werden, dokumentiert über <code>&lt;typisierung&gt;</code>.</p>
+					<p>Die Ausgabe ist auch als Marginalie möglich, die dasselbe Inhaltsmodell wie hier der <code>&lt;eintrag&gt;</code> hat.</p>
+				</div>
+				<div class="verwendung">
+					<p>Innerhalb <code>&lt;definition&gt;</code> umschließt <code>&lt;fundstelle&gt;</code> die zu markierende Stelle im Text und <code>&lt;eintrag&gt;</code> die zugehörige Definition.</p>
+					<p>Das Auszeichnen von Begriffen ist die Voraussetzung für das automatische Generieren von Glossaren und Verzeichnissen.</p>
+					<p>Mit semantischen <code>@typ</code>-Attributwerten kann eine generierter Definitionsliste den entsprechenden Markierungen im Text zugeordnet werden (<code>&lt;liste_definition typ="glossar"&gt;</code> generiert aus <code>&lt;definition typ="glossar"&gt;</code>-Elementen).</p>
+					<p>Die Stelle, an der eine automatisch generierte Definitionsliste stehen soll, kann mit <code>&lt;ausgabe_definitionen&gt;</code> und einem entsprechenden <code>ref</code>-Attribut bezeichnet werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo>
+
+				<schematronLink xlink:href="parsx.sch#generatedContent__rule-002" xml:id="generatedContent__link-002"/>
+
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="fundstelle">
+					<xs:complexType>
+						<xs:complexContent>
+							<xs:extension base="typ_fundstelle">
+								<xs:attribute name="verweis-intern" type="xs:IDREF">
+		<xs:annotation xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:parsx="https://www.parsx.de/ns/4.0">
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-attr--verweis-intern" xml:id="basis__attr--verweis-intern">
+				<div class="beschreibung">
+					<p>Attribut zur Notation eines internen Verweisziels. Der Wert muss einem <code>@id</code>-Attributwert entsprechen, der innerhalb des Werks vorkommt.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+	</xs:attribute>
+							</xs:extension>
+						</xs:complexContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="eintrag">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="begriff" type="register-definition__begriff">
+								<xs:annotation>
+									<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__definition__begriff">
+										<div class="beschreibung">
+											<p>Das Element umschließt innerhalb einer <code>&lt;definition&gt;</code> den zu erklärenden Begriff in der Form, in der er im Glossar erscheinen soll.</p>
+										</div>
+									</xs:documentation>
+									<xs:appinfo/>
+								</xs:annotation>
+							</xs:element>
+							<xs:element name="inhalt">
+								<xs:annotation>
+									<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__definition__inhalt">
+										<div class="beschreibung">
+											<p>Das Element umschließt innerhalb einer <code>&lt;definition&gt;</code> die dem <code>&lt;begriff&gt;</code> zugeordnete Erklärung.</p>
+										</div>
+										<div class="verwendung">
+											<p>Zulässig sind hier <code>&lt;abs&gt;</code> und die meisten Block-Elemente. Das Inhaltsmodell entspricht dem eines Listeneintrags oder einer <code>&lt;marginallie&gt;</code> und kann in einen Eintrag einer generierten Definitionsliste übernommen oder als Marginalie ausgegeben werden.</p>
+										</div>
+									</xs:documentation>
+									<xs:appinfo/>
+								</xs:annotation>
+								<xs:complexType>
+									<xs:complexContent>
+										<xs:restriction base="liste__eintrag">
+											<xs:group ref="eintrag-marginalie-popup_inline-legende" maxOccurs="unbounded"/>
+											<xs:attributeGroup ref="globale_attribute"/>
+										</xs:restriction>
+									</xs:complexContent>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attributeGroup ref="globale_attribute"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="typ" use="required" type="typ.definition"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<!-- generated Content -->
+
+	<xs:element name="ausgabe_index" substitutionGroup="generatedContent_ausgabe_index.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-index_aufruf" xml:id="basis__ausgabe_index">
+				<div class="beschreibung">
+					<p>Das <code>&lt;ausgabe_index/&gt;</code>-Element gibt an, wo ein Register (strukturiert als <code>&lt;index&gt;</code>) stehen soll, das aus den vorhandenen Registermarkierungen generiert wird.</p>
+					<p>Zur Umsetzung im parsX-Konverter vgl. die Darstellung in der <a href="#konverter_features_register_index_aufruf" xlink:href="#konverter_features_register_index_aufruf">Online-Dokumentation.</a></p>
+				</div>
+				<div class="verwendung">
+					<p>Das Element kann als Block-Element zwischen anderen stehen. Bei der Produktion wird dann <code>&lt;ausgabe_index/&gt;</code> durch den generierten <code>&lt;index&gt;</code> ersetzt.</p>
+					<p>Das <code>ref</code>-Attribut gibt an, welches Register generiert werden soll. Die Werteliste entspricht der des <code>typ</code>-Attributs von <code>&lt;register&gt;</code></p>
+					<p>Es können mehrere <code>&lt;ausgabe_index typ="xxx"/&gt;</code>-Elemente im XML existieren, dabei müssen die <code>ref</code>-Attribute jedoch einmalig sein.</p>
+					<p>Es ist möglich, mehrere Registertypen in einer Liste anzugeben, wodurch die Erstellung eines gemischten Registers aus den bezeichneten Einträgen erstellt wird, z.B. "Personen und Orte" mit <code>&lt;ausgabe_index typ="person ort"/&gt;</code></p>
+					<p>Die Gestaltung des Index kann über ein <code>typ</code>-Attribut gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Das Element kann mit einem <code>&lt;nachweis&gt;</code> in einem <code>&lt;meta&gt;</code>-Container, einem <code>&lt;titel&gt;</code> und einer <code>&lt;legende&gt;</code> versehen werden. Diese Elemente werden in den generierten <code>&lt;index&gt;</code> übernommen.</p>
+					<p>Die Ausgabe eines Registers kann mit den Attributen zur Ausgabesteuerung an diesem Element für die Produktion unterdrückt werden.</p>
+					<p>Wenn Register vorhanden sind, aber kein <code>&lt;ausgabe_index&gt;</code>, werden die Register an der durch das Ausgabesystem definierten Stelle ausgegeben.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_ausgabe-element">
+					<xs:attribute name="ref" use="required">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ausgabe_index__ref">
+								<div class="beschreibung">
+									<p>Das <code>ref</code>-Attribut gibt an, welches Register generiert werden soll. Die Werteliste entspricht der des <code>typ</code>-Attributs von <code>&lt;register&gt;</code></p>
+									<p>Für ein gemischtes Register können mehrere Werte (getrennt durch Blanks) angegeben werden.</p>
+								</div>
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction>
+								<xs:simpleType>
+									<xs:list itemType="typ.register"/>
+								</xs:simpleType>
+								<xs:minLength value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ausgabe_verzeichnis" substitutionGroup="generatedContent_ausgabe_verzeichnis.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-index_aufruf" xml:id="basis__ausgabe_verzeichnis">
+				<div class="beschreibung">
+					<p><code>&lt;ausgabe_verzeichnis/&gt;</code> gibt an, wo ein <code>&lt;verzeichnis&gt;</code> stehen soll, das aus den im <code>ref</code>-Attribut angegebenen Elementen generiert wird.</p>
+					<p>Zur Umsetzung im parsX-Konverter vgl. die Darstellung in der <a href="#konverter_features_register_index_aufruf" xlink:href="#konverter_features_register_index_aufruf">Online-Dokumentation.</a></p>
+				</div>
+				<div class="verwendung">
+					<p>Das Element kann als Block-Element zwischen anderen stehen. Bei der Produktion wird dann <code>&lt;ausgabe_verzeichnis/&gt;</code> durch das generierte <code>&lt;verzeichnis&gt;</code> ersetzt.</p>
+					<p>Das <code>ref</code>-Attribut gibt an, welches Verzeichnis generiert werden soll. Als Werteliste vorgesehen sind: <code>abbildung</code>, <code>tabelle</code>, <code>formel</code> und <code>nachweis</code>.</p>
+					<p>Die Zuordnung von <code>&lt;abbildung&gt;</code>, <code>&lt;tabelle&gt;</code> und <code>&lt;formel&gt;</code> zu einem Verzeichnis kann mit dem <code>verzeichnis</code>-Attribut an diesen Elementen beeinflusst werden</p>
+					<p>Das generierte Verzeichnis entspricht dem Inhaltsmodell von <code>&lt;verzeichnis&gt;</code>, für jedes Element wird ein <code>&lt;eintrag&gt;</code> erstellt. Der Inhalt der Kind-Elemente wird aus dem <code>&lt;titel&gt;</code> bzw. dem <code>&lt;nachweis&gt;</code> entnommen (Legenden werden nicht ausgewertet).</p>
+					<p>Mit den optionalen <code>ausgabe-zaehler</code>-, <code>ausgabe-text</code>-, <code>ausgabe-nachweis</code>- und <code>ausgabe-referenz</code>-Attributen lässt sich steuern, ob die jeweiligen Strukturen im generierten Verzeichnis angelegt werden sollen.</p>
+					<p>Die Gestaltung des Verzeichnisses kann über ein <code>typ</code>-Attribut gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Das Element kann mit einem <code>&lt;nachweis&gt;</code> in einem <code>&lt;meta&gt;</code>-Container, einem <code>&lt;titel&gt;</code> und einer <code>&lt;legende&gt;</code> versehen werden. Diese Elemente werden in das generierte <code>&lt;verzeichnis&gt;</code> übernommen.</p>
+					<p>Die Ausgabe eines Verzeichnisses kann mit den Attributen zur Ausgabesteuerung für die Produktion unterdrückt werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_ausgabe-element">
+					<xs:attribute name="ref" type="typ.verzeichnis" use="required">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ausgabe_verzeichnis__ref">
+								<div class="beschreibung">
+									<p>gibt die Art bzw. den Typ des zu generierenden Verzeichnisses an.</p>
+								</div>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attributeGroup ref="ausgabe-element_steuerung"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ausgabe_inhaltsverzeichnis" substitutionGroup="generatedContent_ausgabe_inhaltsverzeichnis.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="dtd-index_aufruf" xml:id="basis__ausgabe_inhaltsverzeichnis">
+				<div class="beschreibung">
+					<p><code>&lt;ausgabe_inhaltsverzeichnis/&gt;</code> gibt an, wo ein generiertes <code>&lt;inhaltsverzeichnis&gt;</code> stehen soll.</p>
+					<p>Zur Umsetzung im parsX-Konverter vgl. die Darstellung in der <a href="#konverter_features_register_index_aufruf" xlink:href="#konverter_features_register_index_aufruf">Online-Dokumentation.</a></p>
+				</div>
+				<div class="verwendung">
+					<p>Das Element kann als Block-Element zwischen anderen stehen, bei der Produktion wird dann <code>&lt;ausgabe_inhaltsverzeichnis/&gt;</code> durch das generierte <code>&lt;inhaltsverzeichnis&gt;</code> ersetzt.</p>
+					<p>In das Verzeichnis aufgenommen werden Deckblatt- und Kapitelüberschriften <code>&lt;u&gt;</code> und <code>&lt;u1&gt;</code> bis <code>&lt;u7&gt;</code>, keine <code>&lt;zwischentitel&gt;</code> oder <code>&lt;titel&gt;</code> von Inhaltselementen.</p>
+					<p>Berücksichtigt werden i.d.R. unabhängig von der Position des Ausgabe-Elements die Überschriften des gesamten Werks (Default: <code>kontext="werk"</code>).</p>
+					<p>Das <code>kontext</code>-Attribut kann abweichend gesetzt werden: </p>
+					<ul>
+						<li>
+							<p>Mit <code>teil</code>-Attributwert: es werden die Überschriften des Werkteils (<code>&lt;vorspann&gt;</code>, <code>&lt;hauptteil&gt;</code> oder <code>&lt;nachspann&gt;</code>) berücksichtigt, in welchem das Ausgabeelement steht.</p>
+						</li>
+						<li>
+							<p>Mit <code>kapitel</code>-Attributwert: es werden die Überschriften des Kapitels berücksichtigt, das dem, in welchem das Ausgabeelement steht, übergeordnet ist.</p>
+						</li>
+					</ul>
+					<p>Die Auswahl der Überschriften kann weiter eingeschränkt werden:</p>
+					<ul>
+						<li>
+							<p>Wenn ein <code>ebene</code>-Attribut gesetzt wurde, dann werden Überschriften in Hierarchiestufen, die größer als der Attributwert sind, ignoriert.</p>
+						</li>
+						<li>
+							<p>Überschriften in Kapiteln mit dem <code>@toc</code>-Attributwert <code>nein</code> werden ignoriert.</p>
+						</li>
+						<li>
+							<p>Zähler und Text aus einem <code>&lt;toctitel&gt;</code> werden bevorzugt verwendet.</p>
+						</li>
+					</ul>
+					<p>Das generierte Verzeichnis entspricht dem Inhaltsmodell von <code>&lt;inhaltsverzeichnis&gt;</code>, für jedes Element wird ein <code>&lt;eintrag&gt;</code> erstellt.</p>
+					<p>Mit den optionalen <code>ausgabe-zaehler</code>-, <code>ausgabe-text</code>-, <code>ausgabe-nachweis</code>- und <code>ausgabe-referenz</code>-Attributen lässt sich steuern, ob die jeweiligen Strukturen im generierten Verzeichnis angelegt werden sollen.</p>
+					<p>Die Gestaltung des Verzeichnisses kann über ein <code>typ</code>-Attribut gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Das Element kann mit einem <code>&lt;nachweis&gt;</code> in einem <code>&lt;meta&gt;</code>-Container, einem <code>&lt;titel&gt;</code> und einer <code>&lt;legende&gt;</code> versehen werden. Diese Elemente werden in das generierte <code>&lt;inhaltsverzeichnis&gt;</code> übernommen.</p>
+					<p>Die Ausgabe eines Inhaltsverzeichnisses kann mit den Attributen zur Ausgabesteuerung für die Produktion unterdrückt werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_ausgabe-element">
+					<xs:attribute name="ebenen">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ebenen">
+								<div class="beschreibung">
+									<p>gibt an, bis zu welcher Hierarchiestufe Überschriften aufgenommen werden sollen.</p>
+								</div>
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:enumeration value="0">
+									<xs:annotation>
+										<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ebenen__0">
+											<div class="beschreibung">
+												<p>Wert <code>"0"</code> entspricht dem <code>&lt;u&gt;</code>-Element auf <code>&lt;deckblatt&gt;</code></p>
+											</div>
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="1"/>
+								<xs:enumeration value="2"/>
+								<xs:enumeration value="3"/>
+								<xs:enumeration value="4"/>
+								<xs:enumeration value="5"/>
+								<xs:enumeration value="6"/>
+								<xs:enumeration value="7"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="kontext" default="werk">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--kontext">
+								<div class="beschreibung">
+									<p>gibt an, in welchem Bereich Überschriften berücksichtigt werden</p>
+								</div>
+							</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:token">
+								<xs:enumeration value="werk">
+									<xs:annotation>
+										<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--kontext__werk">
+											<div class="beschreibung">
+												<p>Es werden die Überschriften des gesamten Werks berücksichtigt.</p>
+											</div>
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="teil">
+									<xs:annotation>
+										<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--kontext__teil">
+											<div class="beschreibung">
+												<p>Es werden die Überschriften des Werkteils (<code>&lt;vorspann&gt;</code>, <code>&lt;hauptteil&gt;</code> oder <code>&lt;nachspann&gt;</code>) berücksichtigt, in welchem das Ausgabeelement steht.</p>
+											</div>
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+								<xs:enumeration value="kapitel">
+									<xs:annotation>
+										<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--kontext__kapitel">
+											<div class="beschreibung">
+												<p>Es werden die Überschriften des Kapitels berücksichtigt, das dem, in welchem das Ausgabeelement steht, übergeordnet ist.</p>
+											</div>
+										</xs:documentation>
+									</xs:annotation>
+								</xs:enumeration>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attributeGroup ref="ausgabe-element_steuerung"/>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ausgabe_definitionen" substitutionGroup="generatedContent_ausgabe_definition.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__ausgabe_definitionen">
+				<div class="beschreibung">
+					<p><code>&lt;ausgabe_definitionen&gt;</code> gibt an, wo ein generiertes Glossar, Abkürzungs- oder Literaturverzeichnis ausgegeben werden soll, dessen Einträge im Text mit <code>&lt;definition&gt;</code> codiert sind.</p>
+				</div>
+				<div class="verwendung">
+					<p>Das Element kann als Block-Element zwischen anderen stehen. Wird z.B. ein "Glossar" gewünscht, so soll das <code>&lt;kapitel&gt;</code> mit Überschrift und ggf weiterem Text als XML-Struktur angelegt werden, <code>&lt;ausgabe_definitionen/&gt;</code> wird dann bei der Produktion durch die generierte <code>&lt;liste_definition&gt;</code> ersetzt.</p>
+					<p>Mit dem <code>ref</code>-Attribut wird die Zuordnung der <code>&lt;definition&gt;</code>-Elemente bestimmt. Die Werteliste entspricht der des <code>typ</code>-Attributs von <code>&lt;definition&gt;</code></p>
+					<p>Die Gestaltung der Definitionsliste kann über ein <code>typ</code>-Attribut gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Das Element kann mit einem <code>&lt;nachweis&gt;</code> in einem <code>&lt;meta&gt;</code>-Container, einem <code>&lt;titel&gt;</code> und einer <code>&lt;legende&gt;</code> versehen werden. Diese Elemente werden in das generierte <code>&lt;inhaltsverzeichnis&gt;</code> übernommen.</p>
+					<p>Die Ausgabe von Definitionen kann mit den Attributen zur Ausgabesteuerung an diesem Element für die Produktion unterdrückt werden.</p>
+					<p>Wenn Definitionen vorhanden sind, aber kein <code>&lt;ausgabe_definitionen&gt;</code> vorhanden ist, wird die Definitionsliste an der durch das Ausgabesystem definierten Stelle ausgegeben.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo/>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="typ_ausgabe-element">
+					<xs:attribute name="ref" type="typ.definition" use="required">
+						<xs:annotation>
+							<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ausgabe_definitionen__ref">
+								<div class="beschreibung">
+									<p>gibt die Art bzw. den Typ der zu generierenden Definitionsliste an.</p>
+								</div>
+							</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:complexType name="typ_ausgabe-element">
+		<xs:sequence>
+			<xs:element name="meta" type="container__meta" minOccurs="0"/>
+			<xs:element name="titel" minOccurs="0" type="element_titel"/>
+			<xs:element ref="legende" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="ausgabesteuerung"/>
+		<xs:attributeGroup ref="globale_attribute"/>
+		<xs:attribute name="typ" type="typ.nummern"/>
+	</xs:complexType>
+
+	<xs:attributeGroup name="ausgabe-element_steuerung">
+		<xs:attribute name="ausgabe-zaehler" default="ja" type="ja-nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ausgabe-zaehler">
+					<div class="beschreibung">
+						<p>mit <code>nein</code> werden Verzeichniseinträge ohne <code>&lt;zaehler&gt;</code> erzeugt.</p>
+					</div>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ausgabe-text" default="ja" type="ja-nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ausgabe-text">
+					<div class="beschreibung">
+						<p>mit <code>nein</code> werden Verzeichniseinträge ohne <code>&lt;text&gt;</code> erzeugt.</p>
+					</div>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ausgabe-nachweis" default="ja" type="ja-nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ausgabe-nachweis">
+					<div class="beschreibung">
+						<p>mit <code>nein</code> werden Verzeichniseinträge ohne <code>&lt;nachweis&gt;</code> erzeugt.</p>
+					</div>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+		<xs:attribute name="ausgabe-referenz" default="ja" type="ja-nein">
+			<xs:annotation>
+				<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__attr--ausgabe-referenz">
+					<div class="beschreibung">
+						<p>mit <code>nein</code> werden Verzeichniseinträge ohne <code>&lt;referenz&gt;</code> (Seitenzahl) erzeugt.</p>
+					</div>
+				</xs:documentation>
+			</xs:annotation>
+		</xs:attribute>
+	</xs:attributeGroup>
+
+	<xs:simpleType name="generatedContent_typisierung_name.extend">
+		<xs:restriction base="xs:token">
+			<xs:enumeration value="ausgabe_definitionen"/>
+			<xs:enumeration value="ausgabe_endnoten"/>
+			<xs:enumeration value="ausgabe_index"/>
+			<xs:enumeration value="ausgabe_inhaltsverzeichnis"/>
+			<xs:enumeration value="ausgabe_tabellenfussnoten"/>
+			<xs:enumeration value="ausgabe_verzeichnis"/>
+			<xs:enumeration value="definition"/>
+			<xs:enumeration value="register"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="ausgabe_endnoten" substitutionGroup="generatedContent_ausgabe_endnoten.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__ausgabe_endnoten">
+				<div class="beschreibung">
+					<p><code>&lt;ausgabe_endnoten&gt;</code> gibt an, wo die Endnoten ausgegeben werden sollen, die im Text mit <code>&lt;endnote&gt;</code> codiert sind.</p>
+				</div>
+				<div class="verwendung">
+					<p>Bei der Produktion wird das Element durch die gesammelten Endnoten im Werk ersetzt. Es darf nur im Nachspann und dort nur einmal verwendet werden.</p>
+					<p>Wenn Endnoten vorhanden sind, aber kein <code>&lt;ausgabe_endnoten&gt;</code> vorhanden ist, werden die Endnoten an der durch das Ausgabesystem definierten Stelle ausgegeben.</p>
+					<p>Die Gestaltung der Endnoten kann über ein <code>typ</code>-Attribut am Ausgabe-Element gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Die Ausgabe von Endnoten kann mit den Attributen zur Ausgabesteuerung an diesem Element für die Produktion unterdrückt werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo>
+				<schematronLink xlink:href="parsx.sch#generatedContent__rule-003" xml:id="generatedContent__link-003"/>
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+			<xs:attribute name="typ" type="typ.nummern"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="ausgabe_tabellenfussnoten" substitutionGroup="generatedContent_ausgabe_tabellenfussnoten.extend">
+		<xs:annotation>
+			<xs:documentation xmlns="http://www.w3.org/1999/xhtml" source="NEU" xml:id="basis__ausgabe_tabellenfussnoten">
+				<div class="beschreibung">
+					<p><code>&lt;ausgabe_tabellenfussnoten/&gt;</code> gibt an, wo die Tabellenfussnoten ausgegeben werden sollen, die in dieser Tabelle mit <code>&lt;tabellenfussnote&gt;</code> codiert sind.</p>
+				</div>
+				<div class="verwendung">
+					<p>Bei der Produktion wird das Element durch die gesammelten Tabellenfussnoten ersetzt. Es darf nur in <code>&lt;tfoot&gt;</code> oder <code>&lt;legende&gt;</code> und nur einmal je Tabelle verwendet werden.</p>
+					<p>Wenn Tabellenfussnoten vorhanden sind, aber kein <code>&lt;ausgabe_tabellenfussnoten/&gt;</code>, werden die Fußnoten an der durch das Ausgabesystem definierten Stelle ausgegeben.</p>
+					<p>Die Gestaltung der Tabellenfussnoten kann über ein <code>typ</code>-Attribut am Ausgabe-Element gesteuert werden (<code>@typ</code> mit numerischem Wert). Die vergebenen Typnummern werden in <code>&lt;typisierung&gt;</code> mit Elementname und -typ dokumentiert.</p>
+					<p>Die Ausgabe von Tabellenfussnoten kann mit den Attributen zur Ausgabesteuerung an diesem Element für die Produktion unterdrückt werden.</p>
+				</div>
+			</xs:documentation>
+			<xs:appinfo>
+
+				<schematronLink xlink:href="parsx.sch#generatedContent__rule-004" xml:id="generatedContent__link-004"/>
+
+			</xs:appinfo>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:attributeGroup ref="ausgabesteuerung"/>
+			<xs:attribute name="typ" type="typ.nummern"/>
+			<xs:attributeGroup ref="globale_attribute"/>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

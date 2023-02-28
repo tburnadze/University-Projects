@@ -1,0 +1,139 @@
+﻿Changelog / Änderungshistorie
+parsX Schema
+
+
+16.02.2021	v4.0.15	Bugfix-Release
+===========================================================
+
+kapitel
+	 Element ohne Kontext als "vorspann-hauptteil__kapitel" validieren
+
+
+26.01.2021	v4.0.14	Bugfix-Release
+===========================================================
+
+projekt/meta
+	- Reihenfolge der Kindelemente von projekt/meta (global, ausgaben, dokumentation) freigeben
+	
+	
+15.12.2020	v4.0.13	Bugfix-Release
+===========================================================
+
+<bild>
+	- Attributwert @verzeichnis="tabelle" entfernt, da eine <abbildung> in einen <tabelle>-Container gesetzt werden kann. Doku überarbeitet.
+	
+
+29.09.2020	v4.0.12	Bugfix-Release
+===========================================================
+
+<import_kapitel>, <import_werk>, <import_leseprobe>
+	- Complex-Type "typ_import" verschoben von fremdlese.mod.xsd in parsx.basis.xsd um unbeabsichtigte Abhängigkeit des "CMS-Moduls" vom Modul "Fremdleseproben" aufzulösen
+
+
+01.09.2020	v4.0.11	Bugfix-Release
+===========================================================
+
+<popup_inline>
+	- Attributwert für @verzeichnis korrigiert von "audio" nach "nein"
+
+
+
+14.05.2020	v4.0.10	Bugfix-Release
+===========================================================
+
+@aria-role
+	- Werteliste des @aria-role-Attributs erweitert um zusätzliche Werte aus dem Digital Publishing WAI-ARIA Module 1.0 (W3C Recommendation 14 December 2017, https://www.w3.org/TR/dpub-aria-1.0/#role_definitions): doc-abstract, doc-acknowledgments, doc-afterword, doc-appendix, doc-backlink, doc-biblioentry, doc-bibliography, doc-biblioref, doc-chapter, doc-colophon, doc-conclusion, doc-cover, doc-credit, doc-credits, doc-dedication, doc-endnote, doc-endnotes, doc-epigraph, doc-epilogue, doc-errata, doc-example, doc-footnote, doc-foreword, doc-glossary, doc-glossref, doc-index, doc-introduction, doc-noteref, doc-notice, doc-pagebreak, doc-pagelist, doc-part, doc-preface, doc-prologue, doc-pullquote, doc-qna, doc-subtitle, doc-tip, doc-toc
+
+
+14.05.2020	v4.0.9	Bugfix-Release
+===========================================================
+
+<video>, <audio>, <popup_inline>
+	- Inhaltsmodell erweitert um optionales Attribut @verzeichnis mit Standardwert "nein"
+
+@verweis-intern
+	 - Grammatkregel ergänzt: "Ein interner Verweis darf nicht auf IDs von Ausgaben und Ausprägungen verweisen."
+
+[Grammatikregeln]
+	- Quick-Fix ergänzt für Grammatikregel: leseprobe_start bzw leseprobe_ende ist nicht in Tabellen zulässig.
+	- Quick-Fix "Attribut ergänzen / Element löschen" ergänzt für Grammatikregel: leseprobe_start bzw leseprobe_ende nur in Kapitel mit @leseprobe="ja"
+	- Quick-Fix "Leeren Container löschen" ergänzt für Grammatikregel: [ELEMENT] muss Inhaltselemente enthalten.
+	- Quick-Fix "Leeren Container löschen" ergänzt für Grammatikregel: [ELEMENT] darf nicht leer sein.
+	- Quick-Fix "Attribut löschen" ergänzt für Grammatikregel: Das Attribut @serials-split wird nur in Kapiteln im Hauptteil berücksichtigt.
+	- Quick-Fix "Attribute löschen" ergänzt für Grammatikregel: Attribute zur Ausgabesteuerung sind in den Projektmetadaten nicht zulässig.
+	- Quick-Fix "Attribut @slideshow="ja" ergänzen" ergänzt für Grammatikregel: Die Attribute @wiederholung und @autoplay können nur in Verbindung mit @slideshow="ja" verwendet werden.
+
+
+28.04.2020	v4.0.8	Bugfix-Release
+===========================================================
+
+<ausgabe_referenz>
+	- Grammatikregel erweitert: "[ausgabe_referenz] ist nicht in [fundstelle] zulässig."
+	- Grammatikregel erweitert: "[ausgabe_referenz] ist nicht in Popuptiteln zulässig."
+
+<code>
+	- Inhaltsmodell erweitert um Kindelement <ausgabe_referenz>
+
+<inline>
+	- Inhaltsmodell erweitert um Kindelement <ausgabe_referenz>
+
+<referenz> in <eintrag>
+	- Kindelement <ausgabe_referenz/> entfernt
+
+@serials-split
+	- Grammatikregel entfernt: "Das Attribut @serials-split wird nur in Kapiteln im Hauptteil berücksichtigt."
+
+
+31.03.2020	v4.0.7	Bugfix-Release
+===========================================================
+
+@ebook, @print, @auspraegung, @auspraegung-ausschluss
+	- Grammatikregel korrigiert: Prüfung "Attribute zur Ausgabesteuerung sind in den Projektmetadaten nicht zulässig." schlug nicht an
+
+<leseprobe_start>, <leseprobe_ende>
+	- Grammatikregel korrigiert: Doppelte Meldung für "[leseprobe_start | leseprobe_ende] ist nicht in Tabellen zulässig." behoben
+	- Quick-Fix ergänzt: "leseprobe_start bzw leseprobe_ende nur in Kapitel mit @leseprobe="ja"
+
+
+13.03.2020	v4.0.6	Bugfix-Release
+===========================================================
+
+<leseprobe_start>, <leseprobe_ende>
+	- Grammatikregel korrigiert: Ausnahme für Ausschluss von beiden Formatgruppen (@print='nein' und @ebook='nein') zum Kennzeichnen des Elements zur alleinigen Ausgabe in Leseproben.
+
+03.03.2020	v4.0.5	Bugfix-Release
+===========================================================
+
+<register>
+	- Grammatikregel korrigiert: Keine Warnung für kursiv in Registerbegriffen innerhalb von kursivem Text
+
+<leseprobe_start>, <leseprobe_ende>
+	- Grammatikregel ergänzt: Vor leseprobe_start und nach leseprobe_ende müssen Inhalte stehen
+
+<toctitel>, <referenz>
+	- Grammatikregel ergänzt: Ausschluss von Elementen mit eigenem Textfluss
+
+
+21.01.2020	v4.0.2	Bugfix-Release
+===========================================================
+
+<termine>, <kennungen>, <typisierung>
+	- Deklarationen mit <xs:unique>
+
+
+23.10.2019 v4.0.1	Bugfix-Release
+===========================================================
+
+<referenz>
+	- Inhaltsmodell angeglichen an <zaehler> und <text>. Kindelemente hinzugefügt:
+		marginalie | zitat_inline | multimedia.inline.extend | spitzmarke | br | verweisziel | (tabulator_def | tabulator_ref | tabulator_rechts) | (fussnote | fussnote_ref | endnote | endnote_ref | tabellenfussnote | tabellenfussnote_ref) | initiale | dramen_inline.extend | textweiche | generatedContent_definition.extend | ausgabe_referenz
+
+<verweis> in <referenz>
+	- Inhaltsmodell angeglichen an <verweis> allgemein ohne <register>. Kindelemente hinzugefügt:
+		(abk | abbildung_inline | formel_inline.extend) | marginalie | zitat_inline | multimedia.inline.extend | spitzmarke | br | verweisziel | (tabulator_def | tabulator_ref | tabulator_rechts) | (fussnote | fussnote_ref | endnote | endnote_ref | tabellenfussnote | tabellenfussnote_ref) | initiale | dramen_inline.extend | textweiche | generatedContent_definition.extend )
+
+<register>
+	- Grammatikregel ergänzt: "[register] ist nicht innerhalb von [referenz] zulässig."
+
+
+
